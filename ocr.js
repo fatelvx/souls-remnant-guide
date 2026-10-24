@@ -79,9 +79,13 @@
       [{ x: 562, y: 955, w: 215, h: 30 }, '208,171,089'],
       [{ x: 905, y: 925, w: 135, h: 25 }, '41/541'],
     ] },
-    // Zoomed capture of the progress % from the live reader (523×471).
-    { src: 'assets/ocr/sample-2.png', lines: [
+    // Zoom-panel captures from the live reader (shown at 3×). Also used shrunk back to
+    // native size, which is what the reader actually sees in the game frame.
+    { src: 'assets/ocr/sample-2.png', scales: [1, 1 / 3], lines: [
       [{ x: 98, y: 319, w: 214, h: 43 }, '68.72%'],
+    ] },
+    { src: 'assets/ocr/sample-3.png', scales: [1, 1 / 3], lines: [
+      [{ x: 93, y: 232, w: 246, h: 48 }, '69.24%'],
     ] },
   ];
   let templates = [];
@@ -92,7 +96,19 @@
       const list = [];
       for (const s of SAMPLES) {
         const img = await loadImage(s.src);
-        for (const [r, text] of s.lines) readLine(img, r, 170).slice(0, text.length).forEach((f, i) => list.push({ c: text[i], ...f }));
+        for (const k of s.scales || [1]) {
+          let src = img;
+          if (k !== 1) {
+            src = document.createElement('canvas');
+            src.width = Math.round(img.width * k); src.height = Math.round(img.height * k);
+            src.getContext('2d').drawImage(img, 0, 0, src.width, src.height);
+          }
+          for (const [r, text] of s.lines) {
+            const rr = { x: Math.round(r.x * k), y: Math.round(r.y * k), w: Math.round(r.w * k), h: Math.round(r.h * k) };
+            const fs = readLine(src, rr, 170);
+            if (fs.length === text.length) fs.forEach((f, i) => list.push({ c: text[i], ...f }));
+          }
+        }
       }
       templates = list;
       return list;
@@ -100,7 +116,7 @@
     return templatesReady;
   }
   function classify(f) {
-    let best = null, bd = Infinity;
+    let best = { c: '?' }, bd = Infinity;
     for (const t of templates) {
       let d = 0;
       for (let i = 0; i < t.v.length; i++) d += t.v[i] !== f.v[i];
@@ -110,17 +126,22 @@
     return { c: best.c, d: bd };
   }
   // Reads "NN.NN%" from a region; tries a few thresholds since backgrounds differ by map.
+  // Every threshold gets a vote; the reading whose glyphs match their templates best wins.
   function readPercent(src, r) {
-    for (const thr of [170, 150, 190, 210, 130]) {
+    let best = null;
+    for (const thr of [110, 130, 150, 170, 190, 210, 230]) {
       const fs = readLine(src, r, thr);
       if (fs.length < 4 || fs.length > 8) continue;
       const cs = fs.map(classify);
       if (cs.some((x) => x.d > 60)) continue;
       const text = cs.map((x) => x.c).join('').replace(/,/g, '.');
       const m = text.match(/^(\d{1,3})\.(\d{2})%?$/);
-      if (m) { const p = parseFloat(m[1] + '.' + m[2]); if (p >= 0 && p < 100) return { p, text }; }
+      if (!m) continue;
+      const p = parseFloat(m[1] + '.' + m[2]);
+      const score = cs.reduce((s, x) => s + x.d, 0) / cs.length;
+      if (p >= 0 && p < 100 && (!best || score < best.score)) best = { p, text, score };
     }
-    return null;
+    return best;
   }
 
   window.expOcr = { readPercent, loadTemplates, debug: (src, r, thr = 170) => readLine(src, r, thr).map((f) => { const c = classify(f); return c.c + Math.round(c.d) + '(' + f.ar.toFixed(2) + ')'; }).join(' ') }; // for console checks
