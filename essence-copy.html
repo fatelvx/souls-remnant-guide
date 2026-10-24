@@ -1,0 +1,314 @@
+<title>精華掉落表 Discord 版</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one narrow column of message cards, each with its raw text and a copy button; a progress strip on top. */
+:root {
+  --bg: #eef0f4;
+  --surface: #ffffff;
+  --fg: #1d2030;
+  --muted: #5d6378;
+  --line: #d9dce6;
+  --accent: #5865f2;
+  --accent-fg: #ffffff;
+  --done: #23a55a;
+  --code-bg: #f4f5f9;
+  --font-body: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1e1f24; --surface: #2b2d33; --fg: #e8e9ee; --muted: #a2a6b4; --line: #3c3f48;
+    --accent: #7983f5; --accent-fg: #ffffff; --done: #3ec27a; --code-bg: #232428; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1e1f24; --surface: #2b2d33; --fg: #e8e9ee; --muted: #a2a6b4; --line: #3c3f48;
+  --accent: #7983f5; --accent-fg: #ffffff; --done: #3ec27a; --code-bg: #232428; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 48px;
+}
+main { max-width: 760px; margin: 0 auto; display: grid; gap: 18px; }
+header { display: grid; gap: 6px; }
+h1 { font-size: 1.6rem; margin: 0; text-wrap: balance; }
+.lede { margin: 0; color: var(--muted); }
+.steps { margin: 4px 0 0; padding-left: 1.3em; color: var(--muted); display: grid; gap: 2px; }
+.progress { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.dot {
+  font: 600 12px/1 var(--font-mono); padding: 6px 9px; border-radius: 6px;
+  border: 1px solid var(--line); color: var(--muted); background: var(--surface); text-decoration: none;
+}
+.dot.done { background: var(--done); border-color: var(--done); color: #fff; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.card.done { border-color: var(--done); }
+.bar { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.num { font: 600 12px/1 var(--font-mono); color: var(--muted); letter-spacing: .04em; }
+.name { font-weight: 700; font-size: 1.05rem; flex: 1; min-width: 0; }
+.count { font: 12px var(--font-mono); color: var(--muted); }
+button.copy {
+  font: 700 14px var(--font-body); padding: 9px 18px; border: 0; border-radius: 7px; cursor: pointer;
+  background: var(--accent); color: var(--accent-fg); min-width: 96px;
+}
+button.copy:hover { filter: brightness(1.08); }
+button.copy:focus-visible { outline: 3px solid var(--fg); outline-offset: 2px; }
+.card.done button.copy { background: var(--done); }
+pre {
+  margin: 0; padding: 14px; background: var(--code-bg); font: 13px/1.55 var(--font-mono);
+  white-space: pre-wrap; word-break: break-word; max-height: 240px; overflow: auto; color: var(--fg);
+}
+.card.open pre { max-height: none; }
+.more { display: block; width: 100%; border: 0; border-top: 1px solid var(--line); background: var(--surface); color: var(--muted); font: 13px var(--font-body); padding: 8px; cursor: pointer; }
+.more:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.note { color: var(--muted); font-size: 13px; margin: 0; }
+@media (prefers-reduced-motion: no-preference) { button.copy, .dot { transition: background .15s, border-color .15s; } }
+</style>
+
+<main>
+  <header>
+    <h1>精華掉落表 Discord 版</h1>
+    <p class="lede">一則一個按鈕，按「複製」後直接到 Discord 貼上。</p>
+    <ol class="steps">
+      <li>按第 1 則的「複製」</li>
+      <li>到 Discord 頻道按 Ctrl+V，送出</li>
+      <li>回來按下一則，總共 8 則</li>
+    </ol>
+    <nav class="progress" id="progress" aria-label="複製進度"></nav>
+  </header>
+  <section class="card" id="m1">
+    <div class="bar"><span class="num">第 1 則</span><span class="name">精華掉落表</span><span class="count"></span><button class="copy" type="button" id="copy-1">複製</button></div>
+    <pre># 精華掉落表
+-# Soul's Remnant・Dull → 一般 → 光輝・7 種精華
+
+## 首選刷點
+&gt; **生命**　Dull 香蕉怪 `Lv23`｜一般 雪地史比 `Lv58`｜光輝 小蘑菇 `Lv73`
+&gt; **狂怒**　Dull 利克 `Lv36`｜一般 沙球 `Lv55`｜光輝 未知
+&gt; **永恆**　Dull 暗黑南瓜 `Lv30`｜一般 熊蜂 `Lv38`｜光輝 幻影
+&gt; **靈魂**　Dull 斑點史萊姆 `Lv34`｜一般 利庫 `Lv66`｜光輝 宇宙梟 `Lv73`
+&gt; **金屬**　Dull 悲傷樹苗 `Lv28`｜一般 大岩石怪 `Lv67`｜光輝 倒立花瓶 `Lv80`
+&gt; **歷史**　Dull 臭臭羊 `Lv32`｜一般 石板兔 `Lv54`｜光輝 高腳菇 `Lv73`
+&gt; **滋養**　Dull 水滴怪 `Lv21`｜一般 暴雪精 `Lv61`｜光輝 珊瑚 `Lv82`
+
+## 鍊金轉換
+&gt; **3 Dull** + 150 靈魂水晶 → **1 一般**　`鍊金 Lv30`
+&gt; **1 一般** + 100 靈魂水晶 → **2 Dull**　`鍊金 Lv5`
+&gt; -# 光輝目前只知道打怪掉
+
+## 副本寶箱
+&gt; **Slime Garden** `Lv10`、**Plains Dungeon** `Lv20` 的銀箱／木箱會開出各種 Dull 精華
+
+-# 怪物中文為暫譯，後面是英文原名・地圖保留英文方便按 M 搜尋・所有怪也會出現在 Abyss Trial・資料來源 soulsremnant.wiki.gg（2026/10）</pre>
+    <button class="more" type="button" id="more-1">展開全文</button>
+  </section>
+  <section class="card" id="m2">
+    <div class="bar"><span class="num">第 2 則</span><span class="name">生命精華</span><span class="count"></span><button class="copy" type="button" id="copy-2">複製</button></div>
+    <pre># 生命精華
+### Dull
+&gt; **史萊姆** Slime　`Lv1` `1.25%`
+&gt; -# Outskirts 各區、Secret Garden、Sheep Beach
+&gt; **果凍** Jel　`Lv5` `6.25%`
+&gt; -# Outskirts 各區、Cave 1-3
+&gt; **螢光蝸牛** Glowsnail　`Lv10` `12.5%`
+&gt; -# Outskirts Southwest、Glowsnail Cave 1-2、Plains 1
+&gt; **雲朵羊** Cloudsheep　`Lv12` `15%`
+&gt; -# Beach Hunting Ground、Plains 1-2、Sheep Beach
+&gt; __**香蕉怪** Bananek__　`Lv23` `28.75%`　**← 推薦**
+&gt; -# Savannah 1-3、Banana Farm
+&gt; **彩虹雲朵羊** Rainbow Cloudsheep　`Lv37` `23.13%`
+&gt; -# Lost Plains、Slime Garden Hard
+&gt; **雪地史比** Slibbit　`Lv58` `36.25%`
+&gt; -# Frost Cave、Snowy Mountain 1-2
+&gt; **自己做** `鍊金 Lv7`：橡木 ×3 + 蘋果 + 棉花球
+### 一般
+&gt; **彩虹雲朵羊** Rainbow Cloudsheep　`Lv37` `8.81%`
+&gt; __**雪地史比** Slibbit__　`Lv58` `13.81%`　**← 推薦**
+### 光輝
+&gt; **小蘑菇** Shroomie　`Lv73` `5.79%`
+&gt; -# Deep Forest 1/3、Deep Tree Way
+&gt; **沙梟** Saowl　`Lv85` `6.75%`
+&gt; -# Desert Coast、Deep Desert 2</pre>
+    <button class="more" type="button" id="more-2">展開全文</button>
+  </section>
+  <section class="card" id="m3">
+    <div class="bar"><span class="num">第 3 則</span><span class="name">狂怒精華</span><span class="count"></span><button class="copy" type="button" id="copy-3">複製</button></div>
+    <pre># 狂怒精華
+### Dull
+&gt; **黑雲朵羊** Black Cloudsheep　`Lv16` `20%`
+&gt; -# Plains 3-4、Crescent Cave
+&gt; __**利克** Licke__　`Lv36` `45%`　**← 推薦**
+&gt; -# Sulfuric Path 1-2、Sulfuric Plains 3、The Forge Easy
+&gt; **吉加** Giga　`Lv46` `28.75%`
+&gt; -# Ocean 1-4
+&gt; **沙球** Sandball　`Lv55` `34.38%`
+&gt; -# Plains Dungeon Hard
+&gt; **自己做** `鍊金 Lv25`：硫磺木 ×3 + 斑點番茄 + 銀葉
+### 一般
+&gt; **吉加** Giga　`Lv46` `10.95%`
+&gt; __**沙球** Sandball__　`Lv55` `13.1%`　**← 推薦**
+### 光輝
+&gt; 還不知道哪隻怪掉
+&gt; -# 已知 Desert 5、Desert 7 有出</pre>
+    <button class="more" type="button" id="more-3">展開全文</button>
+  </section>
+  <section class="card" id="m4">
+    <div class="bar"><span class="num">第 4 則</span><span class="name">永恆精華</span><span class="count"></span><button class="copy" type="button" id="copy-4">複製</button></div>
+    <pre># 永恆精華
+### Dull
+&gt; **粉碎者** Crusher　`Lv20` `25%`
+&gt; -# Beach Hunting Ground、Snapper Shore、Seashell Cove、Shell Beach
+&gt; __**暗黑南瓜** Dark Pumpkin__　`Lv30` `37.5%`　**← 推薦**
+&gt; -# Misty Forest 3
+&gt; **熊蜂** Humblebee　`Lv38` `23.75%`
+&gt; -# Forest 3、Forest Lake、Forest Pond
+&gt; **自己做** `鍊金 Lv38`：迷霧木 ×3 + 迷霧果 + 燈籠球莖
+### 一般
+&gt; __**熊蜂** Humblebee__　`Lv38` `9.05%`　**← 推薦**
+### 光輝
+&gt; **遠古之魂** Ancient Soul　`6.67%`
+&gt; -# Deep Ocean 1-2
+&gt; **幻影** Phantom　`7.3%`
+&gt; -# Desert 7
+-# 光輝永恆的資料還沒完整驗證</pre>
+    <button class="more" type="button" id="more-4">展開全文</button>
+  </section>
+  <section class="card" id="m5">
+    <div class="bar"><span class="num">第 5 則</span><span class="name">靈魂精華</span><span class="count"></span><button class="copy" type="button" id="copy-5">複製</button></div>
+    <pre># 靈魂精華
+### Dull
+&gt; **特羅波** Troppo　`Lv22` `27.5%`
+&gt; -# Seashell Cove、Beach Cave
+&gt; **獨眼鬼** Monoghoul　`Lv27` `33.75%`
+&gt; -# Misty Forest 1-2、Lost Forest
+&gt; __**斑點史萊姆** Spot Slime__　`Lv34` `42.5%`　**← 推薦**
+&gt; -# Sulfuric Path、Sulfuric Plains 2-3、The Forge
+&gt; **靈魂樹** Soultree　`Lv42` `26.25%`
+&gt; -# Forest 2-3、Forest Lake
+&gt; **自己做**：沒有配方
+### 一般
+&gt; **靈魂樹** Soultree　`Lv42` `10%`
+&gt; __**利庫** Licku__　`Lv66` `15.71%`　**← 推薦**
+&gt; -# Deep Cave 11-12
+&gt; **宇宙梟** Cosmowl　`Lv73` `8.69%`
+### 光輝
+&gt; **宇宙梟** Cosmowl　`Lv73` `5.79%`
+&gt; -# Deep Cave 13-14</pre>
+    <button class="more" type="button" id="more-5">展開全文</button>
+  </section>
+  <section class="card" id="m6">
+    <div class="bar"><span class="num">第 6 則</span><span class="name">金屬精華</span><span class="count"></span><button class="copy" type="button" id="copy-6">複製</button></div>
+    <pre># 金屬精華
+### Dull
+&gt; **螢光蝸牛** Glowsnail　`Lv10` `12.5%`
+&gt; -# 同時掉生命精華
+&gt; **皮姆奇** Pimchy　`Lv17` `21.25%`
+&gt; -# Shell Beach
+&gt; __**悲傷樹苗** Sadling__　`Lv28` `35%`　**← 推薦**
+&gt; -# Glowsnail Cave 2、Misty Forest 2-3、Lost Forest
+&gt; **自己做**：沒有配方
+### 一般
+&gt; **小蕨** Ferni　`Lv40` `9.52%`
+&gt; -# Forest 1、Forest 3
+&gt; **岩石怪** Rokkik　`Lv52` `12.38%`
+&gt; -# Desert 2-4
+&gt; __**大岩石怪** Rokkak__　`Lv67` `15.95%`　**← 推薦**
+&gt; -# Rocky Path 1-2
+&gt; **倒立花瓶** Upsivase　`Lv80` `9.52%`
+&gt; **萊姆史萊姆** Lime Slime　`Lv90` `10.71%`
+### 光輝
+&gt; **倒立花瓶** Upsivase　`Lv80` `6.35%`
+&gt; -# Deep Ocean 1-4
+&gt; **萊姆史萊姆** Lime Slime　`Lv90` `7.14%`
+&gt; -# Deep Desert 1-2、Desert Hideout</pre>
+    <button class="more" type="button" id="more-6">展開全文</button>
+  </section>
+  <section class="card" id="m7">
+    <div class="bar"><span class="num">第 7 則</span><span class="name">歷史精華</span><span class="count"></span><button class="copy" type="button" id="copy-7">複製</button></div>
+    <pre># 歷史精華
+### Dull
+&gt; **咬咬龜** Snapper　`Lv18` `22.5%`
+&gt; -# Beach Hunting Ground、Snapper Shore、Sheep Beach、Shell Beach
+&gt; **利奇** Licki　`Lv22` `27.5%`
+&gt; -# Windy Savannah、Savannah 1-2
+&gt; __**臭臭羊** Stinky Sheep__　`Lv32` `40%`　**← 推薦**
+&gt; -# Sulfuric Plains 1-2
+&gt; **斯威爾** Sweel　`Lv44` `27.5%`
+&gt; -# Ocean 2-4、Cold Ocean Cave
+&gt; **石板兔** Slabbit　`Lv54` `33.75%`
+&gt; -# Desert 1-3、Sandy Cave
+&gt; **自己做** `鍊金 Lv30`：金合歡木 ×3 + 蘆薈 + 鳳梨
+### 一般
+&gt; **斯威爾** Sweel　`Lv44` `10.48%`
+&gt; __**石板兔** Slabbit__　`Lv54` `12.86%`　**← 推薦**
+### 光輝
+&gt; **高腳菇** Tallshroom　`Lv73` `5.79%`
+&gt; -# Deep Forest 1-3、Deep Tree Way</pre>
+    <button class="more" type="button" id="more-7">展開全文</button>
+  </section>
+  <section class="card" id="m8">
+    <div class="bar"><span class="num">第 8 則</span><span class="name">滋養精華</span><span class="count"></span><button class="copy" type="button" id="copy-8">複製</button></div>
+    <pre># 滋養精華
+### Dull
+&gt; **軟軟** Squishling　`Lv14` `17.5%`
+&gt; -# Plains 2-4
+&gt; __**水滴怪** Droppo__　`Lv21` `26.25%`　**← 推薦**
+&gt; -# Seashell Cove、Beach Cave
+&gt; **自己做** `鍊金 Lv15`：椰子木 ×3 + 椰子 + 海葡萄
+### 一般
+&gt; **靈魂苗** Soulpling　`Lv39` `9.29%`
+&gt; -# Forest 2-3、Forest Pond
+&gt; **泡泡蛇** Bubble Snake　`Lv48` `11.43%`
+&gt; -# Ocean 2、Ocean 4
+&gt; __**暴雪精** Blizzy__　`Lv61` `14.52%`　**← 推薦**
+&gt; -# Snowy Mountain 2-4
+&gt; **珊瑚** Coral　`Lv82` `9.76%`
+&gt; **迷途吟遊詩人** Lost Bard　`Lv95` `11.31%`
+### 光輝
+&gt; **珊瑚** Coral　`Lv82` `6.51%`
+&gt; -# Deep Ocean 1-2
+&gt; **迷途吟遊詩人** Lost Bard　`Lv95` `7.54%`
+&gt; -# Deep Desert 2、Desert Hideout
+
+-# wiki 很多頁還是半成品，有錯或知道官方中文名歡迎補充</pre>
+    <button class="more" type="button" id="more-8">展開全文</button>
+  </section>
+
+  <p class="note">複製過的會變綠色，方便你記得貼到第幾則。重新整理頁面會重置。</p>
+</main>
+
+<script>
+const cards = [...document.querySelectorAll('.card')];
+const progress = document.getElementById('progress');
+cards.forEach((card, i) => {
+  const a = document.createElement('a');
+  a.className = 'dot'; a.href = '#' + card.id; a.textContent = i + 1;
+  progress.appendChild(a);
+  card._dot = a;
+  const pre = card.querySelector('pre');
+  card.querySelector('.count').textContent = pre.textContent.length + ' 字';
+  const btn = card.querySelector('button.copy');
+  btn.addEventListener('click', async () => {
+    const text = pre.textContent;
+    let ok = false;
+    try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {
+      const r = document.createRange(); r.selectNodeContents(pre);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      try { ok = document.execCommand('copy'); } catch (e2) { ok = false; }
+    }
+    if (ok) {
+      card.classList.add('done'); a.classList.add('done');
+      btn.textContent = '已複製 ✓';
+    } else {
+      btn.textContent = '已選取，按 Ctrl+C';
+    }
+  });
+  card.querySelector('.more').addEventListener('click', (e) => {
+    const open = card.classList.toggle('open');
+    e.currentTarget.textContent = open ? '收起' : '展開全文';
+  });
+});
+</script>

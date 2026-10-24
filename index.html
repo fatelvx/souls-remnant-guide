@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Soul's Remnant 攻略站</title>
+<meta name="description" content="Soul's Remnant 練功地圖、精華掉落、拍賣場、元素與染色整理。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Pixelify+Sans:wght@500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="assets/items/soul-crystal.png">
+</head>
+<body>
+
+<header class="wrap hero">
+  <h1>Soul's Remnant <span class="accent">攻略站</span></h1>
+  <p>輸入等級找練功地圖，查精華掉落、拍賣場規則、元素效果和染色。</p>
+</header>
+
+<nav class="tabs" aria-label="攻略分類">
+  <div class="wrap">
+    <a href="#maps">練功地圖</a>
+    <a href="#essence">精華掉落</a>
+    <a href="#market">拍賣場與交易</a>
+    <a href="#elements">元素效果</a>
+    <a href="#dye">染色與外觀</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- 練功地圖 -->
+  <section class="panel" id="maps" aria-labelledby="maps-h">
+    <div>
+      <h2 id="maps-h">練功地圖</h2>
+      <p class="sub">輸入你的等級，列出適合的地圖、裡面的怪和會掉的精華。</p>
+    </div>
+    <div class="finder">
+      <div class="finder-row">
+        <div class="field">
+          <label for="lv">我的等級</label>
+          <div class="stepper">
+            <button type="button" id="lv-down" aria-label="等級減 1">−</button>
+            <input id="lv" type="number" inputmode="numeric" min="1" max="250" value="30">
+            <button type="button" id="lv-up" aria-label="等級加 1">+</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="over">最多越級 <span class="range-out" id="over-out">5</span> 等</label>
+          <input id="over" type="range" min="0" max="15" value="5">
+        </div>
+      </div>
+      <div class="field">
+        <label>只看會掉這種精華的地圖</label>
+        <div class="chips" id="ess-filter"></div>
+      </div>
+    </div>
+    <div id="map-results" class="group" aria-live="polite"></div>
+  </section>
+
+  <!-- 精華掉落 -->
+  <section class="panel" id="essence" aria-labelledby="ess-h" hidden>
+    <div>
+      <h2 id="ess-h">精華掉落表</h2>
+      <p class="sub">每種精華分 Dull、一般、光輝三階。金框是該階掉落率最高的怪。</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>鍊金轉換</h3>
+        <ul>
+          <li>3 Dull + 150 靈魂水晶 → <b>1 一般</b> <code>鍊金 Lv30</code></li>
+          <li>1 一般 + 100 靈魂水晶 → <b>2 Dull</b> <code>鍊金 Lv5</code></li>
+        </ul>
+        <p class="note">光輝目前只知道打怪掉。</p>
+      </div>
+      <div class="card">
+        <h3>副本寶箱</h3>
+        <p>Slime Garden <code>Lv10</code>、Plains Dungeon <code>Lv20</code> 的銀箱和木箱會開出各種 Dull 精華。</p>
+      </div>
+      <div class="card">
+        <h3>用採集材料自己做</h3>
+        <ul id="ess-recipes"></ul>
+      </div>
+    </div>
+    <input class="search" id="ess-search" type="search" placeholder="搜尋怪物（中文或英文）" aria-label="搜尋怪物">
+    <div id="ess-list" class="group"></div>
+  </section>
+
+  <!-- 拍賣場 -->
+  <section class="panel" id="market" aria-labelledby="mk-h" hidden>
+    <div>
+      <h2 id="mk-h">拍賣場與交易</h2>
+      <p class="sub">怎麼開放、手續費多少、怎麼看行情。</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>開放條件</h3>
+        <p>角色 <code>Lv25</code>，並完成這 4 個任務：</p>
+        <ol>
+          <li>The Shepherd's Final Test（Shepherd，Outskirts Northwest）</li>
+          <li>The Dark Flock（Shepherd，Plains 1）</li>
+          <li>Check the Water（Gevil，Beach 3）</li>
+          <li>The Orange Imposter（Kmitty，Savannah 1）</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>手續費</h3>
+        <dl class="kv">
+          <dt>拍賣場</dt><dd><span class="big">5%</span>（賣方付）</dd>
+          <dt>自己的攤位</dt><dd><span class="big">4%</span></dd>
+          <dt>私下面交</dt><dd><span class="big">0%</span></dd>
+        </dl>
+        <p class="note">炒價差時，價差要大於手續費才有賺。</p>
+      </div>
+      <div class="card">
+        <h3>掛單規則</h3>
+        <ul>
+          <li>同時最多掛 <code>10</code> 單，商城可以加</li>
+          <li>掛單放 <code>7</code> 天，沒賣掉會寄回信箱</li>
+          <li>直接購買，沒有競標</li>
+          <li>背包滿了買到的東西會寄到信箱</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>怎麼看行情</h3>
+        <ul>
+          <li><b>Price History</b>：價格走勢圖，可切一天、一週、一月、一年</li>
+          <li><b>Sell 分頁</b>：選物品會顯示近 7 天平均成交價、最低成交價、目前在賣數量、本週賣出數量</li>
+          <li><b>Home</b>：熱門物品和新上架</li>
+          <li><b>搜尋</b>：可篩價格、等級、屬性，最多 4 個指定數值</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>攤位（Merchant 技能）</h3>
+        <ul>
+          <li>在 Spawn 的 Shepherd 旁邊進 Market Hub 擺攤</li>
+          <li>攤位會展示你在拍賣場的掛單，透過攤位成交手續費 4%</li>
+          <li>一次一個攤位，擺 72 小時</li>
+          <li>攤位留言可以用 BBCode</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>賺錢思路</h3>
+        <ul>
+          <li>最低掛價明顯低於近 7 天平均價時買進，用接近平均價掛回去</li>
+          <li>看「本週賣出」多、「在賣」少的東西，代表供不應求</li>
+          <li>精華一直有需求：讓裝備發光的 Energetic Soul 每種 Dull 精華要 40 個</li>
+          <li>掛單格有限，優先掛利潤高、賣得快的</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 元素 -->
+  <section class="panel" id="elements" aria-labelledby="el-h" hidden>
+    <div>
+      <h2 id="el-h">元素效果</h2>
+      <p class="sub">武器會隨機帶一種元素。標 * 的數值以元素效果強度 100% 計算，強度越高效果越強。</p>
+    </div>
+    <div class="callout">
+      <p><b>基礎數值：</b>元素效果機率 15%、元素效果強度 50%。用信仰遠程技能「箭矢附魔」時，暴擊率會全部轉成元素機率，暴擊傷害轉成元素強度。</p>
+    </div>
+    <div class="cards">
+      <article class="card elem" style="--c: var(--ghostly)">
+        <h3>幽靈 Ghost</h3>
+        <p>附加「Haunted」，2.5 秒內造成額外 120%* 傷害，<b>並把附近的怪拉過來</b>。同時最多 2 層，再次觸發會擴散到另一隻怪。對一般怪可無限疊加，對 Boss 每 6 秒重置；怪死時一半的每跳傷害會轉移。</p>
+        <span class="use">適合：聚怪刷怪、群殺</span>
+      </article>
+      <article class="card elem" style="--c: var(--metal)">
+        <h3>金屬 Metal</h3>
+        <p>敵人每層 −3 防禦，最多 5 層（−15）。你自己每層減傷 3%，最多 10* 層（30%*），減傷總上限 80%。</p>
+        <span class="use">適合：越級、單刷、怕被秒的時候</span>
+      </article>
+      <article class="card elem" style="--c: var(--raging)">
+        <h3>火 Fire</h3>
+        <p>主目標額外 50%* 傷害，附近最多 2 隻各 25%*，主目標再燃燒 3 秒共 36%*。</p>
+        <span class="use">適合：單體群體都不錯的全能型</span>
+      </article>
+      <article class="card elem" style="--c: var(--normal)">
+        <h3>雷 Lightning</h3>
+        <p>彈跳最多 4 隻附近敵人，第一彈 65%*，每彈減 40%（例：500 → 325 → 130 → 52）。主目標本身不吃額外傷害。</p>
+        <span class="use">適合：清小怪</span>
+      </article>
+      <article class="card elem" style="--c: var(--dull)">
+        <h3>普通 Normal</h3>
+        <p>對目標額外 80%* 傷害，簡單直接。</p>
+        <span class="use">適合：打王、單體輸出</span>
+      </article>
+      <article class="card elem" style="--c: var(--eternal)">
+        <h3>冰 Ice</h3>
+        <p>附加「Frozen」6* 秒並緩速，每層 10%、最多 3 層（30%）。冰凍狀態的怪被擊殺時，附近最多 2 隻吃到 50% 的累積傷害；擴散出去的冰凍傷害降為四分之一。</p>
+        <span class="use">適合：控場、穩穩打</span>
+      </article>
+      <article class="card elem" style="--c: var(--nurturing)">
+        <h3>水 Water</h3>
+        <p>稍微緩速目標，並立刻回復你的 HP 和 MP，範圍內最多 2 名隊友一起回。多段技能共用一次回復。</p>
+        <span class="use">適合：續航、組隊補師</span>
+      </article>
+    </div>
+    <div class="callout">
+      <p><b>小提醒：</b>元素機率堆到 100% 就夠了，之後把詞條往強度和傷害堆。幽靈現在很強，投資大錢前留意更新公告，避免之後被削弱。</p>
+    </div>
+  </section>
+
+  <!-- 染色 -->
+  <section class="panel" id="dye" aria-labelledby="dye-h" hidden>
+    <div>
+      <h2 id="dye-h">染色與外觀</h2>
+      <p class="sub">染料、漸層券差在哪，以及實際染過的心得。</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>一般染料</h3>
+        <ul>
+          <li>只能用在<b>標示「可染色」的裝備</b>，時裝（披風、光環、武器外觀）也算</li>
+          <li>裝備有幾個顏色欄位，就能各染一個單色</li>
+          <li>商城 150 寶石的是<b>自選色</b>，可以直接輸入色碼</li>
+          <li>鍊金 Lv6 可以自己做；配方打怪掉，不同的怪掉不同顏色</li>
+          <li>寵物可以用 Prismatic Dye 染色</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>漸層券（商城）</h3>
+        <dl class="kv">
+          <dt>漸層混色</dt><dd>靜態漸層，400 寶石</dd>
+          <dt>動態漸層</dt><dd>會流動，600 寶石</dd>
+        </dl>
+        <ul>
+          <li>永久學會，不會用完</li>
+          <li><b>只能用在頭髮、眼睛、臉部、嘴巴、身體</b>，裝備不行</li>
+          <li>要先擁有那個部位的顏色才能調和</li>
+          <li>染料不能搭配使用，也不能交易</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>淡色會被陰影壓灰</h3>
+        <p>遊戲用把顏色調暗來畫陰影，太淡的顏色暗部會變成灰色。想要粉白，選粉色多一點的比較好看：</p>
+        <div class="swatches">
+          <div class="sw"><i style="--v:#FFE4EC"></i><code>#FFE4EC</code>偏灰</div>
+          <div class="sw"><i style="--v:#FFD1DC"></i><code>#FFD1DC</code>剛好</div>
+          <div class="sw"><i style="--v:#FFB3CF"></i><code>#FFB3CF</code>較粉</div>
+        </div>
+        <p class="note">染色前一定先用預覽看效果，預覽免費。</p>
+      </div>
+      <div class="card">
+        <h3>省錢建議</h3>
+        <ul>
+          <li>先想好整體配色主題，只買搭得上的</li>
+          <li>單色需求先看倉庫和拍賣場，真的找不到再買自選</li>
+          <li>買之前滑鼠移上去看彩色字的限制說明</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>資料整理自 <a href="https://soulsremnant.wiki.gg/" target="_blank" rel="noopener">Soul's Remnant Wiki</a>（CC BY-SA 4.0）與遊戲內實測，最後更新 <span id="updated">2026-10-25</span>。怪物中文名為暫譯。</p>
+  <p>遊戲圖像版權屬於 Chaomoon。本站為玩家自製，與官方無關。</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
