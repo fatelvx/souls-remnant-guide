@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Pixelify+Sans:wght@500;600&display=swap">
-<link rel="stylesheet" href="style.css?v=202610242019">
+<link rel="stylesheet" href="style.css?v=202610242027">
 <link rel="icon" href="assets/items/soul-crystal.png">
 </head>
 <body>
@@ -96,17 +96,17 @@
       </div>
       <ol class="steps-inline">
         <li>在下方填<b>練功地圖</b>和<b>等級</b>（之後會記住，升級時自動加一）</li>
-        <li>按「分享遊戲畫面」選遊戲視窗，在預覽上<b>拖曳框住左下角的百分比</b>，看到「讀到 67.46%」就按開始</li>
+        <li>按「分享遊戲畫面」選遊戲視窗，在預覽上<b>拖曳框住左下角整條白色經驗條</b>（框大一點沒關係），看到「讀到 …」就按開始</li>
         <li>偵測中<b>滑鼠移到遊戲經驗條上停一下</b>，升級需要的經驗會自動讀進來，同一級以後不用再移</li>
         <li>按「小視窗」開一個浮在遊戲上面的小框，邊打怪邊看速度</li>
       </ol>
       <div id="ocr-stage" class="ocr-stage" hidden>
         <div class="ocr-view">
-          <canvas id="ocr-preview" class="ocr-preview" aria-label="遊戲畫面預覽，拖曳框選百分比"></canvas>
+          <canvas id="ocr-preview" class="ocr-preview" aria-label="遊戲畫面預覽，拖曳框選經驗條"></canvas>
         </div>
         <div class="ocr-side">
           <canvas id="ocr-zoom" class="ocr-zoom" aria-hidden="true"></canvas>
-          <p class="note" id="ocr-read" aria-live="polite">拖曳框住百分比數字</p>
+          <p class="note" id="ocr-read" aria-live="polite">拖曳框住左下角整條經驗條</p>
           <form class="teach" id="ocr-teach" autocomplete="off">
             <label for="ocr-teach-input">讀錯或讀不到？輸入畫面上的數字教它</label>
             <div class="teach-row">
@@ -399,8 +399,8 @@
   <p>遊戲圖像版權屬於 Chaomoon。本站為玩家自製，與官方無關。</p>
 </footer>
 
-<script src="app.js?v=202610242019"></script>
-<script src="exp.js?v=202610242019"></script>
-<script src="ocr.js?v=202610242019"></script>
+<script src="app.js?v=202610242027"></script>
+<script src="exp.js?v=202610242027"></script>
+<script src="ocr.js?v=202610242027"></script>
 </body>
 </html>

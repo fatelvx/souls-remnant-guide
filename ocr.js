@@ -328,22 +328,88 @@
     drag = null; testRead();
   });
 
-  // One reading of the screen: the % if visible, else the hover tooltip (which covers the %).
-  // A tooltip-only reading must agree with the requirement we already know, if any.
+  /* ---------- EXP bar measurement ---------- */
+  // The bar is a dark track with a white fill growing from the left. In the boxed area, find the
+  // rows that form the bar, then on its middle rows measure track length and fill length.
+  function measureBar(src, box) {
+    const c = document.createElement('canvas'); c.width = box.w; c.height = box.h;
+    const g = c.getContext('2d', { willReadFrequently: true });
+    g.drawImage(src, box.x, box.y, box.w, box.h, 0, 0, box.w, box.h);
+    const d = g.getImageData(0, 0, box.w, box.h).data;
+    const kind = (i, j) => {
+      const k = (j * box.w + i) * 4, r = d[k], gg = d[k + 1], b = d[k + 2];
+      if (r > 215 && gg > 215 && b > 215) return 2;                                  // fill
+      if (Math.max(r, gg, b) < 60 && Math.max(r, gg, b) - Math.min(r, gg, b) < 25) return 1; // track
+      return 0;
+    };
+    const rows = [];
+    for (let j = 0; j < box.h; j++) {
+      let best = { len: 0 }, s = -1;
+      for (let i = 0; i <= box.w; i++) {
+        const on = i < box.w && kind(i, j) > 0;
+        if (on && s < 0) s = i;
+        if (!on && s >= 0) { if (i - s > best.len) best = { len: i - s, L: s, R: i - 1 }; s = -1; }
+      }
+      rows.push(best);
+    }
+    const maxLen = Math.max(...rows.map((r) => r.len));
+    if (maxLen < box.w * 0.3 || maxLen < 30) return null;
+    // contiguous block of bar-like rows around the longest one
+    const peak = rows.findIndex((r) => r.len === maxLen);
+    let top = peak, bot = peak;
+    while (top > 0 && rows[top - 1].len >= maxLen * 0.9) top--;
+    while (bot < box.h - 1 && rows[bot + 1].len >= maxLen * 0.9) bot++;
+    const fracs = [];
+    for (let j = top + Math.floor((bot - top) / 4); j <= bot - Math.floor((bot - top) / 4); j++) {
+      const { L, R } = rows[j];
+      let F = L - 1, gap = 0;
+      for (let i = L; i <= R; i++) {
+        if (kind(i, j) === 2) { F = i; gap = 0; } else if (++gap > 2 && F >= L) break;
+      }
+      fracs.push(Math.max(0, F - L + 1) / (R - L + 1));
+    }
+    if (!fracs.length) return null;
+    fracs.sort((x, y) => x - y);
+    return { frac: fracs[Math.floor(fracs.length / 2)], top: box.y + top, bot: box.y + bot, L: box.x + rows[peak].L, R: box.x + rows[peak].R };
+  }
+
+  // Where the digits are, relative to the measured bar: the % sits above the bar's right end.
+  const pctRegion = (bar) => {
+    const bw = bar.R - bar.L, bh = Math.max(8, bar.bot - bar.top + 1);
+    return { x: Math.round(bar.L + bw * 0.6), y: Math.round(bar.top - bh * 2.6), w: Math.round(bw * 0.5), h: Math.round(bh * 2.5) };
+  };
+
+  // One reading of the screen. The bar always gives a value; digits (the %, or the hover
+  // tooltip "cur / need") are exact and also calibrate the bar's scale.
+  let barScale = 1;
   function readNow() {
-    const src = frameSrc(), pr = toPx(rect);
+    const src = frameSrc(), box = toPx(rect);
+    const bar = measureBar(src, box);
+    const { W, H } = srcSize(src);
+    const pr = bar ? clampRect(pctRegion(bar), W, H) : box;
     let pair = readExpPair(src, pr, null);
     if (pair && run?.need && pair.need !== run.need && run.last != null && run.lastRaw < 95) pair = null;
-    if (!pair) { const pct = readPercent(src, pr); return pct && { p: pct.p, text: pct.text }; }
-    const p = Math.floor(pair.cur / pair.need * 10000) / 100;
-    return { p, text: `${fmt(pair.cur)} / ${fmt(pair.need)}`, need: pair.need };
+    const pct = pair ? null : readPercent(src, pr);
+    let exact = pair ? Math.floor(pair.cur / pair.need * 10000) / 100 : pct?.p;
+    // Digits must agree with the bar (within 3 points); a misread never wins over the bar.
+    if (bar && exact != null && Math.abs(exact - bar.frac * 100) > 3) { exact = null; pair = null; }
+    if (bar && exact != null && bar.frac > 0.05) {
+      const ratio = Math.min(1.1, Math.max(0.9, exact / (bar.frac * 100)));
+      barScale = barScale * 0.7 + ratio * 0.3;
+    }
+    if (exact != null) {
+      return { p: exact, text: pair ? `${fmt(pair.cur)} / ${fmt(pair.need)}` : pct.text, need: pair?.need, src: '數字' };
+    }
+    if (!bar) return null;
+    const p = Math.min(99.99, bar.frac * 100 * barScale);
+    return { p, text: p.toFixed(1) + '%', src: '經驗條' };
   }
 
   async function testRead() {
     if (!stream || !rect) return;
     await loadTemplates();
     const r = readNow();
-    $('ocr-read').textContent = r ? `讀到 ${r.text}` : '讀不到：只框住左下角的百分比數字（框的時候滑鼠先不要停在經驗條上）';
+    $('ocr-read').textContent = r ? `讀到 ${r.text}（${r.src}）` : '找不到經驗條：把左下角整條經驗條框進去（白色那條）';
     $('ocr-read').classList.toggle('error', !r);
     $('ocr-start').disabled = !r;
   }
@@ -354,9 +420,11 @@
     await loadTemplates();
     const text = $('ocr-teach-input').value.trim();
     if (!/^\d{1,3}[.,]\d{2}%?$/.test(text)) { $('ocr-read').textContent = '請照畫面輸入，例如 75.33'; return; }
-    const ok = teach(frameSrc(), toPx(rect), text);
+    const src = frameSrc(), bar = measureBar(src, toPx(rect));
+    const { W, H } = srcSize(src);
+    const ok = bar && teach(src, clampRect(pctRegion(bar), W, H), text);
     $('ocr-teach-input').value = '';
-    if (!ok) { $('ocr-read').textContent = '框裡的字數對不上，框小一點、只框住百分比再試一次'; return; }
+    if (!ok) { $('ocr-read').textContent = '學不起來：確認框裡有整條經驗條，而且百分比沒有被擋住'; return; }
     testRead();
   });
 
@@ -432,6 +500,8 @@
   // Console test: expOcr.simulate(imageOrCanvas, {fx,fy,fw,fh}) then call expOcr.tick().
   window.expOcr.simulate = (img, r) => { frameOverride = img; rect = r; stream = stream || { getTracks: () => [] }; $('ocr-stage').hidden = false; $('ocr-start').disabled = false; };
   window.expOcr.tick = () => tick();
+  window.expOcr.measureBar = measureBar;
+  window.expOcr.readNow = () => readNow();
 
   async function tick() {
     if (!run || !stream) return;
