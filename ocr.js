@@ -47,7 +47,7 @@
   function features(m, gl, lineH) {
     const { a, b, top, bot } = gl, w = b - a, h = bot - top + 1, v = [];
     for (let y = 0; y < GH; y++) for (let x = 0; x < GW; x++) v.push(m[top + Math.floor((y + 0.5) * h / GH)][a + Math.floor((x + 0.5) * w / GW)]);
-    return { v, ar: w / h, rh: h / lineH, ry: (top + bot) / 2 / lineH };
+    return { v, ar: w / h, rh: h / lineH, ry: (top + bot) / 2 / lineH, a, b };
   }
   // Keep only the densest horizontal band of lit rows, so bits of the EXP bar or
   // background caught in a loose box don't become extra "characters".
@@ -63,8 +63,40 @@
     return m;
   }
 
-  function readLine(src, r, thr) {
-    const m = keepTextBand(binarize(src, r.x, r.y, r.w, r.h, thr));
+  // Drop panel borders and bars: any row or column run much longer than a glyph.
+  function clearLines(m) {
+    const h = m.length, w = m[0].length;
+    for (let j = 0; j < h; j++) {
+      let run = 0;
+      for (let i = 0; i <= w; i++) {
+        if (i < w && m[j][i]) run++;
+        else { if (run > Math.max(40, h * 1.5)) m[j].fill(0, i - run, i); run = 0; }
+      }
+    }
+    for (let i = 0; i < w; i++) {
+      let run = 0;
+      for (let j = 0; j <= h; j++) {
+        if (j < h && m[j][i]) run++;
+        else { if (run > h * 0.8 && run > 20) for (let k = j - run; k < j; k++) m[k][i] = 0; run = 0; }
+      }
+    }
+    return m;
+  }
+
+  // All separate text rows in a region (row gaps of 2+ blank lines split them).
+  function rowBands(m) {
+    const bands = []; let cur = null, gap = 0;
+    m.forEach((row, j) => {
+      const on = row.some((v) => v);
+      if (on) { if (cur && gap <= 1) cur.b = j; else { cur = { a: j, b: j }; bands.push(cur); } gap = 0; }
+      else gap++;
+    });
+    return bands.filter((b) => b.b - b.a >= 5);
+  }
+
+  function readLine(src, r, thr, band) {
+    const raw = band ? clearLines(binarize(src, r.x, r.y, r.w, r.h, thr)) : binarize(src, r.x, r.y, r.w, r.h, thr);
+    const m = band ? raw.map((row, j) => (j < band.a || j > band.b ? row.fill(0) : row)) : keepTextBand(raw);
     const gs = glyphs(m);
     if (!gs.length) return [];
     const lineH = Math.max(...gs.map((g) => g.bot - g.top + 1));
@@ -106,7 +138,8 @@
           for (const [r, text] of s.lines) {
             const rr = { x: Math.round(r.x * k), y: Math.round(r.y * k), w: Math.round(r.w * k), h: Math.round(r.h * k) };
             const fs = readLine(src, rr, 170);
-            if (fs.length === text.length) fs.forEach((f, i) => list.push({ c: text[i], ...f }));
+            // Extra trailing glyphs (e.g. the word "EXP") are fine; too few means the crop missed.
+            if (fs.length >= text.length) fs.slice(0, text.length).forEach((f, i) => list.push({ c: text[i], ...f }));
           }
         }
       }
@@ -144,14 +177,57 @@
     return best;
   }
 
-  window.expOcr = { readPercent, loadTemplates, debug: (src, r, thr = 170) => readLine(src, r, thr).map((f) => { const c = classify(f); return c.c + Math.round(c.d) + '(' + f.ar.toFixed(2) + ')'; }).join(' ') }; // for console checks
+  // Reads a line as space-separated words (a wide gap = space), each glyph classified.
+  // Returns one entry per text row: the row's words, each classified glyph by glyph.
+  function readWords(src, r, thr) {
+    const m = clearLines(binarize(src, r.x, r.y, r.w, r.h, thr));
+    return rowBands(m).map((band) => {
+      const fs = readLine(src, r, thr, band);
+      if (!fs.length) return [];
+      const heights = fs.map((f) => f.b - f.a).sort((x, y) => x - y);
+      const gapMax = Math.max(3, heights[Math.floor(heights.length / 2)] * 0.6);
+      const words = [[]];
+      fs.forEach((f, i) => {
+        if (i && f.a - fs[i - 1].b > gapMax) words.push([]);
+        words[words.length - 1].push(classify(f));
+      });
+      return words.map((w) => ({ text: w.map((x) => x.c).join(''), ok: w.every((x) => x.d <= 60) }));
+    });
+  }
+  const clampRect = (r, W, H) => {
+    const x = Math.max(0, Math.round(r.x)), y = Math.max(0, Math.round(r.y));
+    return { x, y, w: Math.max(4, Math.min(W - x, Math.round(r.w))), h: Math.max(4, Math.min(H - y, Math.round(r.h))) };
+  };
+  const srcSize = (src) => ({ W: src.videoWidth || src.width, H: src.videoHeight || src.height });
+
+  // The hover tooltip "22,940,101 / 34,007,376 EXP" sits up and to the right of the % text.
+  // Accept it only if cur/need matches the % we just read.
+  function readExpPair(src, pr, pct) {
+    const { W, H } = srcSize(src);
+    const r = clampRect({ x: pr.x + pr.w * 1.2, y: pr.y - pr.h * 2.2, w: pr.w * 5.4, h: pr.h * 2.4 }, W, H);
+    const NUM = '(\\d{1,3}(?:,\\d{3})+)';
+    for (const thr of [170, 150, 190, 210]) {
+      for (const row of readWords(src, r, thr)) {
+        const m = row.map((w) => w.text).join(' ').match(new RegExp(NUM + ' ?/ ?' + NUM));
+        if (!m) continue;
+        const cur = +m[1].replace(/,/g, ''), need = +m[2].replace(/,/g, '');
+        if (!(need > 0 && cur < need)) continue;
+        if (pct != null && Math.abs(cur / need * 100 - pct) > 0.06) continue;
+        return { cur, need };
+      }
+    }
+    return null;
+  }
+
+  window.expOcr = { readPercent, readExpPair, readWords, loadTemplates, debug: (src, r, thr = 170) => readLine(src, r, thr).map((f) => { const c = classify(f); return c.c + Math.round(c.d) + '(' + f.ar.toFixed(2) + ')'; }).join(' ') }; // for console checks
 
   /* ---------- Capture + selection ---------- */
   const video = document.createElement('video'); video.muted = true; video.playsInline = true;
   const prev = $('ocr-preview'), pg = prev.getContext('2d');
   const zoom = $('ocr-zoom'), zg = zoom.getContext('2d');
   let stream = null, rect = load(KEY_RECT, null), drag = null, loopId = null;
-  const frameSrc = () => video;
+  let frameOverride = null; // a canvas/image used instead of the shared screen (testing)
+  const frameSrc = () => frameOverride || video;
 
   function drawPreview() {
     if (!stream) return;
@@ -172,7 +248,10 @@
       zg.drawImage(video, R.x, R.y, R.w, R.h, 0, 0, zoom.width, zoom.height);
     }
   }
-  const toPx = (r) => ({ x: Math.round(r.fx * video.videoWidth), y: Math.round(r.fy * video.videoHeight), w: Math.max(4, Math.round(r.fw * video.videoWidth)), h: Math.max(4, Math.round(r.fh * video.videoHeight)) });
+  const toPx = (r) => {
+    const { W, H } = srcSize(frameSrc());
+    return { x: Math.round(r.fx * W), y: Math.round(r.fy * H), w: Math.max(4, Math.round(r.fw * W)), h: Math.max(4, Math.round(r.fh * H)) };
+  };
 
   function pos(e) { const b = prev.getBoundingClientRect(); return { x: (e.clientX - b.left) / b.width, y: (e.clientY - b.top) / b.height }; }
   prev.addEventListener('pointerdown', (e) => { if (!stream) return; prev.setPointerCapture(e.pointerId); const p = pos(e); drag = { p0: p, rect: { fx: p.x, fy: p.y, fw: 0, fh: 0 } }; });
@@ -210,15 +289,64 @@
     setTimeout(() => { drawPreview(); testRead(); }, 600);
   });
 
+  /* ---------- Floating mini window ---------- */
+  // Document Picture-in-Picture (Chrome/Edge 116+) stays on top of other windows, including the
+  // game in windowed/borderless mode. Falls back to a video PiP of a small canvas.
+  const pip = (() => {
+    let win = null, canvas = null, pipVideo = null, last = null;
+    const html = (d) => `
+      <div class="m">${d.main}<span>/時</span></div>
+      <div class="s"><span>近1分 ${d.r1}</span><span>升級 ${d.left}</span><span>${d.pct}</span></div>
+      ${d.noNeed ? '<div class="h">移到經驗條上讀取升級經驗</div>' : ''}`;
+    function paintCanvas(d) {
+      const g = canvas.getContext('2d');
+      g.fillStyle = '#12131f'; g.fillRect(0, 0, canvas.width, canvas.height);
+      g.fillStyle = '#7fe3ff'; g.font = '600 44px "Pixelify Sans", sans-serif'; g.fillText(d.main + ' /時', 16, 60);
+      g.fillStyle = '#a3a1c0'; g.font = '22px "Noto Sans TC", sans-serif'; g.fillText(`近1分 ${d.r1}・升級 ${d.left}・${d.pct}`, 16, 100);
+    }
+    return {
+      async open() {
+        last ??= { main: '…', r1: '…', left: '—', pct: '', noNeed: false };
+        if ('documentPictureInPicture' in window) {
+          win = await documentPictureInPicture.requestWindow({ width: 260, height: 96 });
+          const st = win.document.createElement('style');
+          st.textContent = `body{margin:0;padding:8px 12px;background:#12131f;color:#ecebf7;font:13px "Noto Sans TC",system-ui,sans-serif;overflow:hidden}
+            .m{font:600 28px/1.1 "Pixelify Sans","Noto Sans TC",sans-serif;color:#7fe3ff}.m span{font-size:13px;color:#a3a1c0;margin-left:4px}
+            .s{display:flex;gap:10px;color:#a3a1c0;margin-top:4px;white-space:nowrap}.h{color:#ffd24a;font-size:12px;margin-top:2px}`;
+          win.document.head.append(st);
+          win.document.body.innerHTML = html(last);
+          win.addEventListener('pagehide', () => { win = null; });
+        } else {
+          canvas ??= Object.assign(document.createElement('canvas'), { width: 520, height: 120 });
+          paintCanvas(last);
+          pipVideo ??= Object.assign(document.createElement('video'), { muted: true, playsInline: true });
+          pipVideo.srcObject = canvas.captureStream(2);
+          await pipVideo.play();
+          await pipVideo.requestPictureInPicture();
+        }
+      },
+      update(d) {
+        last = d;
+        if (win) win.document.body.innerHTML = html(d);
+        else if (canvas && document.pictureInPictureElement === pipVideo) paintCanvas(d);
+      },
+    };
+  })();
+  $('ocr-pip').addEventListener('click', () => pip.open().catch(() => { $('ocr-read').textContent = '這個瀏覽器開不了小視窗，請用電腦版 Chrome 或 Edge。'; }));
+
   /* ---------- Measuring ---------- */
   let run = null;
   $('ocr-start').addEventListener('click', () => {
     if (run) return finish();
-    run = { samples: [], offset: 0, last: null, t0: Date.now(), need: num($('exp-need').value) };
+    run = { samples: [], offset: 0, last: null, lastRaw: null, t0: Date.now(), need: num($('exp-need').value), exp: 0, pendingPct: 0, ups: 0 };
     $('ocr-start').textContent = '停止並存檔';
     $('ocr-start').classList.remove('primary');
     tick(); run.timer = setInterval(tick, 3000);
   });
+
+  // Console test: expOcr.simulate(imageOrCanvas, {fx,fy,fw,fh}) then call expOcr.tick().
+  window.expOcr.simulate = (img, r) => { frameOverride = img; rect = r; stream = stream || { getTracks: () => [] }; $('ocr-stage').hidden = false; $('ocr-start').disabled = false; };
+  window.expOcr.tick = () => tick();
 
   async function tick() {
     if (!run || !stream) return;
@@ -226,48 +354,86 @@
     const r = readPercent(frameSrc(), toPx(rect));
     const now = Date.now();
     if (!r) { $('ocr-read').textContent = '這次沒讀到，繼續偵測中…'; return; }
+
+    // Hovering the EXP bar shows "cur / need EXP": pick up the level's requirement automatically.
+    const pair = readExpPair(frameSrc(), toPx(rect), r.p);
+    if (pair && pair.need !== run.need) setNeed(pair.need, '滑鼠移到經驗條上自動讀到');
+
     let p = r.p + run.offset;
     if (run.last != null) {
       // Big drop = leveled up. Big jump in one tick = misread.
-      if (r.p + run.offset < run.last - 50) { run.offset += 100; p = r.p + run.offset; }
-      else if (p - run.last > 15 || p < run.last - 0.5) { $('ocr-read').textContent = `略過一次可疑讀數（${r.text}）`; return; }
+      if (r.p + run.offset < run.last - 50) {
+        addPct(100 - run.lastRaw);
+        run.offset += 100; run.ups++; p = r.p + run.offset;
+        levelUp();
+        addPct(r.p);
+      } else if (p - run.last > 15 || p < run.last - 0.5) { $('ocr-read').textContent = `略過一次可疑讀數（${r.text}）`; return; }
+      else addPct(r.p - run.lastRaw);
     }
-    run.last = p;
-    run.samples.push({ t: now, p });
+    run.last = p; run.lastRaw = r.p;
+    run.samples.push({ t: now, p, e: run.pendingPct ? null : run.exp });
     $('ocr-read').textContent = `讀到 ${r.text}`;
     $('ocr-read').classList.remove('error');
     render();
   }
 
+  // EXP is counted per level: % gained times that level's requirement. Gains made before the
+  // requirement is known wait in pendingPct and are converted once it is.
+  function addPct(dp) {
+    if (run.need) run.exp += dp / 100 * run.need;
+    else run.pendingPct += dp;
+  }
+  function setNeed(need, how) {
+    run.need = need;
+    if (run.pendingPct) {
+      run.exp += run.pendingPct / 100 * need; run.pendingPct = 0;
+      const p0 = run.samples[0]?.p ?? 0;
+      run.samples.forEach((s) => { s.e = (s.p - p0) / 100 * need; });
+    }
+    $('exp-need').value = fmt(need);
+    $('exp-need').dispatchEvent(new Event('input', { bubbles: true }));
+    $('exp-need').dispatchEvent(new Event('change', { bubbles: true })); // remembered for this level
+    run.needNote = how;
+  }
+  function levelUp() {
+    const lv = num($('exp-lv').value);
+    if (lv) { $('exp-lv').value = lv + 1; $('exp-lv').dispatchEvent(new Event('input', { bubbles: true })); }
+    run.need = num($('exp-need').value); // filled from the table if this level is known
+    run.needNote = run.need ? `Lv ${lv + 1} 已有紀錄` : null;
+  }
+
+  // Rate over the last `windowMin` minutes (or all): { pct, exp } per minute.
   function rate(windowMin) {
     const s = run.samples; if (s.length < 2) return null;
     const end = s[s.length - 1];
-    let first = s[0];
-    if (windowMin) first = s.find((x) => x.t >= end.t - windowMin * 60000) || s[0];
+    const first = windowMin ? (s.find((x) => x.t >= end.t - windowMin * 60000) || s[0]) : s[0];
     const min = (end.t - first.t) / 60000;
-    return min > 0 ? (end.p - first.p) / min : null; // % per minute
+    if (!(min > 0)) return null;
+    const exp = end.e != null && first.e != null ? (end.e - first.e) / min : null;
+    return { pct: (end.p - first.p) / min, exp };
   }
 
+  const perHour = (r) => r == null ? '…' : r.exp != null ? short(r.exp * 60) : (r.pct * 60).toFixed(2) + '%';
+
   function render() {
-    const s = run.samples, need = num($('exp-need').value);
-    const total = s.length > 1 ? s[s.length - 1].p - s[0].p : 0;
+    const s = run.samples;
     const min = s.length > 1 ? (s[s.length - 1].t - s[0].t) / 60000 : 0;
     const all = rate(), r1 = rate(1), r10 = rate(10);
-    const toExp = (pct) => need ? pct / 100 * need : null;
-    const cur = s.length ? s[s.length - 1].p % 100 : null;
-    const left = all > 0 && cur != null ? (100 - cur) / all : null;
-    const line = (label, pctPerMin) => pctPerMin == null ? '' :
-      `<dt>${label}</dt><dd class="num">${need ? short(toExp(pctPerMin) * 60) + ' / 時' : (pctPerMin * 60).toFixed(2) + '% / 時'}</dd>`;
+    const cur = run.lastRaw;
+    const left = all && all.pct > 0 && cur != null ? (100 - cur) / all.pct : null;
+    const totalPct = s.length > 1 ? s[s.length - 1].p - s[0].p : 0;
     $('ocr-stats').innerHTML = `
-      <div class="big">${all == null ? '…' : need ? short(toExp(all) * 60) : (all * 60).toFixed(2) + '%'}<small> / 小時</small></div>
+      <div class="big">${perHour(all)}<small> / 小時</small></div>
       <dl class="kv">
         <dt>已測</dt><dd>${dur(min)}・${s.length} 筆</dd>
-        <dt>累積</dt><dd class="num">${total.toFixed(2)}%${need ? '（' + fmt(toExp(total)) + '）' : ''}</dd>
-        ${line('最近 1 分鐘', r1)}${line('最近 10 分鐘', r10)}
+        <dt>累積</dt><dd class="num">${run.pendingPct ? totalPct.toFixed(2) + '%' : fmt(run.exp)}</dd>
+        ${r1 ? `<dt>最近 1 分鐘</dt><dd class="num">${perHour(r1)} / 時</dd>` : ''}
+        ${r10 && min > 2 ? `<dt>最近 10 分鐘</dt><dd class="num">${perHour(r10)} / 時</dd>` : ''}
         <dt>升級還要</dt><dd>${dur(left)}</dd>
       </dl>
-      ${need ? '' : '<p class="note">填上方的「這級升級需要」才能換算成經驗值。</p>'}`;
+      <p class="note">${run.need ? `升級需要 ${fmt(run.need)}${run.needNote ? '（' + run.needNote + '）' : ''}` : '滑鼠移到遊戲的經驗條上停一下，就會自動讀到升級需要的經驗。'}</p>`;
     drawSpark();
+    pip.update({ main: perHour(all), r1: r1 ? perHour(r1) : '…', left: dur(left), pct: cur != null ? cur.toFixed(2) + '%' : '', noNeed: !run.need });
   }
 
   function drawSpark() {
@@ -289,15 +455,15 @@
 
   function finish() {
     clearInterval(run.timer);
-    const s = run.samples, need = num($('exp-need').value);
-    if (s.length >= 2 && need) {
-      const gainedPct = s[s.length - 1].p - s[0].p, minutes = (s[s.length - 1].t - s[0].t) / 60000;
+    const s = run.samples;
+    if (s.length >= 2 && !run.pendingPct) {
+      const minutes = (s[s.length - 1].t - s[0].t) / 60000;
       window.expTool?.addRun({
-        map: $('exp-map').value.trim() || '未填地圖', lv: num($('exp-lv').value),
-        gained: gainedPct / 100 * need, minutes, approx: run.offset > 0,
+        map: $('exp-map').value.trim() || '未填地圖', lv: num($('exp-lv').value) - run.ups || null,
+        gained: run.exp, minutes, approx: false,
       });
     } else if (s.length >= 2) {
-      $('ocr-read').textContent = '沒填「這級升級需要」，這次只顯示百分比，沒有存進紀錄。';
+      $('ocr-read').textContent = '還不知道這級升級需要多少經驗，這次只顯示百分比，沒有存進紀錄。下次偵測時滑鼠移到經驗條上一下就好。';
     }
     run = null;
     $('ocr-start').textContent = '開始偵測';

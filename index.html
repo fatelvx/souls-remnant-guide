@@ -95,9 +95,10 @@
         <button type="button" class="btn primary" id="ocr-share">分享遊戲畫面</button>
       </div>
       <ol class="steps-inline">
-        <li>先在下方填好<b>練功地圖</b>和<b>這級升級需要</b>的經驗（滑鼠移到遊戲經驗條上就看得到）</li>
-        <li>按「分享遊戲畫面」選遊戲視窗</li>
-        <li>在預覽上<b>拖曳框住百分比數字</b>，看到「讀到 67.46%」就可以開始</li>
+        <li>在下方填<b>練功地圖</b>和<b>等級</b>（之後會記住，升級時自動加一）</li>
+        <li>按「分享遊戲畫面」選遊戲視窗，在預覽上<b>拖曳框住左下角的百分比</b>，看到「讀到 67.46%」就按開始</li>
+        <li>偵測中<b>滑鼠移到遊戲經驗條上停一下</b>，升級需要的經驗會自動讀進來，同一級以後不用再移</li>
+        <li>按「小視窗」開一個浮在遊戲上面的小框，邊打怪邊看速度</li>
       </ol>
       <div id="ocr-stage" class="ocr-stage" hidden>
         <div class="ocr-view">
@@ -108,6 +109,7 @@
           <p class="note" id="ocr-read" aria-live="polite">拖曳框住百分比數字</p>
           <div class="timer-btns">
             <button type="button" class="btn primary" id="ocr-start" disabled>開始偵測</button>
+            <button type="button" class="btn" id="ocr-pip">小視窗</button>
             <button type="button" class="btn ghost" id="ocr-stop-share">停止分享</button>
           </div>
           <div id="ocr-stats"></div>
