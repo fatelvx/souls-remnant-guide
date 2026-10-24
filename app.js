@@ -181,7 +181,7 @@ function renderEssence() {
       const body = shown.length ? shown.map((r) => `<div class="row${r === best ? ' best' : ''}">${icon(r.m)}
           <span class="who"><b>${esc(r.m.zh || r.m.name)}</b> <span class="lv">${r.m.level != null ? 'Lv ' + r.m.level : ''}</span>
           <small>${esc(r.m.zh ? r.m.name + '・' : '')}${esc(r.m.maps.slice(0, 3).join('、') || '地圖未知')}</small></span>
-          <span class="rate">${r.rate != null ? r.rate + '%' : '?'}</span>${r === best ? '<span class="star">推薦</span>' : ''}</div>`).join('')
+          <span class="rate">${r.rate != null ? r.rate + '%' : '?'}</span>${r === best ? '<span class="star">最高</span>' : ''}</div>`).join('')
         : `<p class="none">${rows.length ? '沒有符合搜尋的怪' : 'wiki 上還沒有資料'}</p>`;
       return `<div class="tier" style="--tc:${t.c}"><h4>${t.zh}</h4>${body}</div>`;
     }).join('');

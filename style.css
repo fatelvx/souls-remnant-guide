@@ -262,7 +262,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--soul); outl
 .kv dt { color: var(--muted); }
 .kv dd { margin: 0; }
 .elem { border-top: 3px solid var(--c); }
-.elem .use { font-size: 13px; color: var(--c); font-weight: 600; }
+
 .callout { background: color-mix(in srgb, var(--gold) 10%, var(--panel)); border: 1px solid color-mix(in srgb, var(--gold) 40%, var(--line)); border-radius: 12px; padding: 14px 16px; }
 .callout p { margin: 0; }
 .swatches { display: flex; gap: 10px; flex-wrap: wrap; }

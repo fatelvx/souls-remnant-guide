@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Pixelify+Sans:wght@500;600&display=swap">
-<link rel="stylesheet" href="style.css?v=202610242027">
+<link rel="stylesheet" href="style.css?v=202610242038">
 <link rel="icon" href="assets/items/soul-crystal.png">
 </head>
 <body>
@@ -21,7 +21,6 @@
 <nav class="tabs" aria-label="攻略分類">
   <div class="wrap">
     <a href="#maps">練功地圖</a>
-    <a href="#exp">經驗測速</a>
     <a href="#essence">精華掉落</a>
     <a href="#market">拍賣場與交易</a>
     <a href="#elements">元素效果</a>
@@ -49,11 +48,12 @@
         <li><button type="button" data-lv="42"><span class="lv">Lv 42</span><b>靈魂樹</b><small>Forest 2、Forest 3、Forest Lake</small></button></li>
         <li><button type="button" data-lv="47"><span class="lv">Lv 47</span><b>Ocean 4</b><small>吉加、泡泡蛇、斯威爾（目前在這）</small></button></li>
       </ol>
-      <p class="note">每一站都比當時等級高一截，靠聚怪群殺越級練。命中機制 wiki 沒有寫，越級太多打不中的話，就往回退一站。</p>
+      <p class="note">一位玩家的實際練功紀錄，每個人的流派和裝備不同，僅供參考。</p>
+      <h3>官方 wiki 的練功規則</h3>
       <div class="cards">
-        <div class="card"><h3>怪會不會主動打你</h3><p>看你的等級，等級夠高怪就不會主動追你，但碰到還是會被撞傷。</p></div>
-        <div class="card"><h3>清越快，重生越快</h3><p>地圖的重生速度會依照怪被清掉的速度加快，聚怪群殺的流派特別吃香。</p></div>
-        <div class="card"><h3>組隊有加成</h3><p>同地圖組隊有額外經驗，依輸出分配；跟隊友等級差超過 10 級，分到的經驗開始變少。</p></div>
+        <div class="card"><h3>主動攻擊</h3><p>怪會不會主動追你，取決於你的等級；等級夠高就不會主動攻擊，但碰到仍會受傷。</p></div>
+        <div class="card"><h3>重生速度</h3><p>地圖的重生速度會依照怪被清掉的速度提高，不組隊也一樣。</p></div>
+        <div class="card"><h3>組隊經驗</h3><p>同地圖組隊有額外 Bonus EXP，經驗依輸出分配；跟隊友等級差超過 10 級，分到的經驗開始減少。</p></div>
       </div>
     </div>
     <div class="finder">
@@ -79,124 +79,6 @@
     <div id="map-results" class="group" aria-live="polite"></div>
   </section>
 
-  <!-- 經驗測速 -->
-  <section class="panel" id="exp" aria-labelledby="exp-h" hidden>
-    <div>
-      <h2 id="exp-h">經驗測速</h2>
-      <p class="sub">開始前記下目前經驗，練一段時間後再輸入一次，算出每小時經驗，比較哪張圖好練。</p>
-    </div>
-
-    <div class="card ocr">
-      <div class="ocr-head">
-        <div>
-          <h3>自動偵測</h3>
-          <p class="note">分享遊戲畫面，網頁每 3 秒讀一次左下角的經驗百分比（像 67.46%）。畫面只在你的瀏覽器裡處理，不會上傳。需要電腦版 Chrome 或 Edge。</p>
-        </div>
-        <button type="button" class="btn primary" id="ocr-share">分享遊戲畫面</button>
-      </div>
-      <ol class="steps-inline">
-        <li>在下方填<b>練功地圖</b>和<b>等級</b>（之後會記住，升級時自動加一）</li>
-        <li>按「分享遊戲畫面」選遊戲視窗，在預覽上<b>拖曳框住左下角整條白色經驗條</b>（框大一點沒關係），看到「讀到 …」就按開始</li>
-        <li>偵測中<b>滑鼠移到遊戲經驗條上停一下</b>，升級需要的經驗會自動讀進來，同一級以後不用再移</li>
-        <li>按「小視窗」開一個浮在遊戲上面的小框，邊打怪邊看速度</li>
-      </ol>
-      <div id="ocr-stage" class="ocr-stage" hidden>
-        <div class="ocr-view">
-          <canvas id="ocr-preview" class="ocr-preview" aria-label="遊戲畫面預覽，拖曳框選經驗條"></canvas>
-        </div>
-        <div class="ocr-side">
-          <canvas id="ocr-zoom" class="ocr-zoom" aria-hidden="true"></canvas>
-          <p class="note" id="ocr-read" aria-live="polite">拖曳框住左下角整條經驗條</p>
-          <form class="teach" id="ocr-teach" autocomplete="off">
-            <label for="ocr-teach-input">讀錯或讀不到？輸入畫面上的數字教它</label>
-            <div class="teach-row">
-              <input class="text short" id="ocr-teach-input" inputmode="decimal" placeholder="75.33">
-              <button type="submit" class="btn small">教它</button>
-            </div>
-          </form>
-          <div class="timer-btns">
-            <button type="button" class="btn primary" id="ocr-start" disabled>開始偵測</button>
-            <button type="button" class="btn" id="ocr-pip">小視窗</button>
-            <button type="button" class="btn ghost" id="ocr-stop-share">停止分享</button>
-          </div>
-          <div id="ocr-stats"></div>
-          <canvas id="ocr-spark" class="ocr-spark" aria-hidden="true"></canvas>
-        </div>
-      </div>
-    </div>
-
-    <div class="exp-grid">
-      <form class="finder" id="exp-form" autocomplete="off">
-        <div class="finder-row">
-          <div class="field">
-            <label for="exp-map">練功地圖</label>
-            <input class="text" id="exp-map" list="exp-map-list" placeholder="例如 Lost Forest">
-            <datalist id="exp-map-list"></datalist>
-          </div>
-          <div class="field">
-            <label for="exp-lv">角色等級</label>
-            <input class="text short" id="exp-lv" type="number" inputmode="numeric" min="1" max="250">
-          </div>
-        </div>
-        <div class="finder-row">
-          <div class="field">
-            <label for="exp-start">開始時的經驗</label>
-            <input class="text" id="exp-start" inputmode="numeric" placeholder="53,314,020">
-          </div>
-          <div class="field">
-            <label for="exp-need">這級升級需要（選填）</label>
-            <input class="text" id="exp-need" inputmode="numeric" placeholder="34,007,376">
-          </div>
-        </div>
-        <p class="note" id="exp-need-hint" aria-live="polite"></p>
-
-        <div class="timer" aria-live="polite">
-          <span class="clock num" id="exp-clock">00:00</span>
-          <div class="timer-btns">
-            <button type="button" class="btn primary" id="exp-go">開始計時</button>
-            <button type="button" class="btn" id="exp-pause" disabled>暫停</button>
-            <button type="button" class="btn" id="exp-reset">重設</button>
-          </div>
-        </div>
-        <p class="note">也可以不用計時，直接在下面填「練了幾分鐘」。</p>
-
-        <div class="finder-row">
-          <div class="field">
-            <label for="exp-end">結束時的經驗</label>
-            <input class="text" id="exp-end" inputmode="numeric" placeholder="61,820,500">
-          </div>
-          <div class="field">
-            <label for="exp-ups">中間升了幾級</label>
-            <input class="text short" id="exp-ups" type="number" min="0" max="10" value="0">
-          </div>
-          <div class="field">
-            <label for="exp-min">練了幾分鐘</label>
-            <input class="text short" id="exp-min" type="number" min="0" step="0.1" placeholder="自動">
-          </div>
-        </div>
-        <p class="note" id="exp-ups-note" hidden>有升級時，「升級需要」要填<b>開始那一級</b>的升級經驗，才能算出跨級的總經驗。</p>
-        <button type="submit" class="btn primary wide">算出結果並存檔</button>
-        <p class="note error" id="exp-err" hidden></p>
-      </form>
-
-      <div class="card result" id="exp-result">
-        <h3>這次結果</h3>
-        <p class="note">練完按「算出結果」就會顯示在這裡。</p>
-      </div>
-    </div>
-
-    <div class="group">
-      <div class="group-head"><h3>各地圖平均</h3><span class="tag">依每小時經驗排序</span></div>
-      <div class="table-wrap"><table class="exp-table" id="exp-summary"></table></div>
-    </div>
-    <div class="group">
-      <div class="group-head"><h3>紀錄</h3><span class="tag">只存在這台裝置的瀏覽器</span>
-        <button type="button" class="btn small" id="exp-copy-all">全部複製到 DC</button>
-      </div>
-      <div class="table-wrap"><table class="exp-table" id="exp-history"></table></div>
-    </div>
-  </section>
-
   <!-- 精華掉落 -->
   <section class="panel" id="essence" aria-labelledby="ess-h" hidden>
     <div>
@@ -211,6 +93,10 @@
           <li>1 一般 + 100 靈魂水晶 → <b>2 Dull</b> <code>鍊金 Lv5</code></li>
         </ul>
         <p class="note">光輝目前只知道打怪掉。</p>
+      </div>
+      <div class="card">
+        <h3>用途</h3>
+        <p>讓裝備發光（+1 升級欄位）的 Energetic Soul，每種 Dull 精華各要 <code>40</code> 個（鍊金 Lv15）。</p>
       </div>
       <div class="card">
         <h3>副本寶箱</h3>
@@ -249,7 +135,6 @@
           <dt>自己的攤位</dt><dd><span class="big">4%</span></dd>
           <dt>私下面交</dt><dd><span class="big">0%</span></dd>
         </dl>
-        <p class="note">炒價差時，價差要大於手續費才有賺。</p>
       </div>
       <div class="card">
         <h3>掛單規則</h3>
@@ -278,15 +163,6 @@
           <li>攤位留言可以用 BBCode</li>
         </ul>
       </div>
-      <div class="card">
-        <h3>賺錢思路</h3>
-        <ul>
-          <li>最低掛價明顯低於近 7 天平均價時買進，用接近平均價掛回去</li>
-          <li>看「本週賣出」多、「在賣」少的東西，代表供不應求</li>
-          <li>精華一直有需求：讓裝備發光的 Energetic Soul 每種 Dull 精華要 40 個</li>
-          <li>掛單格有限，優先掛利潤高、賣得快的</li>
-        </ul>
-      </div>
     </div>
   </section>
 
@@ -303,41 +179,31 @@
       <article class="card elem" style="--c: var(--ghostly)">
         <h3>幽靈 Ghost</h3>
         <p>附加「Haunted」，2.5 秒內造成額外 120%* 傷害，<b>並把附近的怪拉過來</b>。同時最多 2 層，再次觸發會擴散到另一隻怪。對一般怪可無限疊加，對 Boss 每 6 秒重置；怪死時一半的每跳傷害會轉移。</p>
-        <span class="use">適合：聚怪刷怪、群殺</span>
       </article>
       <article class="card elem" style="--c: var(--metal)">
         <h3>金屬 Metal</h3>
         <p>敵人每層 −3 防禦，最多 5 層（−15）。你自己每層減傷 3%，最多 10* 層（30%*），減傷總上限 80%。</p>
-        <span class="use">適合：越級、單刷、怕被秒的時候</span>
       </article>
       <article class="card elem" style="--c: var(--raging)">
         <h3>火 Fire</h3>
         <p>主目標額外 50%* 傷害，附近最多 2 隻各 25%*，主目標再燃燒 3 秒共 36%*。</p>
-        <span class="use">適合：單體群體都不錯的全能型</span>
       </article>
       <article class="card elem" style="--c: var(--normal)">
         <h3>雷 Lightning</h3>
         <p>彈跳最多 4 隻附近敵人，第一彈 65%*，每彈減 40%（例：500 → 325 → 130 → 52）。主目標本身不吃額外傷害。</p>
-        <span class="use">適合：清小怪</span>
       </article>
       <article class="card elem" style="--c: var(--dull)">
         <h3>普通 Normal</h3>
         <p>對目標額外 80%* 傷害，簡單直接。</p>
-        <span class="use">適合：打王、單體輸出</span>
       </article>
       <article class="card elem" style="--c: var(--eternal)">
         <h3>冰 Ice</h3>
         <p>附加「Frozen」6* 秒並緩速，每層 10%、最多 3 層（30%）。冰凍狀態的怪被擊殺時，附近最多 2 隻吃到 50% 的累積傷害；擴散出去的冰凍傷害降為四分之一。</p>
-        <span class="use">適合：控場、穩穩打</span>
       </article>
       <article class="card elem" style="--c: var(--nurturing)">
         <h3>水 Water</h3>
         <p>稍微緩速目標，並立刻回復你的 HP 和 MP，範圍內最多 2 名隊友一起回。多段技能共用一次回復。</p>
-        <span class="use">適合：續航、組隊補師</span>
       </article>
-    </div>
-    <div class="callout">
-      <p><b>小提醒：</b>元素機率堆到 100% 就夠了，之後把詞條往強度和傷害堆。幽靈現在很強，投資大錢前留意更新公告，避免之後被削弱。</p>
     </div>
   </section>
 
@@ -345,7 +211,7 @@
   <section class="panel" id="dye" aria-labelledby="dye-h" hidden>
     <div>
       <h2 id="dye-h">染色與外觀</h2>
-      <p class="sub">染料、漸層券差在哪，以及實際染過的心得。</p>
+      <p class="sub">整理自 wiki、更新紀錄與遊戲內說明。</p>
     </div>
     <div class="cards">
       <div class="card">
@@ -372,22 +238,13 @@
         </ul>
       </div>
       <div class="card">
-        <h3>淡色會被陰影壓灰</h3>
-        <p>遊戲用把顏色調暗來畫陰影，太淡的顏色暗部會變成灰色。想要粉白，選粉色多一點的比較好看：</p>
+        <h3>淡色的暗部會偏灰</h3>
+        <p>裝備的陰影是把顏色調暗畫出來的，很淡的顏色暗部看起來會接近灰色。實際預覽觀察：</p>
         <div class="swatches">
-          <div class="sw"><i style="--v:#FFE4EC"></i><code>#FFE4EC</code>偏灰</div>
-          <div class="sw"><i style="--v:#FFD1DC"></i><code>#FFD1DC</code>剛好</div>
-          <div class="sw"><i style="--v:#FFB3CF"></i><code>#FFB3CF</code>較粉</div>
+          <div class="sw"><i style="--v:#FFE4EC"></i><code>#FFE4EC</code>暗部偏灰</div>
+          <div class="sw"><i style="--v:#FFD1DC"></i><code>#FFD1DC</code>暗部微粉</div>
         </div>
-        <p class="note">染色前一定先用預覽看效果，預覽免費。</p>
-      </div>
-      <div class="card">
-        <h3>省錢建議</h3>
-        <ul>
-          <li>先想好整體配色主題，只買搭得上的</li>
-          <li>單色需求先看倉庫和拍賣場，真的找不到再買自選</li>
-          <li>買之前滑鼠移上去看彩色字的限制說明</li>
-        </ul>
+        <p class="note">染色介面有免費預覽。</p>
       </div>
     </div>
   </section>
@@ -395,12 +252,15 @@
 </main>
 
 <footer class="wrap">
-  <p>資料整理自 <a href="https://soulsremnant.wiki.gg/" target="_blank" rel="noopener">Soul's Remnant Wiki</a>（CC BY-SA 4.0）與遊戲內實測，最後更新 <span id="updated">2026-10-25</span>。怪物中文名為暫譯。</p>
+  <p>資料整理自 <a href="https://soulsremnant.wiki.gg/" target="_blank" rel="noopener">Soul's Remnant Wiki</a>（CC BY-SA 4.0）、遊戲內說明與更新紀錄，最後更新 <span id="updated">2026-10-25</span>。怪物中文名為暫譯。</p>
+  <p>更細的資料可以查這些玩家做的網站：
+    <a href="https://remnantfriend.com/farm.html" target="_blank" rel="noopener">掉落資料庫</a>、
+    <a href="https://remnantfriend.com/build_planner.html" target="_blank" rel="noopener">Build 計算器</a>（remnantfriend.com）、
+    <a href="https://soulsremnant.gg/db/monsters" target="_blank" rel="noopener">怪物資料庫</a>（soulsremnant.gg，有血量與攻防）。
+    升級所需經驗由伺服器提供、不在遊戲檔案裡，目前沒有公開的完整表。</p>
   <p>遊戲圖像版權屬於 Chaomoon。本站為玩家自製，與官方無關。</p>
 </footer>
 
-<script src="app.js?v=202610242027"></script>
-<script src="exp.js?v=202610242027"></script>
-<script src="ocr.js?v=202610242027"></script>
+<script src="app.js?v=202610242038"></script>
 </body>
 </html>
