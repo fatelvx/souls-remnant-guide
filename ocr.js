@@ -332,7 +332,7 @@
       },
     };
   })();
-  $('ocr-pip').addEventListener('click', () => pip.open().catch(() => { $('ocr-read').textContent = '這個瀏覽器開不了小視窗，請用電腦版 Chrome 或 Edge。'; }));
+  $('ocr-pip')?.addEventListener('click', () => pip.open().catch(() => { $('ocr-read').textContent = '這個瀏覽器開不了小視窗，請用電腦版 Chrome 或 Edge。'; }));
 
   /* ---------- Measuring ---------- */
   let run = null;

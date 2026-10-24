@@ -143,4 +143,9 @@ const out = {
   zh: Object.fromEntries(Object.entries(names.monsters)),
 };
 writeFileSync(new URL('./data/site.json', import.meta.url), JSON.stringify(out));
+
+// Stamp a new ?v= on the page's CSS/JS links so browsers never mix a cached page with new scripts.
+const indexUrl = new URL('./index.html', import.meta.url);
+const v = new Date().toISOString().replace(/\D/g, '').slice(0, 12);
+writeFileSync(indexUrl, readFileSync(indexUrl, 'utf8').replace(/((?:href|src)="(?:style\.css|app\.js|exp\.js|ocr\.js))(?:\?v=\w+)?"/g, `$1?v=${v}"`));
 console.log(`maps ${out.maps.length}, monsters ${out.monsters.length}, with icon ${out.monsters.filter((m) => m.icon).length}, item icons ${Object.keys(itemIcons).length}`);
