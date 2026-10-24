@@ -143,10 +143,28 @@
           }
         }
       }
-      templates = list;
-      return list;
+      templates = list.concat(learned);
+      return templates;
     })();
     return templatesReady;
+  }
+
+  // Glyphs the viewer taught from their own screen ("教它認字"), kept in this browser.
+  const KEY_LEARNED = 'ocr.learned.v1';
+  const learned = load(KEY_LEARNED, []).map(([c, v, ar, rh, ry]) => ({ c, v: [...v].map(Number), ar, rh, ry }));
+  function teach(src, r, text) {
+    text = text.replace(/\s/g, '');
+    if (/^\d{1,3}[.,]\d{2}$/.test(text)) text += '%';
+    for (const thr of [170, 150, 190, 130, 210, 110, 230]) {
+      const fs = readLine(src, r, thr);
+      if (fs.length !== text.length) continue;
+      fs.forEach((f, i) => learned.push({ c: text[i], v: f.v, ar: f.ar, rh: f.rh, ry: f.ry }));
+      while (learned.length > 120) learned.shift();
+      save(KEY_LEARNED, learned.map((t) => [t.c, t.v.join(''), +t.ar.toFixed(3), +t.rh.toFixed(3), +t.ry.toFixed(3)]));
+      templates = templates.filter((t) => !t.learned).concat(learned.map((t) => ({ ...t, learned: true })));
+      return true;
+    }
+    return false;
   }
   function classify(f) {
     let best = { c: '?' }, bd = Infinity;
@@ -178,17 +196,61 @@
   }
 
   // Reads a line as space-separated words (a wide gap = space), each glyph classified.
-  // Returns one entry per text row: the row's words, each classified glyph by glyph.
+  // Connected blobs of lit pixels with their bounding boxes.
+  function blobs(m) {
+    const h = m.length, w = m[0].length, seen = new Uint8Array(w * h), out = [], stack = [];
+    for (let y0 = 0; y0 < h; y0++) for (let x0 = 0; x0 < w; x0++) {
+      if (!m[y0][x0] || seen[y0 * w + x0]) continue;
+      let x1 = x0, x2 = x0, y1 = y0, y2 = y0, n = 0;
+      stack.push(x0, y0); seen[y0 * w + x0] = 1;
+      while (stack.length) {
+        const y = stack.pop(), x = stack.pop(); n++;
+        if (x < x1) x1 = x; if (x > x2) x2 = x; if (y < y1) y1 = y; if (y > y2) y2 = y;
+        for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+          const nx = x + dx, ny = y + dy;
+          if (nx >= 0 && ny >= 0 && nx < w && ny < h && m[ny][nx] && !seen[ny * w + nx]) { seen[ny * w + nx] = 1; stack.push(nx, ny); }
+        }
+      }
+      if (n >= 2) out.push({ a: x1, b: x2 + 1, top: y1, bot: y2 });
+    }
+    return out;
+  }
+
+  // Reads every text line in a region as words, each glyph classified. Lines are found by
+  // grouping blobs of similar height and vertical position, so stacked rows don't merge.
   function readWords(src, r, thr) {
     const m = clearLines(binarize(src, r.x, r.y, r.w, r.h, thr));
-    return rowBands(m).map((band) => {
-      const fs = readLine(src, r, thr, band);
-      if (!fs.length) return [];
-      const heights = fs.map((f) => f.b - f.a).sort((x, y) => x - y);
-      const gapMax = Math.max(3, heights[Math.floor(heights.length / 2)] * 0.6);
+    let bs = blobs(m).sort((p, q) => p.a - q.a);
+    // Glue pieces of one glyph (the pixel font leaves 1px gaps inside 0, 8, 9).
+    const glued = [];
+    for (const b of bs) {
+      const g = glued.find((x) => b.a - x.b <= 1 && b.a >= x.a && Math.min(b.bot, x.bot) - Math.max(b.top, x.top) >= -1);
+      if (g) { g.b = Math.max(g.b, b.b); g.top = Math.min(g.top, b.top); g.bot = Math.max(g.bot, b.bot); } else glued.push({ ...b });
+    }
+    // Lines: tall blobs (digits) define a line; small ones (, .) join the line they sit in.
+    const H = (b) => b.bot - b.top + 1;
+    const tall = glued.filter((b) => H(b) >= 6).sort((p, q) => H(q) - H(p));
+    const lines = [];
+    for (const b of tall) {
+      const L = lines.find((l) => Math.abs(H(b) - l.h) <= l.h * 0.25 && Math.abs((b.top + b.bot) / 2 - l.mid) <= l.h * 0.35)
+        // a much shorter blob overlapping a taller line (comma, period) belongs to it
+        || lines.find((l) => l.h > H(b) * 1.4 && b.top <= l.bot + l.h * 0.4 && b.bot >= l.top);
+      if (L) L.items.push(b); else lines.push({ h: H(b), mid: (b.top + b.bot) / 2, top: b.top, bot: b.bot, items: [b] });
+    }
+    for (const l of lines) { l.top = Math.min(...l.items.map((b) => b.top)); l.bot = Math.max(...l.items.map((b) => b.bot)); }
+    for (const b of glued.filter((b) => H(b) < 6 || !tall.includes(b))) {
+      const L = lines.find((l) => b.top >= l.top - 1 && b.bot <= l.bot + l.h * 0.4);
+      if (L && !L.items.includes(b)) L.items.push(b);
+    }
+    return lines.sort((p, q) => p.mid - q.mid).map((l) => {
+      const items = l.items.sort((p, q) => p.a - q.a);
+      const lineH = l.bot - l.top + 1;
+      const fs = items.map((g) => features(m, g, lineH));
+      fs.forEach((f, i) => { f.ry = ((items[i].top + items[i].bot) / 2 - l.top) / lineH; });
+      const gapMax = Math.max(3, l.h * 0.45);
       const words = [[]];
       fs.forEach((f, i) => {
-        if (i && f.a - fs[i - 1].b > gapMax) words.push([]);
+        if (i && items[i].a - items[i - 1].b > gapMax) words.push([]);
         words[words.length - 1].push(classify(f));
       });
       return words.map((w) => ({ text: w.map((x) => x.c).join(''), ok: w.every((x) => x.d <= 60) }));
@@ -200,11 +262,11 @@
   };
   const srcSize = (src) => ({ W: src.videoWidth || src.width, H: src.videoHeight || src.height });
 
-  // The hover tooltip "22,940,101 / 34,007,376 EXP" sits up and to the right of the % text.
-  // Accept it only if cur/need matches the % we just read.
+  // The hover tooltip "22,940,101 / 34,007,376 EXP" sits up and to the right of the % text
+  // (and covers part of it). With a % reading, the pair must agree with it.
   function readExpPair(src, pr, pct) {
     const { W, H } = srcSize(src);
-    const r = clampRect({ x: pr.x + pr.w * 1.2, y: pr.y - pr.h * 2.2, w: pr.w * 5.4, h: pr.h * 2.4 }, W, H);
+    const r = clampRect({ x: pr.x - pr.w * 0.2, y: pr.y - pr.h * 2.4, w: pr.w * 7, h: pr.h * 3 }, W, H);
     const NUM = '(\\d{1,3}(?:,\\d{3})+)';
     for (const thr of [170, 150, 190, 210]) {
       for (const row of readWords(src, r, thr)) {
@@ -266,14 +328,37 @@
     drag = null; testRead();
   });
 
+  // One reading of the screen: the % if visible, else the hover tooltip (which covers the %).
+  // A tooltip-only reading must agree with the requirement we already know, if any.
+  function readNow() {
+    const src = frameSrc(), pr = toPx(rect);
+    let pair = readExpPair(src, pr, null);
+    if (pair && run?.need && pair.need !== run.need && run.last != null && run.lastRaw < 95) pair = null;
+    if (!pair) { const pct = readPercent(src, pr); return pct && { p: pct.p, text: pct.text }; }
+    const p = Math.floor(pair.cur / pair.need * 10000) / 100;
+    return { p, text: `${fmt(pair.cur)} / ${fmt(pair.need)}`, need: pair.need };
+  }
+
   async function testRead() {
     if (!stream || !rect) return;
     await loadTemplates();
-    const r = readPercent(frameSrc(), toPx(rect));
-    $('ocr-read').textContent = r ? `讀到 ${r.text}` : '讀不到，框小一點、只框住百分比數字';
+    const r = readNow();
+    $('ocr-read').textContent = r ? `讀到 ${r.text}` : '讀不到：只框住左下角的百分比數字（框的時候滑鼠先不要停在經驗條上）';
     $('ocr-read').classList.toggle('error', !r);
     $('ocr-start').disabled = !r;
   }
+
+  $('ocr-teach')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!stream || !rect) return;
+    await loadTemplates();
+    const text = $('ocr-teach-input').value.trim();
+    if (!/^\d{1,3}[.,]\d{2}%?$/.test(text)) { $('ocr-read').textContent = '請照畫面輸入，例如 75.33'; return; }
+    const ok = teach(frameSrc(), toPx(rect), text);
+    $('ocr-teach-input').value = '';
+    if (!ok) { $('ocr-read').textContent = '框裡的字數對不上，框小一點、只框住百分比再試一次'; return; }
+    testRead();
+  });
 
   $('ocr-share').addEventListener('click', async () => {
     if (!navigator.mediaDevices?.getDisplayMedia) { $('ocr-read').textContent = '這個瀏覽器不支援分享畫面，請用電腦版 Chrome 或 Edge。'; return; }
@@ -351,13 +436,12 @@
   async function tick() {
     if (!run || !stream) return;
     await loadTemplates();
-    const r = readPercent(frameSrc(), toPx(rect));
     const now = Date.now();
+    const r = readNow();
     if (!r) { $('ocr-read').textContent = '這次沒讀到，繼續偵測中…'; return; }
 
     // Hovering the EXP bar shows "cur / need EXP": pick up the level's requirement automatically.
-    const pair = readExpPair(frameSrc(), toPx(rect), r.p);
-    if (pair && pair.need !== run.need) setNeed(pair.need, '滑鼠移到經驗條上自動讀到');
+    if (r.need && r.need !== run.need) setNeed(r.need, '滑鼠移到經驗條上自動讀到');
 
     let p = r.p + run.offset;
     if (run.last != null) {
