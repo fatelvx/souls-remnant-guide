@@ -105,6 +105,13 @@ overOut.textContent = overInput.value;
 document.getElementById('lv-down').addEventListener('click', () => { lvInput.value = Math.max(1, (+lvInput.value || 1) - 1); renderFinder(); });
 document.getElementById('lv-up').addEventListener('click', () => { lvInput.value = Math.min(250, (+lvInput.value || 0) + 1); renderFinder(); });
 lvInput.addEventListener('input', renderFinder);
+document.querySelector('.route').addEventListener('click', (e) => {
+  const b = e.target.closest('button[data-lv]');
+  if (!b) return;
+  lvInput.value = b.dataset.lv;
+  renderFinder();
+  document.getElementById('map-results').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+});
 overInput.addEventListener('input', () => { overOut.textContent = overInput.value; renderFinder(); });
 
 function mapCard(map, L, kind) {

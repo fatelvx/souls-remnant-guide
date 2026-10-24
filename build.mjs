@@ -88,6 +88,13 @@ for (const f of rawFiles.filter((f) => /^maps-[a-z]\.json$/.test(f))) {
   }
 }
 
+// Map pages sometimes spell a monster differently ("ChronoShroom" vs "Chrono Shroom"); use the monster page's spelling.
+const key = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+const canonical = new Map([...monsters.keys(), ...Object.keys(names.monsters)].map((n) => [key(n), n]));
+for (const mp of maps.values()) {
+  mp.monsters = [...new Set(mp.monsters.map((n) => canonical.get(key(n)) || n))];
+}
+
 // Fill map monster lists from monster pages, and add maps only known from monster pages.
 for (const mon of monsters.values()) {
   for (const mapName of mon.maps) {
