@@ -212,6 +212,20 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--soul); outl
 .exp-table .bar { display: block; height: 4px; margin-top: 6px; border-radius: 2px; width: var(--w); background: var(--soul); }
 .exp-table .actions { display: flex; gap: 6px; justify-content: flex-end; }
 
+/* Auto reader */
+.ocr { border-color: color-mix(in srgb, var(--soul) 45%, var(--line)); gap: 12px; }
+.ocr-head { display: flex; gap: 16px; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; }
+.ocr-head > div { flex: 1; min-width: min(100%, 280px); display: grid; gap: 4px; }
+.steps-inline { margin: 0; padding-left: 1.3em; color: var(--muted); font-size: 13px; display: grid; gap: 2px; }
+.ocr-stage { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 14px; align-items: start; }
+.ocr-stage[hidden] { display: none; }
+@media (max-width: 760px) { .ocr-stage { grid-template-columns: 1fr; } }
+.ocr-preview { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--line); cursor: crosshair; touch-action: none; background: #000; }
+.ocr-side { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.ocr-zoom { max-width: 100%; image-rendering: pixelated; border-radius: 6px; background: #000; }
+.ocr-spark { width: 100%; height: 60px; display: block; }
+#ocr-stats .big small { font: 500 14px var(--font-body); color: var(--muted); margin-left: 6px; }
+
 /* Essence tab */
 .search { width: min(100%, 360px); height: 42px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); padding: 0 12px; font: 15px var(--font-body); }
 .fam { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }

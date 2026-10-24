@@ -150,6 +150,16 @@
 
   renderTables();
 
+  // The auto reader (ocr.js) saves its runs through here.
+  window.expTool = {
+    addRun({ map, lv, gained, minutes, approx }) {
+      const r = { id: Date.now(), at: new Date().toISOString(), map, lv, gained, minutes, perHour: gained / minutes * 60, approx: !!approx };
+      runs.unshift(r); save(KEY_RUNS, runs);
+      showResult(r, null, null);
+      renderTables();
+    },
+  };
+
   fetch('data/site.json').then((r) => r.json()).then((d) => {
     $('exp-map-list').innerHTML = d.maps
       .filter((m) => m.level && m.monsters.length)

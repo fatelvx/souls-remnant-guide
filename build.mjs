@@ -5,6 +5,8 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 const raw = (f) => JSON.parse(readFileSync(new URL(`./data/raw/${f}`, import.meta.url), 'utf8'));
 const rawFiles = readdirSync(new URL('./data/raw/', import.meta.url));
 const names = JSON.parse(readFileSync(new URL('./data/names-zh.json', import.meta.url), 'utf8'));
+const notesZhFile = new URL('./data/notes-zh.json', import.meta.url);
+const notesZh = existsSync(notesZhFile) ? JSON.parse(readFileSync(notesZhFile, 'utf8')) : {};
 
 const FAMILIES = ['Life', 'Raging', 'Eternal', 'Ghostly', 'Metal', 'Historic', 'Nurturing'];
 const ESS_RE = /^(Dull |Radiant )?(Life|Raging|Eternal|Ghostly|Metal|Historic|Nurturing) Essence$/i;
@@ -82,7 +84,7 @@ for (const f of rawFiles.filter((f) => /^maps-[a-z]\.json$/.test(f))) {
       monsters: (m.monsters || []).map(clean).filter(Boolean),
       essences: (m.essences || []).map(clean).filter(Boolean),
       gathering: (m.gathering || []).map(clean).filter(Boolean),
-      notes: m.notes ? clean(m.notes) : null,
+      notes: m.notes ? (notesZh[clean(m.notes)] || clean(m.notes)) : null,
       url: m.url || null,
     });
   }
