@@ -26,6 +26,26 @@
   }));
   $('exp-ups-note').hidden = !(+$('exp-ups').value > 0);
 
+  /* ---------- EXP needed per level: shared table + what this browser has seen ---------- */
+  const KEY_NEED = 'exp.need.v1';
+  let shared = {};
+  const mine = load(KEY_NEED, {});
+  const needFor = (lv) => mine[lv] ?? shared[lv] ?? null;
+  function fillNeed() {
+    const lv = num($('exp-lv').value), n = lv ? needFor(lv) : null;
+    if (n && !$('exp-need').value) { $('exp-need').value = fmt(n); $('exp-need').dispatchEvent(new Event('input')); }
+    $('exp-need-hint').textContent = n ? `Lv ${lv} 升級需要 ${fmt(n)}（已記錄）` : lv ? `還沒有 Lv ${lv} 的資料，填一次之後就會記住` : '';
+  }
+  $('exp-lv').addEventListener('input', () => { $('exp-need').value = ''; fillNeed(); });
+  $('exp-need').addEventListener('change', () => {
+    const lv = num($('exp-lv').value), n = num($('exp-need').value);
+    if (lv && n > 0) { mine[lv] = n; save(KEY_NEED, mine); fillNeed(); }
+  });
+  fetch('data/exp-table.json').then((r) => r.json()).then((t) => {
+    shared = Object.fromEntries(Object.entries(t).filter(([k]) => /^\d+$/.test(k)));
+    fillNeed();
+  }).catch(() => {});
+
   /* ---------- Timer (survives page reloads) ---------- */
   let timer = load(KEY_TIMER, { acc: 0, since: null });
   const elapsed = () => timer.acc + (timer.since ? Date.now() - timer.since : 0);

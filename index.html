@@ -50,6 +50,11 @@
         <li><button type="button" data-lv="47"><span class="lv">Lv 47</span><b>Ocean 4</b><small>吉加、泡泡蛇、斯威爾（目前在這）</small></button></li>
       </ol>
       <p class="note">每一站都比當時等級高一截，靠聚怪群殺越級練。命中機制 wiki 沒有寫，越級太多打不中的話，就往回退一站。</p>
+      <div class="cards">
+        <div class="card"><h3>怪會不會主動打你</h3><p>看你的等級，等級夠高怪就不會主動追你，但碰到還是會被撞傷。</p></div>
+        <div class="card"><h3>清越快，重生越快</h3><p>地圖的重生速度會依照怪被清掉的速度加快，聚怪群殺的流派特別吃香。</p></div>
+        <div class="card"><h3>組隊有加成</h3><p>同地圖組隊有額外經驗，依輸出分配；跟隊友等級差超過 10 級，分到的經驗開始變少。</p></div>
+      </div>
     </div>
     <div class="finder">
       <div class="finder-row">
@@ -131,9 +136,10 @@
           </div>
           <div class="field">
             <label for="exp-need">這級升級需要（選填）</label>
-            <input class="text" id="exp-need" inputmode="numeric" placeholder="91,238,106">
+            <input class="text" id="exp-need" inputmode="numeric" placeholder="34,007,376">
           </div>
         </div>
+        <p class="note" id="exp-need-hint" aria-live="polite"></p>
 
         <div class="timer" aria-live="polite">
           <span class="clock num" id="exp-clock">00:00</span>

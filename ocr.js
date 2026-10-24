@@ -49,8 +49,22 @@
     for (let y = 0; y < GH; y++) for (let x = 0; x < GW; x++) v.push(m[top + Math.floor((y + 0.5) * h / GH)][a + Math.floor((x + 0.5) * w / GW)]);
     return { v, ar: w / h, rh: h / lineH, ry: (top + bot) / 2 / lineH };
   }
+  // Keep only the densest horizontal band of lit rows, so bits of the EXP bar or
+  // background caught in a loose box don't become extra "characters".
+  function keepTextBand(m) {
+    const rows = m.map((r) => r.reduce((s, v) => s + v, 0));
+    let best = null, cur = null;
+    for (let j = 0; j <= rows.length; j++) {
+      if (j < rows.length && rows[j] > 0) { cur ??= { a: j, sum: 0, gap: 0 }; cur.sum += rows[j]; cur.b = j; cur.gap = 0; }
+      else if (cur && j < rows.length && ++cur.gap <= 2) { /* tolerate a 1–2 row gap inside a glyph */ }
+      else if (cur) { if (!best || cur.sum > best.sum) best = cur; cur = null; }
+    }
+    if (best) m.forEach((r, j) => { if (j < best.a || j > best.b) r.fill(0); });
+    return m;
+  }
+
   function readLine(src, r, thr) {
-    const m = binarize(src, r.x, r.y, r.w, r.h, thr);
+    const m = keepTextBand(binarize(src, r.x, r.y, r.w, r.h, thr));
     const gs = glyphs(m);
     if (!gs.length) return [];
     const lineH = Math.max(...gs.map((g) => g.bot - g.top + 1));
@@ -64,6 +78,10 @@
       [{ x: 280, y: 928, w: 100, h: 30 }, '67.46%'],
       [{ x: 562, y: 955, w: 215, h: 30 }, '208,171,089'],
       [{ x: 905, y: 925, w: 135, h: 25 }, '41/541'],
+    ] },
+    // Zoomed capture of the progress % from the live reader (523×471).
+    { src: 'assets/ocr/sample-2.png', lines: [
+      [{ x: 98, y: 319, w: 214, h: 43 }, '68.72%'],
     ] },
   ];
   let templates = [];
@@ -97,7 +115,7 @@
       const fs = readLine(src, r, thr);
       if (fs.length < 4 || fs.length > 8) continue;
       const cs = fs.map(classify);
-      if (cs.some((x) => x.d > 40)) continue;
+      if (cs.some((x) => x.d > 60)) continue;
       const text = cs.map((x) => x.c).join('').replace(/,/g, '.');
       const m = text.match(/^(\d{1,3})\.(\d{2})%?$/);
       if (m) { const p = parseFloat(m[1] + '.' + m[2]); if (p >= 0 && p < 100) return { p, text }; }
@@ -105,7 +123,7 @@
     return null;
   }
 
-  window.expOcr = { readPercent, loadTemplates }; // for console checks
+  window.expOcr = { readPercent, loadTemplates, debug: (src, r, thr = 170) => readLine(src, r, thr).map((f) => { const c = classify(f); return c.c + Math.round(c.d) + '(' + f.ar.toFixed(2) + ')'; }).join(' ') }; // for console checks
 
   /* ---------- Capture + selection ---------- */
   const video = document.createElement('video'); video.muted = true; video.playsInline = true;
