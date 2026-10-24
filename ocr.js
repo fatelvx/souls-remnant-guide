@@ -386,7 +386,7 @@
     function paintCanvas(d) {
       const g = canvas.getContext('2d');
       g.fillStyle = '#12131f'; g.fillRect(0, 0, canvas.width, canvas.height);
-      g.fillStyle = '#7fe3ff'; g.font = '600 44px "Pixelify Sans", sans-serif'; g.fillText(d.main + ' /時', 16, 60);
+      g.fillStyle = '#7fe3ff'; g.font = '700 44px "Noto Sans TC", sans-serif'; g.fillText(d.main + ' /時', 16, 60);
       g.fillStyle = '#a3a1c0'; g.font = '22px "Noto Sans TC", sans-serif'; g.fillText(`近1分 ${d.r1}・升級 ${d.left}・${d.pct}`, 16, 100);
     }
     return {
@@ -396,7 +396,7 @@
           win = await documentPictureInPicture.requestWindow({ width: 260, height: 96 });
           const st = win.document.createElement('style');
           st.textContent = `body{margin:0;padding:8px 12px;background:#12131f;color:#ecebf7;font:13px "Noto Sans TC",system-ui,sans-serif;overflow:hidden}
-            .m{font:600 28px/1.1 "Pixelify Sans","Noto Sans TC",sans-serif;color:#7fe3ff}.m span{font-size:13px;color:#a3a1c0;margin-left:4px}
+            .m{font:600 28px/1.1 "Noto Sans TC",system-ui,sans-serif;color:#7fe3ff}.m span{font-size:13px;color:#a3a1c0;margin-left:4px}
             .s{display:flex;gap:10px;color:#a3a1c0;margin-top:4px;white-space:nowrap}.h{color:#ffd24a;font-size:12px;margin-top:2px}`;
           win.document.head.append(st);
           win.document.body.innerHTML = html(last);
