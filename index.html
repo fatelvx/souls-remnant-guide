@@ -21,6 +21,7 @@
 <nav class="tabs" aria-label="攻略分類">
   <div class="wrap">
     <a href="#maps">練功地圖</a>
+    <a href="#exp">經驗測速</a>
     <a href="#essence">精華掉落</a>
     <a href="#market">拍賣場與交易</a>
     <a href="#elements">元素效果</a>
@@ -44,7 +45,7 @@
       <ol class="route">
         <li><button type="button" data-lv="15"><span class="lv">Lv 15</span><b>Plains 4</b><small>10 等直接來。軟軟、雲朵羊、小天使、黑雲朵羊</small></button></li>
         <li><button type="button" data-lv="27"><span class="lv">Lv 27</span><b>Misty Forest 2</b><small>悲傷樹苗、獨眼鬼</small></button></li>
-        <li><button type="button" data-lv="28"><span class="lv">Lv 27–28</span><b>Lost Forest</b><small>同一批怪，換個地方刷</small></button></li>
+        <li><button type="button" data-lv="28"><span class="lv">Lv 27–28</span><b>Lost Forest</b><small>27–31 等推薦，實測比硫磺平原任何一個點都好練</small></button></li>
         <li><button type="button" data-lv="42"><span class="lv">Lv 42</span><b>靈魂樹</b><small>Forest 2、Forest 3、Forest Lake</small></button></li>
         <li><button type="button" data-lv="47"><span class="lv">Lv 47</span><b>Ocean 4</b><small>吉加、泡泡蛇、斯威爾（目前在這）</small></button></li>
       </ol>
@@ -71,6 +72,84 @@
       </div>
     </div>
     <div id="map-results" class="group" aria-live="polite"></div>
+  </section>
+
+  <!-- 經驗測速 -->
+  <section class="panel" id="exp" aria-labelledby="exp-h" hidden>
+    <div>
+      <h2 id="exp-h">經驗測速</h2>
+      <p class="sub">開始前記下目前經驗，練一段時間後再輸入一次，算出每小時經驗，比較哪張圖好練。</p>
+    </div>
+
+    <div class="exp-grid">
+      <form class="finder" id="exp-form" autocomplete="off">
+        <div class="finder-row">
+          <div class="field">
+            <label for="exp-map">練功地圖</label>
+            <input class="text" id="exp-map" list="exp-map-list" placeholder="例如 Lost Forest">
+            <datalist id="exp-map-list"></datalist>
+          </div>
+          <div class="field">
+            <label for="exp-lv">角色等級</label>
+            <input class="text short" id="exp-lv" type="number" inputmode="numeric" min="1" max="250">
+          </div>
+        </div>
+        <div class="finder-row">
+          <div class="field">
+            <label for="exp-start">開始時的經驗</label>
+            <input class="text" id="exp-start" inputmode="numeric" placeholder="53,314,020">
+          </div>
+          <div class="field">
+            <label for="exp-need">這級升級需要（選填）</label>
+            <input class="text" id="exp-need" inputmode="numeric" placeholder="91,238,106">
+          </div>
+        </div>
+
+        <div class="timer" aria-live="polite">
+          <span class="clock num" id="exp-clock">00:00</span>
+          <div class="timer-btns">
+            <button type="button" class="btn primary" id="exp-go">開始計時</button>
+            <button type="button" class="btn" id="exp-pause" disabled>暫停</button>
+            <button type="button" class="btn" id="exp-reset">重設</button>
+          </div>
+        </div>
+        <p class="note">也可以不用計時，直接在下面填「練了幾分鐘」。</p>
+
+        <div class="finder-row">
+          <div class="field">
+            <label for="exp-end">結束時的經驗</label>
+            <input class="text" id="exp-end" inputmode="numeric" placeholder="61,820,500">
+          </div>
+          <div class="field">
+            <label for="exp-ups">中間升了幾級</label>
+            <input class="text short" id="exp-ups" type="number" min="0" max="10" value="0">
+          </div>
+          <div class="field">
+            <label for="exp-min">練了幾分鐘</label>
+            <input class="text short" id="exp-min" type="number" min="0" step="0.1" placeholder="自動">
+          </div>
+        </div>
+        <p class="note" id="exp-ups-note" hidden>有升級時，「升級需要」要填<b>開始那一級</b>的升級經驗，才能算出跨級的總經驗。</p>
+        <button type="submit" class="btn primary wide">算出結果並存檔</button>
+        <p class="note error" id="exp-err" hidden></p>
+      </form>
+
+      <div class="card result" id="exp-result">
+        <h3>這次結果</h3>
+        <p class="note">練完按「算出結果」就會顯示在這裡。</p>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-head"><h3>各地圖平均</h3><span class="tag">依每小時經驗排序</span></div>
+      <div class="table-wrap"><table class="exp-table" id="exp-summary"></table></div>
+    </div>
+    <div class="group">
+      <div class="group-head"><h3>紀錄</h3><span class="tag">只存在這台裝置的瀏覽器</span>
+        <button type="button" class="btn small" id="exp-copy-all">全部複製到 DC</button>
+      </div>
+      <div class="table-wrap"><table class="exp-table" id="exp-history"></table></div>
+    </div>
   </section>
 
   <!-- 精華掉落 -->
@@ -276,5 +355,6 @@
 </footer>
 
 <script src="app.js"></script>
+<script src="exp.js"></script>
 </body>
 </html>
