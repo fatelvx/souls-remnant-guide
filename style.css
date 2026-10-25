@@ -97,7 +97,9 @@ h3 { margin: 0; font-size: 1.1rem; }
 .lv, .num { font-family: var(--font-display); font-variant-numeric: tabular-nums; }
 /* Numbers in the game's pixel style; Press Start 2P runs wide, so sizes are about 0.8 of the body text. */
 .lv, .num, .badge, .rate, .range-out, .big, .ess span b, .stepper input { font-family: var(--font-num); letter-spacing: 0; }
-.lv { font-size: 11px; }
+/* The font is drawn on an 8px grid: 16px+ stays crisp; below that a hairline stroke keeps 6/8/9 from closing up. Never go under 12px. */
+.lv, .badge, .ess span b, .range-out { -webkit-text-stroke: .6px currentColor; }
+.lv { font-size: 12px; }
 .big, .clock, .badge, .rate, .chip, h2, h4 { font-variant-numeric: tabular-nums; }
 
 /* Recommended maps (player-tested) */
@@ -111,7 +113,7 @@ h3 { margin: 0; font-size: 1.1rem; }
   font: inherit;
 }
 .route button:hover { background: var(--panel-2); }
-.route .lv { font-size: 11px; color: var(--gold); }
+.route .lv { font-size: 12px; color: var(--gold); }
 .route small { color: var(--muted); font-size: 12px; line-height: 1.4; }
 
 /* Finder controls */
@@ -129,7 +131,7 @@ h3 { margin: 0; font-size: 1.1rem; }
 }
 .stepper input {
   width: 96px; height: 44px; text-align: center; border-radius: 8px; border: 1px solid var(--line);
-  background: var(--night); color: var(--ink); font: 400 18px var(--font-num);
+  background: var(--night); color: var(--ink); font: 400 16px var(--font-num);
 }
 .range-out { font-family: var(--font-display); color: var(--gold); }
 input[type="range"] { accent-color: var(--soul); width: min(260px, 70vw); }
@@ -157,7 +159,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--soul); outl
 .map-top h3 { flex: 1; min-width: 0; overflow-wrap: anywhere; }
 .map-top h3 small { display: block; font-size: 12px; font-weight: 400; color: var(--muted); }
 .badge {
-  font: 400 11px/1.4 var(--font-num); padding: 4px 8px; border-radius: 6px;
+  font: 400 12px/1.4 var(--font-num); padding: 4px 8px; border-radius: 6px;
   background: var(--panel-2); border: 1px solid var(--line); white-space: nowrap;
 }
 .badge.hot { color: var(--night); background: var(--soul); border-color: var(--soul); }
@@ -171,7 +173,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--soul); outl
 .mob .who { flex: 1; min-width: 0; line-height: 1.3; }
 .mob .who b { font-weight: 600; }
 .mob .who small { display: block; color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
-.mob .lv { font-size: 11px; color: var(--muted); }
+.mob .lv { font-size: 12px; color: var(--muted); }
 .ess { display: flex; flex-wrap: wrap; gap: 6px; }
 .ess span {
   font-size: 12px; padding: 2px 8px; border-radius: 4px;
@@ -235,8 +237,8 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--soul); outl
 .ess-tools { display: flex; align-items: center; gap: 12px 20px; flex-wrap: wrap; }
 .check { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
 .check input { width: 18px; height: 18px; accent-color: var(--soul); }
-.check .lv { color: var(--gold); font-size: 11px; }
-.ess span b { font-weight: 400; font-size: 10px; margin-left: 6px; }
+.check .lv { color: var(--gold); font-size: 12px; }
+.ess span b { font-weight: 400; font-size: 12px; margin-left: 6px; }
 .search { width: min(100%, 360px); height: 42px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); padding: 0 12px; font: 15px var(--font-body); }
 .fam { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
 .fam-head { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--line); border-left: 4px solid var(--c); }
@@ -252,7 +254,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--soul); outl
 .row .icon .ph, .mob .icon .ph { font-size: 13px; color: var(--muted); }
 .row .who { flex: 1; min-width: 0; line-height: 1.3; }
 .row .who small { display: block; color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
-.row .rate { font: 400 12px var(--font-num); color: var(--ink); white-space: nowrap; }
+.row .rate { font: 400 16px var(--font-num); color: var(--ink); white-space: nowrap; }
 .row .star { color: var(--gold); font-size: 12px; font-weight: 700; }
 .none { color: var(--muted); font-size: 13px; }
 
@@ -262,7 +264,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--soul); outl
 .card h3 { display: flex; align-items: center; gap: 8px; }
 .card p, .card ul, .card ol { margin: 0; }
 .card ul, .card ol { padding-left: 1.2em; display: grid; gap: 4px; }
-.big { font: 400 1.4rem/1 var(--font-num); color: var(--soul); }
+.big { font: 400 24px/1 var(--font-num); color: var(--soul); }
 .kv { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; margin: 0; }
 .kv dt { color: var(--muted); }
 .kv dd { margin: 0; }
