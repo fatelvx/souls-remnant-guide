@@ -1,0 +1,128 @@
+{
+  "searched": "2026-10-25",
+  "queries": [
+    "Soul's Remnant life skills guide mining herbalism fishing leveling",
+    "Soul's Remnant steamcommunity guide",
+    "Soul's Remnant 攻略 生活技能 採礦 鍛造",
+    "\"Soul's Remnant\" reddit tips crafting",
+    "\"Soul's Remnant\" 巴哈姆特 攻略",
+    "\"Soul's Remnant\" Abyss Trial guide",
+    "\"Soul's Remnant\" money making auction house guide",
+    "Soul's Remnant Chaomoon store.steampowered.com app",
+    "Soul's Remnant 2D MMORPG fishing mining herbalism skill level tips player guide",
+    "\"Soul's Remnant\" ソウルズリムナント 攻略",
+    "\"Soul's Remnant\" 공략 생활 스킬",
+    "\"Soul's Remnant\" steamcommunity discussions app",
+    "reddit r/SoulsRemnant life skill Dull Life Essence",
+    "Soul's Remnant Kmitty's Food Stall Shepherd's Pet Problem Barrier Forge minigame",
+    "Soul's Remnant youtube guide life skills Chaomoon early access tips"
+  ],
+  "sources": [
+    {
+      "url": "https://soulsremnant.wiki.gg/wiki/Minigames",
+      "title": "Minigames - Official Soul's Remnant Wiki",
+      "language": "English",
+      "author": "wiki (not named)",
+      "date": "not shown",
+      "reliability": "unclear",
+      "why": "Official fan wiki already in the project. Not fetched (site is blocked and already known); claims below are taken from search-result summaries, so they are paraphrases, not verbatim. Useful for minigame unlock levels and controls. No numbers on EXP or drop rates.",
+      "topics": ["life skills", "minigames", "fishing", "herbalism", "mining"],
+      "claims": [
+        {"topic": "minigames", "claim": "Minigames are designed around Gathering life skills. All party members must have the matching Gathering skill unlocked to enter.", "quote_original": "(paraphrase of search summary; no verbatim quote retrieved)"},
+        {"topic": "minigames", "claim": "Kmitty's Food Stall uses Fishing and unlocks through a level 15 quest named Kmitty's Big Dream.", "quote_original": "(paraphrase of search summary)"},
+        {"topic": "minigames", "claim": "Shepherd's Pet Problem uses Herbalism and unlocks through a level 20 quest.", "quote_original": "(paraphrase of search summary)"},
+        {"topic": "minigames", "claim": "Barrier Forge uses Mining and unlocks through a level 20 quest named The Fraying Barrier.", "quote_original": "(paraphrase of search summary)"},
+        {"topic": "minigames", "claim": "Minigames are timed, need a party of 2 to 6, and the wiki recommends practicing the skill once or twice first.", "quote_original": "(paraphrase of search summary)"},
+        {"topic": "minigames", "claim": "Mining and Herbalism: purple arrows mean press the opposite input; faded arrows mean skip that input. Fishing: wiki advises never holding a movement key longer than one second.", "quote_original": "(paraphrase of search summary)"},
+        {"topic": "minigames", "claim": "Nature's Veil cannot be used once you have entered a minigame.", "quote_original": "(paraphrase of search summary)"}
+      ]
+    },
+    {
+      "url": "https://allthings.how/soul-s-remnant-how-to-respec-skills-and-free-up-skill-points/",
+      "title": "Soul's Remnant: How to respec skills and free up skill points",
+      "language": "English",
+      "author": "AllThingsHow Staff (no individual named)",
+      "date": "Updated Aug 14, 2026",
+      "reliability": "likely AI",
+      "why": "Staff byline, no named player. Only numeric example is a hypothetical (5 SP). Formulaic SEO wording and repeated promo blocks, and no tested specifics such as costs or menu quirks. Mechanics described are plausible but untested in the article.",
+      "topics": ["skills", "skill points", "essences", "respec", "leveling"],
+      "claims": [
+        {"topic": "skills", "claim": "Skills are unlocked with Dull Life Essences once each skill's unlock conditions are met, not with Skill Points.", "quote_original": "(paraphrase; no verbatim quote retrieved)"},
+        {"topic": "skill points", "claim": "Skill Points set the total combined skill level you can run across active skills. Example given (hypothetical): with 5 SP you can raise one skill to level 5, and the article says the first level of a basic skill costs no point, so the pool reaches level 6.", "quote_original": "(paraphrase)"},
+        {"topic": "skill points", "claim": "Lowering a skill's level through Manage Level returns SP to the pool. Dragging a skill out of the Skill menu frees all the SP it used.", "quote_original": "(paraphrase)"},
+        {"topic": "skills", "claim": "Unlocking a skill is permanent. Dull Life Essences and materials spent on it cannot be recovered.", "quote_original": "(paraphrase)"},
+        {"topic": "leveling", "claim": "Inactive skills and archetypes gain no EXP. Each character level grants one Skill Point plus attribute points. Quests are described as the fastest route to EXP; the / key shows active quests.", "quote_original": "(paraphrase)"}
+      ]
+    },
+    {
+      "url": "https://soulsremnant.online/misc/life-skills-guide",
+      "title": "Soul's Remnant Life Skills: Fishing, Mining, Crafting & Forging",
+      "language": "English",
+      "author": "not named; credited to 'Soul's Remnant Wiki' (fan-made site)",
+      "date": "Last updated Aug 19, 2026 (Early Access)",
+      "reliability": "likely AI",
+      "why": "No author. Generic, templated text with almost no numbers. Repeatedly says 'To be confirmed' or 'We are verifying', and uses vague hedges ('may boost CON') with no magnitudes. Lists 4 of 8 professions as confirmed and says 700+ recipes. Not a player-written guide.",
+      "topics": ["life skills", "crafting", "fishing", "mining", "herbalism", "forging"],
+      "claims": [
+        {"topic": "crafting", "claim": "The guide says there are eight crafting professions and 700+ recipes; only Blacksmith, Armorsmith, Alchemy and Weapon Smithing are listed, the rest marked 'To be confirmed'.", "quote_original": "(paraphrase)"},
+        {"topic": "crafting", "claim": "Crafting uses a card minigame where higher skill levels give better cards. No thresholds given.", "quote_original": "(paraphrase)"},
+        {"topic": "fishing", "claim": "Fishing needs no pickaxe; some rare fish appear only in specific locations. No levels or spot numbers.", "quote_original": "(paraphrase)"}
+      ]
+    },
+    {
+      "url": "https://steamcommunity.com/app/3451980/discussions/?l=tchinese&fp=8",
+      "title": "Soul's Remnant 綜合討論 (Steam discussions, Traditional Chinese view, posts 106-120 of 272)",
+      "language": "Chinese (Traditional) / English mixed",
+      "author": "various named Steam users",
+      "date": "Aug 24-25 (year not shown on page)",
+      "reliability": "reliable",
+      "why": "Real player threads with named authors and comment counts. Mostly bug, ban and auction-house complaints. No numeric claims on life skills, essences or money.",
+      "topics": ["auction house", "bans", "bugs", "inventory"],
+      "claims": [
+        {"topic": "auction house", "claim": "Several players reported they could not buy anything at the auction house (threads 'I can't buy anything at the auction house' and 'auction house problem', Aug 25). No figures given.", "quote_original": "I can't buy anything at the auction house"},
+        {"topic": "money making", "claim": "Thread 'inventory management + difficulty to sell' (Aug 25) reports difficulty selling items. No figures.", "quote_original": "difficulty to sell"},
+        {"topic": "bans", "claim": "A thread titled 'Ban' (Aug 24) has 102 comments, indicating a wave of account-ban complaints in early access. Not relevant to skills or leveling.", "quote_original": "(thread title only)"}
+      ]
+    },
+    {
+      "url": "https://steamcommunity.com/app/3451980/discussions/",
+      "title": "Soul's Remnant General Discussions (Steam)",
+      "language": "English",
+      "author": "various; developer replies included",
+      "date": "not shown (search snippet only; page not fetched)",
+      "reliability": "reliable",
+      "why": "Developer and player threads. Seen only as search-result snippets, not fetched in full. The developer post is the strongest item here.",
+      "topics": ["wipes", "controls", "map", "quests"],
+      "claims": [
+        {"topic": "progress", "claim": "A developer post says there will be no more wipes once early access launches and progress will be kept (thread index 10-11).", "quote_original": "(search snippet paraphrase; no verbatim quote retrieved)"},
+        {"topic": "quests and map", "claim": "A player criticizes quest navigation and map UX (threads 4-13 and 4-23). No numbers.", "quote_original": "(paraphrase)"}
+      ]
+    },
+    {
+      "url": "https://steamcommunity.com/app/3451980/guides/",
+      "title": "Soul's Remnant Steam guides listing",
+      "language": "English / Japanese",
+      "author": "see individual guides",
+      "date": "not shown",
+      "reliability": "unclear",
+      "why": "Index page only. Shows 3 guides in Popular Guides. The contents of two were not retrieved (HTTP 429), see dead_ends.",
+      "topics": ["index"],
+      "claims": []
+    }
+  ],
+  "dead_ends": [
+    {"url_or_query": "https://steamcommunity.com/sharedfiles/filedetails/?id=3787840225", "reason": "Japanese beginner guide 'Soul's Remnant 気が付きにくい有用情報' by tpdn. HTTP 429 (rate limited) on two tries. Worth retrying later; likely the most useful unexplored source."},
+    {"url_or_query": "https://steamcommunity.com/sharedfiles/filedetails/?id=3802993917", "reason": "Guide 'Why XYESOS Is Objectively the Best Soul's Remnant Player' by davalka.com. HTTP 429 on two tries. Title suggests promotional content; low priority."},
+    {"url_or_query": "https://steamcommunity.com/sharedfiles/filedetails/?id=3791764482", "reason": "Guide 'How to Exit the Game'. HTTP 429. Probably not relevant to skills or money."},
+    {"url_or_query": "https://www.mmopixel.com/news/soul-s-remnant-beginners-guide-best-tips-and-tricks-for-starters", "reason": "HTTP 403 Forbidden."},
+    {"url_or_query": "Soul's Remnant search-summary claims: Fishing +1 Luck per 10 levels and +1 Speed per 30 levels; Herbalism HP/MP regen every 19 levels; Mining +1 Light Radius every 15 levels; hidden fishing proficiency; beach fish list; Outskirts Northwest herb list; Blue Crystal drop from perfect blue vein", "reason": "Not included as claims. They came only from search summaries whose sources were the known-bad SEO sites (soulsremnant.org guide) or unverified fan pages, and the summary itself says the thresholds are not consistent across sources. Needs a clean source before use."},
+    {"url_or_query": "https://soulsremnant.org/guide/souls-remnant-life-skills-guide/", "reason": "Known AI/SEO domain on the skip list. Not fetched."},
+    {"url_or_query": "https://soulsremnant.wiki/guides/mining-guide and https://soulsremnant.wiki/guides/crafting-guide and https://soulsremnant.wiki/guides/beginner-guide", "reason": "soulsremnant.wiki is on the skip list. Not fetched."},
+    {"url_or_query": "https://soulsremnantwiki.com/crafting and https://www.souls-remnant.online/crafting", "reason": "Not fetched. Domain pattern matches the SEO sites on the skip list; likely the same content farm. Low priority."},
+    {"url_or_query": "https://steamcommunity.com/app/649950/discussions/0/1752394569272369165", "reason": "Wrong game (app 649950 is not Soul's Remnant; the correct app id is 3451980)."},
+    {"url_or_query": "https://www.gamersky.com/handbook/202607/2169351_15.shtml", "reason": "Wrong game (Granblue Fantasy: Relink walkthrough)."},
+    {"url_or_query": "https://www.notebookcheck.net/New-free-to-play-MMORPG-tops-Steam-charts-with-a-decade-of-solo-development-behind-it.1368043.0.html", "reason": "News article, not a player guide. Not used for claims."},
+    {"url_or_query": "\"Soul's Remnant\" 巴哈姆特 攻略 / Japanese / Korean / Reddit / Abyss Trial / money-making queries", "reason": "No Soul's Remnant player guide found. Results were other games (Bahamut FF, Remnant 2, Crimson Desert, WoW, Diablo) or generic AH-tips spam (ftp.pink-ribbon.be). Reddit search returned no r/SoulsRemnant threads."},
+    {"url_or_query": "YouTube guide search", "reason": "No Soul's Remnant video guide surfaced in search."}
+  ]
+}

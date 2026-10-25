@@ -59,19 +59,25 @@ function lvText(lv) {
   if (!lv) return '?';
   return lv.lo === lv.hi ? `Lv ${lv.lo}` : `Lv ${lv.lo}–${lv.hi}`;
 }
+// Essences on a map, each with the best monster drop rate there (rate is null when only the map page lists it).
 function mapEssences(map) {
   const set = new Map();
   for (const n of map.monsters) {
     const m = byName.get(n);
     if (!m) continue;
-    for (const d of m.drops) if (d.ess) set.set(d.ess.tier + d.ess.fam, d.ess);
+    for (const d of m.drops) {
+      if (!d.ess) continue;
+      const k = d.ess.tier + d.ess.fam;
+      const cur = set.get(k);
+      if (!cur || (d.rate ?? -1) > (cur.rate ?? -1)) set.set(k, { ...d.ess, rate: d.rate, by: m });
+    }
   }
   for (const e of map.essences) {
     const m = e.match(/^(Dull |Radiant )?(Life|Raging|Eternal|Ghostly|Metal|Historic|Nurturing) Essence$/i);
     if (m) {
       const tier = m[1] ? m[1].trim() : 'Normal';
       const fam = FAMILIES.find((f) => f.key.toLowerCase() === m[2].toLowerCase()).key;
-      set.set(tier + fam, { tier, fam });
+      if (!set.has(tier + fam)) set.set(tier + fam, { tier, fam, rate: null });
     }
   }
   const order = (e) => FAMILIES.findIndex((f) => f.key === e.fam) * 3 + TIERS.findIndex((t) => t.key === e.tier);
@@ -124,7 +130,7 @@ function mapCard(map, L, kind) {
     <div class="mobs">${mobs.map((m) => `<div class="mob">${icon(m)}
       <span class="who"><b>${esc(m.zh || m.name)}</b>${m.zh ? `<small>${esc(m.name)}</small>` : ''}</span>
       <span class="lv">${m.level != null ? 'Lv ' + m.level : ''}</span></div>`).join('')}</div>
-    ${ess.length ? `<div class="ess">${ess.map((e) => `<span style="--c:${famOf(e.fam).c}">${tierOf(e.tier).zh} ${famOf(e.fam).zh}</span>`).join('')}</div>` : ''}
+    ${ess.length ? `<div class="ess">${ess.map((e) => `<span style="--c:${famOf(e.fam).c}"${e.by ? ` title="${esc(e.by.zh || e.by.name)}"` : ''}>${tierOf(e.tier).zh} ${famOf(e.fam).zh}${e.rate != null ? `<b>${e.rate}%</b>` : ''}</span>`).join('')}</div>` : ''}
     ${map.notes ? `<p class="note">${esc(map.notes)}</p>` : ''}
   </article>`;
 }
@@ -134,6 +140,7 @@ function renderFinder() {
   const L = Math.max(1, Math.min(250, parseInt(lvInput.value, 10) || 1));
   const U = +overInput.value;
   store.set('lv', L); store.set('over', U);
+  renderEssence();
   const fit = [], over = [], easy = [];
   for (const map of DATA.maps) {
     if (!map.level || !map.monsters.length) continue;
@@ -161,16 +168,25 @@ const essList = document.getElementById('ess-list');
 const essSearch = document.getElementById('ess-search');
 document.getElementById('ess-recipes').innerHTML = RECIPES.map(([fam, lv, mats]) =>
   `<li><b>${fam}</b> <code>鍊金 Lv${lv}</code> ${mats}</li>`).join('') + '<li><b>靈魂、金屬</b> 沒有配方</li>';
+const essReach = document.getElementById('ess-reach');
+const essReachLv = document.getElementById('ess-reach-lv');
+essReach.checked = store.get('reach') === '1';
 essSearch.addEventListener('input', renderEssence);
+essReach.addEventListener('change', () => { store.set('reach', essReach.checked ? '1' : '0'); renderEssence(); });
 
 function renderEssence() {
   if (!DATA) return;
   const q = essSearch.value.trim().toLowerCase();
   const match = (m) => !q || m.name.toLowerCase().includes(q) || (m.zh || '').includes(q);
+  // "Within reach" uses the map finder's level and over-level allowance.
+  const cap = (parseInt(lvInput.value, 10) || 1) + (+overInput.value);
+  essReachLv.textContent = `（Lv ${cap} 以下）`;
+  const reach = (m) => !essReach.checked || (m.level != null && m.level <= cap);
   essList.innerHTML = FAMILIES.map((f) => {
     const tiers = TIERS.map((t) => {
       const rows = [];
       for (const m of DATA.monsters) {
+        if (!reach(m)) continue;
         for (const d of m.drops) {
           if (d.ess && d.ess.fam === f.key && d.ess.tier === t.key) rows.push({ m, rate: d.rate });
         }
@@ -182,7 +198,7 @@ function renderEssence() {
           <span class="who"><b>${esc(r.m.zh || r.m.name)}</b> <span class="lv">${r.m.level != null ? 'Lv ' + r.m.level : ''}</span>
           <small>${esc(r.m.zh ? r.m.name + '・' : '')}${esc(r.m.maps.slice(0, 3).join('、') || '地圖未知')}</small></span>
           <span class="rate">${r.rate != null ? r.rate + '%' : '?'}</span>${r === best ? '<span class="star">最高</span>' : ''}</div>`).join('')
-        : `<p class="none">${rows.length ? '沒有符合搜尋的怪' : 'wiki 上還沒有資料'}</p>`;
+        : `<p class="none">${rows.length ? '沒有符合搜尋的怪' : essReach.checked ? '你的等級範圍內沒有' : 'wiki 上還沒有資料'}</p>`;
       return `<div class="tier" style="--tc:${t.c}"><h4>${t.zh}</h4>${body}</div>`;
     }).join('');
     const famIcon = DATA.items[`Dull ${f.key} Essence`];

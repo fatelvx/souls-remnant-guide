@@ -7,8 +7,8 @@
 <meta name="description" content="Soul's Remnant 練功地圖、精華掉落、拍賣場、元素與染色整理。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Pixelify+Sans:wght@500;600&display=swap">
-<link rel="stylesheet" href="style.css?v=202610242154">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Pixelify+Sans:wght@500;600&family=Press+Start+2P&display=swap">
+<link rel="stylesheet" href="style.css?v=202610250444">
 <link rel="icon" href="assets/items/soul-crystal.png">
 </head>
 <body>
@@ -46,6 +46,7 @@
         <li><button type="button" data-lv="27"><span class="lv">Lv 27</span><b>Misty Forest 2</b><small>悲傷樹苗、獨眼鬼</small></button></li>
         <li><button type="button" data-lv="28"><span class="lv">Lv 27–31</span><b>Lost Forest</b><small>比硫磺平原任何一個點都好練</small></button></li>
         <li><button type="button" data-lv="42"><span class="lv">Lv 42</span><b>靈魂樹</b><small>Forest 2、Forest 3、Forest Lake</small></button></li>
+        <li><button type="button" data-lv="43"><span class="lv">Lv 42–45</span><b>Deep Cave 8</b><small>超長直線地圖，怪多到一個人打不完；可同時刷永恆、靈魂精華</small></button></li>
         <li><button type="button" data-lv="47"><span class="lv">Lv 47</span><b>Ocean 4</b><small>吉加、泡泡蛇、斯威爾</small></button></li>
       </ul>
       <p class="note">一位玩家（信仰遠程流）的實測，流派和裝備不同結果會不一樣，僅供參考。</p>
@@ -83,7 +84,7 @@
   <section class="panel" id="essence" aria-labelledby="ess-h" hidden>
     <div>
       <h2 id="ess-h">精華掉落表</h2>
-      <p class="sub">每種精華分 Dull、一般、光輝三階。金框是該階掉落率最高的怪。</p>
+      <p class="sub">每種精華分 Dull、一般、光輝三階。金框是該階掉落率最高的怪；勾「只看我打得到的」時，只在你的等級＋越級數以內比。等級和越級數跟練功地圖分頁共用。</p>
     </div>
     <div class="cards">
       <div class="card">
@@ -107,7 +108,10 @@
         <ul id="ess-recipes"></ul>
       </div>
     </div>
-    <input class="search" id="ess-search" type="search" placeholder="搜尋怪物（中文或英文）" aria-label="搜尋怪物">
+    <div class="ess-tools">
+      <input class="search" id="ess-search" type="search" placeholder="搜尋怪物（中文或英文）" aria-label="搜尋怪物">
+      <label class="check"><input type="checkbox" id="ess-reach"> 只看我打得到的 <span class="lv" id="ess-reach-lv"></span></label>
+    </div>
     <div id="ess-list" class="group"></div>
   </section>
 
@@ -261,6 +265,6 @@
   <p>遊戲圖像版權屬於 Chaomoon。本站為玩家自製，與官方無關。</p>
 </footer>
 
-<script src="app.js?v=202610242154"></script>
+<script src="app.js?v=202610250444"></script>
 </body>
 </html>
