@@ -3,13 +3,13 @@ const FAMILIES = [
   { key: 'Life', zh: '生命', c: 'var(--life)' },
   { key: 'Raging', zh: '狂怒', c: 'var(--raging)' },
   { key: 'Eternal', zh: '永恆', c: 'var(--eternal)' },
-  { key: 'Ghostly', zh: '靈魂', c: 'var(--ghostly)' },
+  { key: 'Ghostly', zh: '幽靈', c: 'var(--ghostly)' },
   { key: 'Metal', zh: '金屬', c: 'var(--metal)' },
   { key: 'Historic', zh: '歷史', c: 'var(--historic)' },
   { key: 'Nurturing', zh: '滋養', c: 'var(--nurturing)' },
 ];
 const TIERS = [
-  { key: 'Dull', zh: 'Dull', c: 'var(--dull)' },
+  { key: 'Dull', zh: '黯淡', c: 'var(--dull)' },
   { key: 'Normal', zh: '一般', c: 'var(--normal)' },
   { key: 'Radiant', zh: '光輝', c: 'var(--radiant)' },
 ];
@@ -55,6 +55,7 @@ function icon(mon, size = 'icon') {
     ? `<span class="${size}"><img class="sprite" src="${esc(mon.icon)}" alt="" loading="lazy" referrerpolicy="no-referrer" data-ph="${esc(label.slice(0, 1))}"></span>`
     : `<span class="${size}"><span class="ph" aria-hidden="true">${esc(label.slice(0, 1))}</span></span>`;
 }
+const mapZh = (name) => DATA.maps.find((m) => m.name === name)?.zh || name;
 function lvText(lv) {
   if (!lv) return '?';
   return lv.lo === lv.hi ? `Lv ${lv.lo}` : `Lv ${lv.lo}–${lv.hi}`;
@@ -125,8 +126,8 @@ function mapCard(map, L, kind) {
   const ess = mapEssences(map);
   const badgeCls = kind === 'over' ? 'badge hard' : kind === 'fit' ? 'badge hot' : 'badge';
   return `<article class="map-card">
-    <div class="map-top"><h3>${esc(map.name)}</h3><span class="${badgeCls}">${lvText(map.level)}</span></div>
-    ${map.region ? `<span class="region">${esc(map.region)}</span>` : ''}
+    <div class="map-top"><h3>${esc(map.zh || map.name)}${map.zh ? `<small>${esc(map.name)}</small>` : ''}</h3><span class="${badgeCls}">${lvText(map.level)}</span></div>
+    ${map.region ? `<span class="region">${esc(map.regionZh || map.region)}</span>` : ''}
     <div class="mobs">${mobs.map((m) => `<div class="mob">${icon(m)}
       <span class="who"><b>${esc(m.zh || m.name)}</b>${m.zh ? `<small>${esc(m.name)}</small>` : ''}</span>
       <span class="lv">${m.level != null ? 'Lv ' + m.level : ''}</span></div>`).join('')}</div>
@@ -167,7 +168,7 @@ function renderFinder() {
 const essList = document.getElementById('ess-list');
 const essSearch = document.getElementById('ess-search');
 document.getElementById('ess-recipes').innerHTML = RECIPES.map(([fam, lv, mats]) =>
-  `<li><b>${fam}</b> <code>鍊金 Lv${lv}</code> ${mats}</li>`).join('') + '<li><b>靈魂、金屬</b> 沒有配方</li>';
+  `<li><b>${fam}</b> <code>鍊金 Lv${lv}</code> ${mats}</li>`).join('') + '<li><b>幽靈、金屬</b> 沒有配方</li>';
 const essReach = document.getElementById('ess-reach');
 const essReachLv = document.getElementById('ess-reach-lv');
 essReach.checked = store.get('reach') === '1';
@@ -196,7 +197,7 @@ function renderEssence() {
       const shown = rows.filter((r) => match(r.m));
       const body = shown.length ? shown.map((r) => `<div class="row${r === best ? ' best' : ''}">${icon(r.m)}
           <span class="who"><b>${esc(r.m.zh || r.m.name)}</b> <span class="lv">${r.m.level != null ? 'Lv ' + r.m.level : ''}</span>
-          <small>${esc(r.m.zh ? r.m.name + '・' : '')}${esc(r.m.maps.slice(0, 3).join('、') || '地圖未知')}</small></span>
+          <small>${esc(r.m.zh ? r.m.name + '・' : '')}${esc(r.m.maps.slice(0, 3).map(mapZh).join('、') || '地圖未知')}</small></span>
           <span class="rate">${r.rate != null ? r.rate + '%' : '?'}</span>${r === best ? '<span class="star">最高</span>' : ''}</div>`).join('')
         : `<p class="none">${rows.length ? '沒有符合搜尋的怪' : essReach.checked ? '你的等級範圍內沒有' : 'wiki 上還沒有資料'}</p>`;
       return `<div class="tier" style="--tc:${t.c}"><h4>${t.zh}</h4>${body}</div>`;

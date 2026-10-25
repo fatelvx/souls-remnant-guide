@@ -90,6 +90,12 @@ for (const f of rawFiles.filter((f) => /^maps-[a-z]\.json$/.test(f))) {
   }
 }
 
+// Official Traditional Chinese map and region names from the game's own localization.
+for (const mp of maps.values()) {
+  mp.zh = names.maps?.[mp.name] || null;
+  mp.regionZh = mp.region ? names.regions?.[mp.region] || null : null;
+}
+
 // Map pages sometimes spell a monster differently ("ChronoShroom" vs "Chrono Shroom"); use the monster page's spelling.
 const key = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
 const canonical = new Map([...monsters.keys(), ...Object.keys(names.monsters)].map((n) => [key(n), n]));
@@ -101,7 +107,7 @@ for (const mp of maps.values()) {
 for (const mon of monsters.values()) {
   for (const mapName of mon.maps) {
     if (!maps.has(mapName)) {
-      maps.set(mapName, { name: mapName, region: null, level: null, monsters: [], essences: [], gathering: [], notes: null, url: null });
+      maps.set(mapName, { name: mapName, zh: names.maps?.[mapName] || null, regionZh: null, region: null, level: null, monsters: [], essences: [], gathering: [], notes: null, url: null });
     }
     const mp = maps.get(mapName);
     if (!mp.monsters.includes(mon.name)) mp.monsters.push(mon.name);
