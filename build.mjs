@@ -85,6 +85,7 @@ for (const f of rawFiles.filter((f) => /^maps-[a-z]\.json$/.test(f))) {
       essences: (m.essences || []).map(clean).filter(Boolean),
       gathering: (m.gathering || []).map(clean).filter(Boolean),
       notes: m.notes ? (notesZh[clean(m.notes)] || clean(m.notes)) : null,
+      notesEn: m.notes ? clean(m.notes) : null,
       url: m.url || null,
     });
   }
