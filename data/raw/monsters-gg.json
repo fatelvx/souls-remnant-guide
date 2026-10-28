@@ -1,0 +1,1924 @@
+[
+ {
+  "id": 1,
+  "name": "Slime",
+  "sprite": "icons/monsters/1.webp",
+  "level": 1,
+  "hp": 20,
+  "atk": 8,
+  "def": 0,
+  "maps": [
+   "outskirts_east",
+   "Outskirts Flower Field",
+   "Outskirts Northwest",
+   "outskirts_west",
+   "Secret Garden",
+   "Sheep Beach"
+  ],
+  "shinyLv": 1,
+  "boss": false
+ },
+ {
+  "id": 2,
+  "name": "Bubble Spirit",
+  "sprite": "icons/monsters/2.webp",
+  "level": 3,
+  "hp": 43,
+  "atk": 9,
+  "def": 1,
+  "maps": [
+   "Cave 1",
+   "Cave 2",
+   "Cave 3",
+   "Outskirts Flower Field",
+   "outskirts_northeast",
+   "Outskirts Northwest",
+   "Secret Garden",
+   "Sheep Beach"
+  ],
+  "shinyLv": 5,
+  "boss": false
+ },
+ {
+  "id": 3,
+  "name": "Big Slime",
+  "sprite": "icons/monsters/3.webp",
+  "level": 42,
+  "hp": 3263934,
+  "atk": null,
+  "def": 14,
+  "maps": [
+   "Forest 1"
+  ],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 4,
+  "name": "Humblebee",
+  "sprite": "icons/monsters/4.webp",
+  "level": 38,
+  "hp": 16473,
+  "atk": 153,
+  "def": 5,
+  "maps": [
+   "forest_3",
+   "forest_lake",
+   "forest_pond",
+   "forest_seed"
+  ],
+  "shinyLv": 66,
+  "boss": false
+ },
+ {
+  "id": 6,
+  "name": "Monoghoul",
+  "sprite": "icons/monsters/6.webp",
+  "level": 27,
+  "hp": 4541,
+  "atk": 75,
+  "def": 5,
+  "maps": [
+   "lost_forest",
+   "Misty Forest",
+   "misty_forest_2"
+  ],
+  "shinyLv": 47,
+  "boss": false
+ },
+ {
+  "id": 7,
+  "name": "Pin Pin",
+  "sprite": "icons/monsters/7.webp",
+  "level": 7,
+  "hp": 161,
+  "atk": 13,
+  "def": 5,
+  "maps": [
+   "outskirts_east",
+   "outskirts_northeast",
+   "outskirts_south",
+   "outskirts_southeast",
+   "outskirts_southwest"
+  ],
+  "shinyLv": 12,
+  "boss": false
+ },
+ {
+  "id": 9,
+  "name": "Squishling",
+  "sprite": "icons/monsters/9.webp",
+  "level": 14,
+  "hp": 823,
+  "atk": 25,
+  "def": 5,
+  "maps": [
+   "plains_2",
+   "Plains 3",
+   "plains_4"
+  ],
+  "shinyLv": 24,
+  "boss": false
+ },
+ {
+  "id": 10,
+  "name": "Troppo",
+  "sprite": "icons/monsters/10.webp",
+  "level": 22,
+  "hp": 2618,
+  "atk": 51,
+  "def": 3,
+  "maps": [
+   "beach_2",
+   "beach_cave"
+  ],
+  "shinyLv": 38,
+  "boss": false
+ },
+ {
+  "id": 11,
+  "name": "Sweel",
+  "sprite": "icons/monsters/11.webp",
+  "level": 44,
+  "hp": 36931,
+  "atk": 213,
+  "def": 0,
+  "maps": [
+   "cold_ocean_cave",
+   "Ocean",
+   "ocean_3",
+   "ocean_4"
+  ],
+  "shinyLv": 77,
+  "boss": false
+ },
+ {
+  "id": 12,
+  "name": "Fish",
+  "sprite": "icons/monsters/12.webp",
+  "level": 15,
+  "hp": -1,
+  "atk": -1,
+  "def": -1,
+  "maps": [],
+  "shinyLv": null,
+  "boss": false
+ },
+ {
+  "id": 14,
+  "name": "Reaperfish",
+  "sprite": "icons/monsters/14.webp",
+  "level": 75,
+  "hp": 616926144,
+  "atk": null,
+  "def": 40,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 15,
+  "name": "Angeling",
+  "sprite": "icons/monsters/15.webp",
+  "level": 12,
+  "hp": 32332,
+  "atk": null,
+  "def": 11,
+  "maps": [
+   "plains_2"
+  ],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 16,
+  "name": "Jel",
+  "sprite": "icons/monsters/16.webp",
+  "level": 5,
+  "hp": 83,
+  "atk": 11,
+  "def": 3,
+  "maps": [
+   "Cave 1",
+   "Cave 2",
+   "Cave 3",
+   "outskirts_east",
+   "Outskirts Flower Field",
+   "Outskirts Flower Field 2",
+   "Outskirts North",
+   "outskirts_northeast",
+   "Outskirts Northwest",
+   "outskirts_south",
+   "outskirts_southeast",
+   "outskirts_southwest",
+   "plains_2",
+   "Secret Garden"
+  ],
+  "shinyLv": 8,
+  "boss": false
+ },
+ {
+  "id": 17,
+  "name": "Hopper",
+  "sprite": "icons/monsters/17.webp",
+  "level": 9,
+  "hp": 307,
+  "atk": 15,
+  "def": 5,
+  "maps": [
+   "outskirts_south",
+   "outskirts_southeast",
+   "outskirts_southwest"
+  ],
+  "shinyLv": 15,
+  "boss": false
+ },
+ {
+  "id": 18,
+  "name": "Bubble Snake",
+  "sprite": "icons/monsters/18.webp",
+  "level": 48,
+  "hp": 50642,
+  "atk": 261,
+  "def": 6,
+  "maps": [
+   "Ocean",
+   "ocean_4"
+  ],
+  "shinyLv": 84,
+  "boss": false
+ },
+ {
+  "id": 19,
+  "name": "Cat Golem",
+  "sprite": "icons/monsters/19.webp",
+  "level": 69,
+  "hp": 372657,
+  "atk": 861,
+  "def": 20,
+  "maps": [
+   "rocky_path_2",
+   "rocky_path_3",
+   "Cat Golem Den"
+  ],
+  "shinyLv": 120,
+  "boss": false
+ },
+ {
+  "id": 20,
+  "name": "Snapper",
+  "sprite": "icons/monsters/20.webp",
+  "level": 18,
+  "hp": 1510,
+  "atk": 37,
+  "def": 4,
+  "maps": [
+   "Around the Seashore",
+   "Snapper Shore",
+   "Beach Hunting Ground",
+   "Sheep Beach",
+   "shell_beach"
+  ],
+  "shinyLv": 31,
+  "boss": false
+ },
+ {
+  "id": 21,
+  "name": "Crusher",
+  "sprite": "icons/monsters/21.webp",
+  "level": 20,
+  "hp": 1927,
+  "atk": 43,
+  "def": 6,
+  "maps": [
+   "Around the Seashore",
+   "beach_2",
+   "Snapper Shore",
+   "Beach Hunting Ground",
+   "shell_beach"
+  ],
+  "shinyLv": 35,
+  "boss": false
+ },
+ {
+  "id": 22,
+  "name": "Soulfish",
+  "sprite": "icons/monsters/22.webp",
+  "level": 79,
+  "hp": 1181024,
+  "atk": 1305,
+  "def": 12,
+  "maps": [
+   "Deep Ocean",
+   "Deep Ocean 2",
+   "deep_ocean_3",
+   "deep_ocean_4"
+  ],
+  "shinyLv": 138,
+  "boss": false
+ },
+ {
+  "id": 23,
+  "name": "Droppo",
+  "sprite": "icons/monsters/23.webp",
+  "level": 21,
+  "hp": 1921,
+  "atk": 47,
+  "def": 12,
+  "maps": [
+   "beach_2",
+   "beach_cave"
+  ],
+  "shinyLv": 36,
+  "boss": false
+ },
+ {
+  "id": 24,
+  "name": "Giga",
+  "sprite": "icons/monsters/24.webp",
+  "level": 46,
+  "hp": 36387,
+  "atk": 236,
+  "def": 11,
+  "maps": [
+   "ocean_1",
+   "Ocean",
+   "ocean_3",
+   "ocean_4"
+  ],
+  "shinyLv": 80,
+  "boss": false
+ },
+ {
+  "id": 25,
+  "name": "Scythe Reaper",
+  "sprite": "icons/monsters/25.webp",
+  "level": 70,
+  "hp": 372780064,
+  "atk": null,
+  "def": 40,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 26,
+  "name": "Pimchy",
+  "sprite": "icons/monsters/26.webp",
+  "level": 17,
+  "hp": 1276,
+  "atk": 34,
+  "def": 5,
+  "maps": [
+   "shell_beach"
+  ],
+  "shinyLv": 29,
+  "boss": false
+ },
+ {
+  "id": 27,
+  "name": "Blorp",
+  "sprite": "icons/monsters/27.webp",
+  "level": 52,
+  "hp": 11169713,
+  "atk": null,
+  "def": 25,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 28,
+  "name": "Dark Pumpkin",
+  "sprite": "icons/monsters/28.webp",
+  "level": 30,
+  "hp": 6070,
+  "atk": 92,
+  "def": 8,
+  "maps": [
+   "misty_forest_3"
+  ],
+  "shinyLv": 52,
+  "boss": false
+ },
+ {
+  "id": 30,
+  "name": "Dark Matter",
+  "sprite": "icons/monsters/30.webp",
+  "level": 35,
+  "hp": 11371,
+  "atk": 128,
+  "def": 6,
+  "maps": [
+   "deep_cave_3",
+   "deep_cave_4"
+  ],
+  "shinyLv": 61,
+  "boss": false
+ },
+ {
+  "id": 31,
+  "name": "Cactus",
+  "sprite": "icons/monsters/31.webp",
+  "level": 50,
+  "hp": 60882,
+  "atk": 287,
+  "def": 8,
+  "maps": [
+   "desert_3",
+   "Desert 4"
+  ],
+  "shinyLv": 87,
+  "boss": false
+ },
+ {
+  "id": 32,
+  "name": "Seeker Reaper",
+  "sprite": "icons/monsters/32.webp",
+  "level": 80,
+  "hp": 593860544,
+  "atk": null,
+  "def": 40,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 33,
+  "name": "Shadow Sprite",
+  "sprite": "icons/monsters/33.webp",
+  "level": 30,
+  "hp": 6937,
+  "atk": 92,
+  "def": 2,
+  "maps": [
+   "deep_cave_3",
+   "deep_cave_4",
+   "deep_cave_6",
+   "deep_cave_8"
+  ],
+  "shinyLv": 52,
+  "boss": false
+ },
+ {
+  "id": 34,
+  "name": "Dark Mass",
+  "sprite": "icons/monsters/34.webp",
+  "level": 45,
+  "hp": 32467,
+  "atk": 224,
+  "def": 11,
+  "maps": [
+   "deep_cave_6",
+   "deep_cave_8"
+  ],
+  "shinyLv": 78,
+  "boss": false
+ },
+ {
+  "id": 35,
+  "name": "Death Mist",
+  "sprite": "icons/monsters/35.webp",
+  "level": 42,
+  "hp": 27976,
+  "atk": 191,
+  "def": 2,
+  "maps": [
+   "deep_cave_8"
+  ],
+  "shinyLv": 73,
+  "boss": false
+ },
+ {
+  "id": 36,
+  "name": "Puppet Reaper (Wandering)",
+  "sprite": "icons/monsters/36.webp",
+  "level": 118,
+  "hp": 317839104,
+  "atk": null,
+  "def": 0,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 37,
+  "name": "Puppet Reaper",
+  "sprite": "icons/monsters/37.webp",
+  "level": 85,
+  "hp": 1256668416,
+  "atk": null,
+  "def": 40,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 38,
+  "name": "Puppet Reaper (Panic)",
+  "sprite": "icons/monsters/38.webp",
+  "level": 85,
+  "hp": 1256668416,
+  "atk": null,
+  "def": 40,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 39,
+  "name": "Ghost Puppet",
+  "sprite": "icons/monsters/39.webp",
+  "level": 85,
+  "hp": 349074560,
+  "atk": null,
+  "def": 40,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 40,
+  "name": "Seeker Reaper Mini",
+  "sprite": "icons/monsters/40.webp",
+  "level": 100,
+  "hp": 21818518,
+  "atk": null,
+  "def": 10,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 41,
+  "name": "Seeker Reaper (Wandering)",
+  "sprite": "icons/monsters/41.webp",
+  "level": 180,
+  "hp": 3228349497344,
+  "atk": null,
+  "def": 0,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 42,
+  "name": "Blaze",
+  "sprite": "icons/monsters/42.webp",
+  "level": 86,
+  "hp": 2467435,
+  "atk": 1695,
+  "def": 10,
+  "maps": [
+   "desert_5"
+  ],
+  "shinyLv": 150,
+  "boss": false
+ },
+ {
+  "id": 43,
+  "name": "Haunted Flame",
+  "sprite": "icons/monsters/43.webp",
+  "level": 87,
+  "hp": 2477179,
+  "atk": 1756,
+  "def": 15,
+  "maps": [
+   "desert_5"
+  ],
+  "shinyLv": 152,
+  "boss": false
+ },
+ {
+  "id": 44,
+  "name": "Rokkik",
+  "sprite": "icons/monsters/44.webp",
+  "level": 52,
+  "hp": 66002,
+  "atk": 316,
+  "def": 15,
+  "maps": [
+   "Desert 2",
+   "desert_3",
+   "Desert 4"
+  ],
+  "shinyLv": 91,
+  "boss": false
+ },
+ {
+  "id": 45,
+  "name": "Phantom",
+  "sprite": "icons/monsters/45.webp",
+  "level": 92,
+  "hp": -1,
+  "atk": -1,
+  "def": -1,
+  "maps": [],
+  "shinyLv": null,
+  "boss": false
+ },
+ {
+  "id": 46,
+  "name": "Lost Bard",
+  "sprite": "icons/monsters/46.webp",
+  "level": 95,
+  "hp": 7854390,
+  "atk": 2308,
+  "def": 10,
+  "maps": [
+   "desert_5",
+   "Desert Hideout"
+  ],
+  "shinyLv": 166,
+  "boss": false
+ },
+ {
+  "id": 47,
+  "name": "Lost Ruins",
+  "sprite": "icons/monsters/47.webp",
+  "level": 100,
+  "hp": 13535061,
+  "atk": 2709,
+  "def": 22,
+  "maps": [
+   "deep_cave_7",
+   "Deep Cave 9"
+  ],
+  "shinyLv": 175,
+  "boss": false
+ },
+ {
+  "id": 48,
+  "name": "Elemental",
+  "sprite": "icons/monsters/48.webp",
+  "level": 52,
+  "hp": 72603,
+  "atk": 316,
+  "def": 10,
+  "maps": [
+   "deep_cave_6",
+   "frost_cave"
+  ],
+  "shinyLv": 91,
+  "boss": false
+ },
+ {
+  "id": 49,
+  "name": "Fallen",
+  "sprite": "icons/monsters/49.webp",
+  "level": 92,
+  "hp": 2152738816,
+  "atk": null,
+  "def": 12,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 50,
+  "name": "Desert Bandit",
+  "sprite": "icons/monsters/50.webp",
+  "level": 58,
+  "hp": 141428,
+  "atk": -1,
+  "def": 9,
+  "maps": [
+   "desert_1",
+   "Desert 2"
+  ],
+  "shinyLv": 101,
+  "boss": false
+ },
+ {
+  "id": 51,
+  "name": "Desert Bandit (Fleeing)",
+  "sprite": "icons/monsters/51.webp",
+  "level": 58,
+  "hp": 173249,
+  "atk": -1,
+  "def": 0,
+  "maps": [
+   "desert_1",
+   "Desert 2"
+  ],
+  "shinyLv": 101,
+  "boss": false
+ },
+ {
+  "id": 52,
+  "name": "Shadow Golem",
+  "sprite": "icons/monsters/52.webp",
+  "level": 105,
+  "hp": 22370228,
+  "atk": 3156,
+  "def": 40,
+  "maps": [
+   "hall_of_might"
+  ],
+  "shinyLv": 183,
+  "boss": false
+ },
+ {
+  "id": 53,
+  "name": "Glowsnail",
+  "sprite": "icons/monsters/53.webp",
+  "level": 10,
+  "hp": 443,
+  "atk": 17,
+  "def": 6,
+  "maps": [
+   "Cave 2",
+   "Cave 3",
+   "Glowsnail Cave",
+   "Glowsnail Cave 2",
+   "outskirts_southwest",
+   "Plains 1"
+  ],
+  "shinyLv": 17,
+  "boss": false
+ },
+ {
+  "id": 54,
+  "name": "Soul Squid",
+  "sprite": "icons/monsters/54.webp",
+  "level": 86,
+  "hp": 1898027,
+  "atk": 1695,
+  "def": 25,
+  "maps": [
+   "Squid Den"
+  ],
+  "shinyLv": 150,
+  "boss": false
+ },
+ {
+  "id": 55,
+  "name": "Licki",
+  "sprite": "icons/monsters/55.webp",
+  "level": 22,
+  "hp": 2345,
+  "atk": 51,
+  "def": 8,
+  "maps": [
+   "Savannah",
+   "savannah_2",
+   "windy_savannah"
+  ],
+  "shinyLv": 38,
+  "boss": false
+ },
+ {
+  "id": 56,
+  "name": "Licku",
+  "sprite": "icons/monsters/56.webp",
+  "level": 66,
+  "hp": 332073,
+  "atk": 751,
+  "def": 9,
+  "maps": [
+   "deep_cave_11",
+   "deep_cave_12"
+  ],
+  "shinyLv": 115,
+  "boss": false
+ },
+ {
+  "id": 57,
+  "name": "Ferni",
+  "sprite": "icons/monsters/57.webp",
+  "level": 40,
+  "hp": 21223,
+  "atk": 171,
+  "def": 4,
+  "maps": [
+   "Forest 1",
+   "forest_3"
+  ],
+  "shinyLv": 70,
+  "boss": false
+ },
+ {
+  "id": 58,
+  "name": "Soulpling",
+  "sprite": "icons/monsters/58.webp",
+  "level": 39,
+  "hp": 19811,
+  "atk": 162,
+  "def": 2,
+  "maps": [
+   "forest_2",
+   "forest_3",
+   "forest_lake",
+   "forest_pond",
+   "forest_seed"
+  ],
+  "shinyLv": 68,
+  "boss": false
+ },
+ {
+  "id": 59,
+  "name": "Soultree",
+  "sprite": "icons/monsters/59.webp",
+  "level": 42,
+  "hp": 25543,
+  "atk": 191,
+  "def": 6,
+  "maps": [
+   "forest_2",
+   "forest_3",
+   "forest_lake"
+  ],
+  "shinyLv": 73,
+  "boss": false
+ },
+ {
+  "id": 60,
+  "name": "Cloudsheep",
+  "sprite": "icons/monsters/60.webp",
+  "level": 12,
+  "hp": 622,
+  "atk": 20,
+  "def": 3,
+  "maps": [
+   "Beach Hunting Ground",
+   "Plains 1",
+   "plains_2",
+   "Sheep Beach"
+  ],
+  "shinyLv": 21,
+  "boss": false
+ },
+ {
+  "id": 61,
+  "name": "Sadling",
+  "sprite": "icons/monsters/61.webp",
+  "level": 28,
+  "hp": 4694,
+  "atk": 81,
+  "def": 9,
+  "maps": [
+   "Glowsnail Cave 2",
+   "lost_forest",
+   "misty_forest_2",
+   "misty_forest_3"
+  ],
+  "shinyLv": 49,
+  "boss": false
+ },
+ {
+  "id": 62,
+  "name": "Depression",
+  "sprite": "icons/monsters/62.webp",
+  "level": 55,
+  "hp": -1,
+  "atk": -1,
+  "def": -1,
+  "maps": [],
+  "shinyLv": null,
+  "boss": false
+ },
+ {
+  "id": 63,
+  "name": "Gloopy",
+  "sprite": "icons/monsters/63.webp",
+  "level": 27,
+  "hp": 123828,
+  "atk": null,
+  "def": 11,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 64,
+  "name": "Deerlime",
+  "sprite": "icons/monsters/64.webp",
+  "level": 37,
+  "hp": 6227345,
+  "atk": null,
+  "def": 13,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 65,
+  "name": "Slibbit",
+  "sprite": "icons/monsters/65.webp",
+  "level": 58,
+  "hp": 147446,
+  "atk": 412,
+  "def": 7,
+  "maps": [
+   "frost_cave",
+   "Snowy Mountain",
+   "snowy_mountain_2"
+  ],
+  "shinyLv": 101,
+  "boss": false
+ },
+ {
+  "id": 66,
+  "name": "Haowl",
+  "sprite": "icons/monsters/66.webp",
+  "level": 63,
+  "hp": 257118,
+  "atk": 651,
+  "def": 6,
+  "maps": [],
+  "shinyLv": 110,
+  "boss": false
+ },
+ {
+  "id": 67,
+  "name": "Acceptance",
+  "sprite": "icons/monsters/67.webp",
+  "level": 22,
+  "hp": -1,
+  "atk": -1,
+  "def": -1,
+  "maps": [],
+  "shinyLv": null,
+  "boss": false
+ },
+ {
+  "id": 68,
+  "name": "Bananek",
+  "sprite": "icons/monsters/68.webp",
+  "level": 23,
+  "hp": 2702,
+  "atk": 55,
+  "def": 7,
+  "maps": [
+   "Savannah",
+   "savannah_2",
+   "Savannah 3",
+   "savannah_cavern"
+  ],
+  "shinyLv": 40,
+  "boss": false
+ },
+ {
+  "id": 69,
+  "name": "Citruslime",
+  "sprite": "icons/monsters/69.webp",
+  "level": 25,
+  "hp": 3425,
+  "atk": 65,
+  "def": 7,
+  "maps": [
+   "savannah_2",
+   "Savannah 3",
+   "windy_savannah"
+  ],
+  "shinyLv": 43,
+  "boss": false
+ },
+ {
+  "id": 70,
+  "name": "Black Cloudsheep",
+  "sprite": "icons/monsters/70.webp",
+  "level": 16,
+  "hp": 1056,
+  "atk": 31,
+  "def": 7,
+  "maps": [
+   "Crescent Cave",
+   "Plains 3",
+   "plains_4"
+  ],
+  "shinyLv": 28,
+  "boss": false
+ },
+ {
+  "id": 71,
+  "name": "Rainbow Cloudsheep",
+  "sprite": "icons/monsters/71.webp",
+  "level": 37,
+  "hp": 14044,
+  "atk": 144,
+  "def": 7,
+  "maps": [
+   "Lost Plains"
+  ],
+  "shinyLv": 64,
+  "boss": false
+ },
+ {
+  "id": 72,
+  "name": "Slabbit",
+  "sprite": "icons/monsters/72.webp",
+  "level": 54,
+  "hp": 93880,
+  "atk": 346,
+  "def": 8,
+  "maps": [
+   "desert_1",
+   "Desert 2",
+   "desert_3",
+   "Sandy Cave"
+  ],
+  "shinyLv": 94,
+  "boss": false
+ },
+ {
+  "id": 73,
+  "name": "Saowl",
+  "sprite": "icons/monsters/73.webp",
+  "level": 85,
+  "hp": 1925928,
+  "atk": 1634,
+  "def": 18,
+  "maps": [
+   "desert_5",
+   "Desert Coast"
+  ],
+  "shinyLv": 148,
+  "boss": false
+ },
+ {
+  "id": 74,
+  "name": "Ancient Soul",
+  "sprite": "icons/monsters/74.webp",
+  "level": 84,
+  "hp": 1555838,
+  "atk": 1575,
+  "def": 25,
+  "maps": [
+   "Deep Ocean",
+   "Deep Ocean 2"
+  ],
+  "shinyLv": 147,
+  "boss": false
+ },
+ {
+  "id": 75,
+  "name": "Cat Guardian",
+  "sprite": "icons/monsters/75.webp",
+  "level": 72,
+  "hp": 490499,
+  "atk": 980,
+  "def": 22,
+  "maps": [
+   "detour",
+   "rocky_path_3",
+   "Cat Golem Den"
+  ],
+  "shinyLv": 126,
+  "boss": false
+ },
+ {
+  "id": 76,
+  "name": "Flows",
+  "sprite": "icons/monsters/76.webp",
+  "level": 6,
+  "hp": 118,
+  "atk": 12,
+  "def": 3,
+  "maps": [
+   "Outskirts Flower Field 2",
+   "Outskirts North",
+   "outskirts_pond"
+  ],
+  "shinyLv": 10,
+  "boss": false
+ },
+ {
+  "id": 77,
+  "name": "Slip",
+  "sprite": "icons/monsters/77.webp",
+  "level": 8,
+  "hp": 237,
+  "atk": 14,
+  "def": 3,
+  "maps": [
+   "outskirts_pond"
+  ],
+  "shinyLv": 14,
+  "boss": false
+ },
+ {
+  "id": 78,
+  "name": "Frostmite",
+  "sprite": "icons/monsters/78.webp",
+  "level": 11,
+  "hp": 551,
+  "atk": 19,
+  "def": 3,
+  "maps": [],
+  "shinyLv": 19,
+  "boss": false
+ },
+ {
+  "id": 79,
+  "name": "Flowsnail",
+  "sprite": "icons/monsters/79.webp",
+  "level": 19,
+  "hp": -1,
+  "atk": -1,
+  "def": -1,
+  "maps": [],
+  "shinyLv": null,
+  "boss": false
+ },
+ {
+  "id": 80,
+  "name": "Stinky Sheep",
+  "sprite": "icons/monsters/80.webp",
+  "level": 32,
+  "hp": 7557,
+  "atk": 97,
+  "def": 6,
+  "maps": [
+   "sulfuric_plains_1",
+   "sulfuric_plains_2"
+  ],
+  "shinyLv": 56,
+  "boss": false
+ },
+ {
+  "id": 81,
+  "name": "Licke",
+  "sprite": "icons/monsters/81.webp",
+  "level": 36,
+  "hp": 12242,
+  "atk": 136,
+  "def": 8,
+  "maps": [
+   "Sulfuric Path",
+   "sulfuric_path_2",
+   "sulfuric_plains_3"
+  ],
+  "shinyLv": 63,
+  "boss": false
+ },
+ {
+  "id": 82,
+  "name": "Spot Slime",
+  "sprite": "icons/monsters/82.webp",
+  "level": 34,
+  "hp": 9702,
+  "atk": 120,
+  "def": 8,
+  "maps": [
+   "Sulfuric Path",
+   "sulfuric_plains_2",
+   "sulfuric_plains_3"
+  ],
+  "shinyLv": 59,
+  "boss": false
+ },
+ {
+  "id": 83,
+  "name": "Blizzy",
+  "sprite": "icons/monsters/83.webp",
+  "level": 61,
+  "hp": 195004,
+  "atk": 590,
+  "def": 9,
+  "maps": [
+   "snowy_mountain_2",
+   "snowy_mountain_3",
+   "snowy_mountain_4",
+   "snowy_mountain_5"
+  ],
+  "shinyLv": 106,
+  "boss": false
+ },
+ {
+  "id": 84,
+  "name": "Snowball",
+  "sprite": "icons/monsters/84.webp",
+  "level": 64,
+  "hp": 253002,
+  "atk": 683,
+  "def": 12,
+  "maps": [
+   "snowy_mountain_3",
+   "snowy_mountain_4",
+   "snowy_mountain_5"
+  ],
+  "shinyLv": 112,
+  "boss": false
+ },
+ {
+  "id": 85,
+  "name": "Shroomie",
+  "sprite": "icons/monsters/85.webp",
+  "level": 73,
+  "hp": 659505,
+  "atk": 1022,
+  "def": 11,
+  "maps": [
+   "Deep Forest 1",
+   "deep_forest_3",
+   "Deep Tree Way"
+  ],
+  "shinyLv": 127,
+  "boss": false
+ },
+ {
+  "id": 86,
+  "name": "Tallshroom",
+  "sprite": "icons/monsters/86.webp",
+  "level": 73,
+  "hp": 611541,
+  "atk": 1022,
+  "def": 15,
+  "maps": [
+   "Deep Forest 1",
+   "Deep Forest",
+   "deep_forest_3",
+   "Deep Tree Way"
+  ],
+  "shinyLv": 127,
+  "boss": false
+ },
+ {
+  "id": 87,
+  "name": "Chrono Shroom",
+  "sprite": "icons/monsters/87.webp",
+  "level": 30,
+  "hp": -1,
+  "atk": -1,
+  "def": -1,
+  "maps": [],
+  "shinyLv": null,
+  "boss": false
+ },
+ {
+  "id": 88,
+  "name": "Rokkak",
+  "sprite": "icons/monsters/88.webp",
+  "level": 67,
+  "hp": 328955,
+  "atk": 787,
+  "def": 15,
+  "maps": [
+   "Rocky Path",
+   "rocky_path_2"
+  ],
+  "shinyLv": 117,
+  "boss": false
+ },
+ {
+  "id": 90,
+  "name": "Coral",
+  "sprite": "icons/monsters/90.webp",
+  "level": 82,
+  "hp": 1506615,
+  "atk": 1462,
+  "def": 15,
+  "maps": [
+   "Deep Ocean",
+   "Deep Ocean 2"
+  ],
+  "shinyLv": 143,
+  "boss": false
+ },
+ {
+  "id": 91,
+  "name": "Dragonfruit",
+  "sprite": "icons/monsters/91.webp",
+  "level": 56,
+  "hp": 107505,
+  "atk": 378,
+  "def": 12,
+  "maps": [
+   "desert_1",
+   "Desert 2"
+  ],
+  "shinyLv": 98,
+  "boss": false
+ },
+ {
+  "id": 92,
+  "name": "Fernek",
+  "sprite": "icons/monsters/92.webp",
+  "level": 77,
+  "hp": 1005383,
+  "atk": 1206,
+  "def": 10,
+  "maps": [
+   "Deep Forest",
+   "deep_forest_3",
+   "deep_forest_den",
+   "lost_peak"
+  ],
+  "shinyLv": 134,
+  "boss": false
+ },
+ {
+  "id": 93,
+  "name": "Kiwi",
+  "sprite": "icons/monsters/93.webp",
+  "level": 75,
+  "hp": 856841,
+  "atk": 1112,
+  "def": 8,
+  "maps": [
+   "Deep Forest",
+   "deep_forest_3",
+   "lost_peak"
+  ],
+  "shinyLv": 131,
+  "boss": false
+ },
+ {
+  "id": 94,
+  "name": "Lime Slime",
+  "sprite": "icons/monsters/94.webp",
+  "level": 90,
+  "hp": 3162008,
+  "atk": 1951,
+  "def": 18,
+  "maps": [
+   "desert_5",
+   "Deep Desert 1",
+   "Desert Hideout"
+  ],
+  "shinyLv": 157,
+  "boss": false
+ },
+ {
+  "id": 95,
+  "name": "Pyramid Guardian",
+  "sprite": "icons/monsters/95.webp",
+  "level": 88,
+  "hp": 2149245,
+  "atk": 1819,
+  "def": 30,
+  "maps": [
+   "desert_5",
+   "Deep Desert 1",
+   "Desert Coast",
+   "Desert Hideout"
+  ],
+  "shinyLv": 154,
+  "boss": false
+ },
+ {
+  "id": 96,
+  "name": "Rocky",
+  "sprite": "icons/monsters/96.webp",
+  "level": 65,
+  "hp": 236004,
+  "atk": 716,
+  "def": 22,
+  "maps": [
+   "Rocky Path",
+   "rocky_path_2",
+   "rocky_path_3"
+  ],
+  "shinyLv": 113,
+  "boss": false
+ },
+ {
+  "id": 97,
+  "name": "Upsivase",
+  "sprite": "icons/monsters/97.webp",
+  "level": 80,
+  "hp": 1256847,
+  "atk": 1356,
+  "def": 14,
+  "maps": [
+   "Deep Ocean",
+   "Deep Ocean 2",
+   "deep_ocean_3",
+   "deep_ocean_4"
+  ],
+  "shinyLv": 140,
+  "boss": false
+ },
+ {
+  "id": 98,
+  "name": "Licka",
+  "sprite": "icons/monsters/98.webp",
+  "level": 90,
+  "hp": 3334481,
+  "atk": 1951,
+  "def": 15,
+  "maps": [
+   "Deep Cave 9",
+   "Deep Cave X"
+  ],
+  "shinyLv": 157,
+  "boss": false
+ },
+ {
+  "id": 99,
+  "name": "Cursed Slime",
+  "sprite": "icons/monsters/99.webp",
+  "level": 17,
+  "hp": 1197,
+  "atk": 34,
+  "def": 8,
+  "maps": [
+   "plains_cave"
+  ],
+  "shinyLv": 29,
+  "boss": false
+ },
+ {
+  "id": 100,
+  "name": "Cursed Cloudsheep",
+  "sprite": "icons/monsters/100.webp",
+  "level": 85,
+  "hp": 2030979,
+  "atk": 1634,
+  "def": 15,
+  "maps": [
+   "deep_cave_15"
+  ],
+  "shinyLv": 148,
+  "boss": false
+ },
+ {
+  "id": 101,
+  "name": "Fallentree",
+  "sprite": "icons/monsters/101.webp",
+  "level": 95,
+  "hp": 7012848,
+  "atk": 2308,
+  "def": 16,
+  "maps": [
+   "deep_cave_7",
+   "Deep Cave 9"
+  ],
+  "shinyLv": 166,
+  "boss": false
+ },
+ {
+  "id": 102,
+  "name": "Ashball",
+  "sprite": "icons/monsters/102.webp",
+  "level": 70,
+  "hp": 428482,
+  "atk": 901,
+  "def": 18,
+  "maps": [
+   "detour"
+  ],
+  "shinyLv": 122,
+  "boss": false
+ },
+ {
+  "id": 103,
+  "name": "Gilded Slime",
+  "sprite": "icons/monsters/103.webp",
+  "level": 8,
+  "hp": 232,
+  "atk": 14,
+  "def": 4,
+  "maps": [
+   "plains_cave"
+  ],
+  "shinyLv": 14,
+  "boss": false
+ },
+ {
+  "id": 104,
+  "name": "Lampshroom",
+  "sprite": "icons/monsters/104.webp",
+  "level": 20,
+  "hp": 1927,
+  "atk": 43,
+  "def": 6,
+  "maps": [
+   "deep_cave_1"
+  ],
+  "shinyLv": 35,
+  "boss": false
+ },
+ {
+  "id": 105,
+  "name": "Denial",
+  "sprite": "icons/monsters/105.webp",
+  "level": 31,
+  "hp": 6974,
+  "atk": 99,
+  "def": 7,
+  "maps": [
+   "lost_forest"
+  ],
+  "shinyLv": 54,
+  "boss": false
+ },
+ {
+  "id": 106,
+  "name": "Anger",
+  "sprite": "icons/monsters/106.webp",
+  "level": 33,
+  "hp": 8632,
+  "atk": 113,
+  "def": 8,
+  "maps": [
+   "sulfuric_path_2"
+  ],
+  "shinyLv": 57,
+  "boss": false
+ },
+ {
+  "id": 107,
+  "name": "Overripe Bananek",
+  "sprite": "icons/monsters/107.webp",
+  "level": 26,
+  "hp": 3702,
+  "atk": 70,
+  "def": 9,
+  "maps": [
+   "savannah_cavern"
+  ],
+  "shinyLv": 45,
+  "boss": false
+ },
+ {
+  "id": 108,
+  "name": "Lumen Sprite",
+  "sprite": "icons/monsters/108.webp",
+  "level": 35,
+  "hp": 10898,
+  "atk": 128,
+  "def": 8,
+  "maps": [
+   "Sulfuric Path"
+  ],
+  "shinyLv": 61,
+  "boss": false
+ },
+ {
+  "id": 109,
+  "name": "Frostfruit",
+  "sprite": "icons/monsters/109.webp",
+  "level": 60,
+  "hp": 165121,
+  "atk": 449,
+  "def": 12,
+  "maps": [
+   "snowy_mountain_5"
+  ],
+  "shinyLv": 105,
+  "boss": false
+ },
+ {
+  "id": 110,
+  "name": "Cosmowl",
+  "sprite": "icons/monsters/110.webp",
+  "level": 73,
+  "hp": 634618,
+  "atk": 1022,
+  "def": 13,
+  "maps": [
+   "deep_cave_13",
+   "deep_cave_14"
+  ],
+  "shinyLv": 127,
+  "boss": false
+ },
+ {
+  "id": 111,
+  "name": "Cursed Spot",
+  "sprite": "icons/monsters/111.webp",
+  "level": 63,
+  "hp": 231911,
+  "atk": 651,
+  "def": 11,
+  "maps": [
+   "deep_cave_10",
+   "deep_cave_11"
+  ],
+  "shinyLv": 110,
+  "boss": false
+ },
+ {
+  "id": 112,
+  "name": "Water Spot",
+  "sprite": "icons/monsters/112.webp",
+  "level": 41,
+  "hp": 22286,
+  "atk": 181,
+  "def": 7,
+  "maps": [
+   "forest_lake"
+  ],
+  "shinyLv": 71,
+  "boss": false
+ },
+ {
+  "id": 113,
+  "name": "Mangosteen Slime",
+  "sprite": "icons/monsters/113.webp",
+  "level": 29,
+  "hp": 5507,
+  "atk": 86,
+  "def": 7,
+  "maps": [
+   "deep_cave_3"
+  ],
+  "shinyLv": 50,
+  "boss": false
+ },
+ {
+  "id": 114,
+  "name": "Lime Guardian",
+  "sprite": "icons/monsters/114.webp",
+  "level": 78,
+  "hp": 958026,
+  "atk": 1253,
+  "def": 18,
+  "maps": [
+   "deep_forest_threshold"
+  ],
+  "shinyLv": 136,
+  "boss": false
+ },
+ {
+  "id": 115,
+  "name": "Red Shroom",
+  "sprite": "icons/monsters/115.webp",
+  "level": 74,
+  "hp": -1,
+  "atk": -1,
+  "def": -1,
+  "maps": [],
+  "shinyLv": null,
+  "boss": false
+ },
+ {
+  "id": 116,
+  "name": "Molten Shroom",
+  "sprite": "icons/monsters/116.webp",
+  "level": 78,
+  "hp": -1,
+  "atk": -1,
+  "def": -1,
+  "maps": [],
+  "shinyLv": null,
+  "boss": false
+ },
+ {
+  "id": 117,
+  "name": "Froni",
+  "sprite": "icons/monsters/117.webp",
+  "level": 45,
+  "hp": 36796,
+  "atk": 224,
+  "def": 5,
+  "maps": [
+   "cold_ocean_cave"
+  ],
+  "shinyLv": 78,
+  "boss": false
+ },
+ {
+  "id": 118,
+  "name": "Duniga",
+  "sprite": "icons/monsters/118.webp",
+  "level": 81,
+  "hp": 1363573,
+  "atk": 1409,
+  "def": 15,
+  "maps": [],
+  "shinyLv": 141,
+  "boss": false
+ },
+ {
+  "id": 119,
+  "name": "Icyghoul",
+  "sprite": "icons/monsters/119.webp",
+  "level": 62,
+  "hp": 216968,
+  "atk": 620,
+  "def": 9,
+  "maps": [
+   "travelers_rest"
+  ],
+  "shinyLv": 108,
+  "boss": false
+ },
+ {
+  "id": 120,
+  "name": "Deviling",
+  "sprite": "icons/monsters/120.webp",
+  "level": 22,
+  "hp": 114665,
+  "atk": null,
+  "def": 14,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 121,
+  "name": "Anjel",
+  "sprite": "icons/monsters/121.webp",
+  "level": 5,
+  "hp": -1,
+  "atk": -1,
+  "def": -1,
+  "maps": [],
+  "shinyLv": null,
+  "boss": false
+ },
+ {
+  "id": 122,
+  "name": "Lava Gloopy",
+  "sprite": "icons/monsters/122.webp",
+  "level": 82,
+  "hp": 828638464,
+  "atk": null,
+  "def": 15,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 123,
+  "name": "Cursed Gloopy",
+  "sprite": "icons/monsters/123.webp",
+  "level": 72,
+  "hp": 262163360,
+  "atk": null,
+  "def": 18,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 124,
+  "name": "Sandball",
+  "sprite": "icons/monsters/124.webp",
+  "level": 55,
+  "hp": 96527,
+  "atk": 362,
+  "def": 12,
+  "maps": [],
+  "shinyLv": 96,
+  "boss": false
+ },
+ {
+  "id": 125,
+  "name": "Cursed Slibbit",
+  "sprite": "icons/monsters/125.webp",
+  "level": 59,
+  "hp": 160716,
+  "atk": 430,
+  "def": 8,
+  "maps": [
+   "deep_cave_10",
+   "frost_cave"
+  ],
+  "shinyLv": 103,
+  "boss": false
+ },
+ {
+  "id": 126,
+  "name": "Cursed Tallshroom",
+  "sprite": "icons/monsters/126.webp",
+  "level": 76,
+  "hp": 812009,
+  "atk": 1158,
+  "def": 16,
+  "maps": [
+   "deep_cave_14",
+   "deep_cave_15"
+  ],
+  "shinyLv": 133,
+  "boss": false
+ },
+ {
+  "id": 127,
+  "name": "Frostshroom",
+  "sprite": "icons/monsters/127.webp",
+  "level": 70,
+  "hp": 451854,
+  "atk": 901,
+  "def": 15,
+  "maps": [
+   "deep_cave_12",
+   "deep_cave_13"
+  ],
+  "shinyLv": 122,
+  "boss": false
+ },
+ {
+  "id": 128,
+  "name": "Verduniga",
+  "sprite": "icons/monsters/128.webp",
+  "level": 49,
+  "hp": -1,
+  "atk": -1,
+  "def": -1,
+  "maps": [],
+  "shinyLv": null,
+  "boss": false
+ },
+ {
+  "id": 129,
+  "name": "Blossnek",
+  "sprite": "icons/monsters/129.webp",
+  "level": 76,
+  "hp": 891617,
+  "atk": 1158,
+  "def": 11,
+  "maps": [
+   "deep_forest_den"
+  ],
+  "shinyLv": 133,
+  "boss": false
+ },
+ {
+  "id": 130,
+  "name": "Banshek",
+  "sprite": "icons/monsters/130.webp",
+  "level": 24,
+  "hp": 2979,
+  "atk": 60,
+  "def": 8,
+  "maps": [
+   "deep_cave_1"
+  ],
+  "shinyLv": 42,
+  "boss": false
+ },
+ {
+  "id": 131,
+  "name": "Goldling",
+  "sprite": "icons/monsters/131.webp",
+  "level": 30,
+  "hp": 476282,
+  "atk": null,
+  "def": 12,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 132,
+  "name": "Forgotten Deerlime",
+  "sprite": "icons/monsters/132.webp",
+  "level": 62,
+  "hp": 37303400,
+  "atk": null,
+  "def": 17,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 133,
+  "name": "Gilded Deerlime",
+  "sprite": "icons/monsters/133.webp",
+  "level": 62,
+  "hp": 38659888,
+  "atk": null,
+  "def": 15,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 134,
+  "name": "Blorpghoul",
+  "sprite": "icons/monsters/134.webp",
+  "level": 52,
+  "hp": -1,
+  "atk": -1,
+  "def": -1,
+  "maps": [],
+  "shinyLv": null,
+  "boss": false
+ },
+ {
+  "id": 135,
+  "name": "Tantrum Gloopy",
+  "sprite": "icons/monsters/135.webp",
+  "level": 20,
+  "hp": 764875,
+  "atk": null,
+  "def": 16,
+  "maps": [],
+  "shinyLv": null,
+  "boss": true
+ },
+ {
+  "id": 136,
+  "name": "Eternal Target Dummy",
+  "sprite": "icons/monsters/136.webp",
+  "level": 1,
+  "hp": 1000000000,
+  "atk": null,
+  "def": 0,
+  "maps": [
+   "Hub 1",
+   "Hub 2",
+   "Hub 3",
+   "Hub 4",
+   "Hub 5",
+   "Hub 6",
+   "Market Hub Entrance"
+  ],
+  "shinyLv": null,
+  "boss": true
+ }
+]

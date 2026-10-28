@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Soul's Remnant 攻略站</title>
-<meta name="description" content="Soul's Remnant 練功地圖、精華掉落、拍賣場、元素與染色整理。">
+<title>Soul's Remnant 怪物經驗表</title>
+<meta name="description" content="Soul's Remnant 怪物等級、HP、攻防與每隻經驗。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Pixelify+Sans:wght@500;600&family=Press+Start+2P&display=swap">
-<link rel="stylesheet" href="style.css?v=202610251928">
+<link rel="stylesheet" href="style.css?v=202610280413">
 <link rel="icon" href="assets/items/soul-crystal.png">
 <script>
   // Pick the language before first paint so the other language never flashes.
@@ -24,360 +24,37 @@
 
 <header class="wrap hero">
   <div class="hero-top">
-    <h1>Soul's Remnant <span class="accent"><span data-l="zh">攻略站</span><span data-l="en">Guide</span></span></h1>
+    <h1>Soul's Remnant <span class="accent"><span data-l="zh">怪物經驗表</span><span data-l="en">Monster EXP</span></span></h1>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" data-set-lang="zh" aria-pressed="false">中文</button>
       <button type="button" data-set-lang="en" aria-pressed="false">English</button>
     </div>
   </div>
-  <p data-l="zh">依等級找練功地圖，查精華掉落、拍賣行規則、元素效果和染色方式。</p>
-  <p data-l="en">Find leveling maps by level, and look up essence drops, Auction House rules, element effects, and how dyeing works.</p>
 </header>
 
-<nav class="tabs" aria-label="攻略分類">
-  <div class="wrap">
-    <a href="#maps"><span data-l="zh">練功地圖</span><span data-l="en">Leveling Maps</span></a>
-    <a href="#essence"><span data-l="zh">精華掉落</span><span data-l="en">Essence Drops</span></a>
-    <a href="#market"><span data-l="zh">拍賣行與交易</span><span data-l="en">Auction House & Trading</span></a>
-    <a href="#elements"><span data-l="zh">元素效果</span><span data-l="en">Elements</span></a>
-    <a href="#dye"><span data-l="zh">染色與外觀</span><span data-l="en">Dyes & Looks</span></a>
-  </div>
-</nav>
-
 <main class="wrap">
+  <div class="finder-row controls">
+    <div class="field grow">
+      <label for="q"><span data-l="zh">搜尋怪物</span><span data-l="en">Search</span></label>
+      <input id="q" class="text" type="search" autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="bonus"><span data-l="zh">經驗加成 %</span><span data-l="en">EXP Boost %</span></label>
+      <input id="bonus" class="text short" type="number" inputmode="decimal" min="0" step="0.1" value="0">
+    </div>
+    <label class="check"><input id="bestiary" type="checkbox"><span data-l="zh">圖鑑 +5%</span><span data-l="en">Bestiary +5%</span></label>
+  </div>
 
-  <!-- 練功地圖 -->
-  <section class="panel" id="maps" aria-labelledby="maps-h">
-    <div>
-      <h2 id="maps-h"><span data-l="zh">練功地圖</span><span data-l="en">Leveling Maps</span></h2>
-      <p class="sub" data-l="zh">輸入你的等級，就會列出適合的地圖、裡面有哪些怪，以及會掉哪些精華。</p>
-      <p class="sub" data-l="en">Enter your level and this will list the maps that suit you, the monsters in each one, and the essences they drop.</p>
-    </div>
-    <div class="route-box">
-      <div class="route-head">
-        <h3><span data-l="zh">推薦練功圖（玩家實測）</span><span data-l="en">Recommended Leveling Maps (Player-Tested)</span></h3>
-        <span class="region" data-l="zh">點一張圖，下面的搜尋會切到那個等級，順便看看同等級還有哪些地圖。</span>
-        <span class="region" data-l="en">Click a map and the search below will switch to that level, so you can also see the other maps at the same level.</span>
-      </div>
-      <ul class="route">
-        <li><button type="button" data-lv="15"><span class="lv"><span data-l="zh">Lv 10 起</span><span data-l="en">Lv 10+</span></span>
-          <b><span data-l="zh">平原4</span><span data-l="en">Plains 4</span></b>
-          <small data-l="zh">10 等就可以過來，怪物有軟軟靈、雲綿羊、天使靈和黑雲綿羊。</small>
-          <small data-l="en">You can come here from level 10. The monsters are Squishlings, Cloudsheep, Angelings, and Black Cloudsheep.</small></button></li>
-        <li><button type="button" data-lv="27"><span class="lv">Lv 27</span>
-          <b><span data-l="zh">霧林2</span><span data-l="en">Misty Forest 2</span></b>
-          <small data-l="zh">主要是悲傷靈和獨眼食屍鬼。</small>
-          <small data-l="en">Mostly Sadlings and Monoghouls.</small></button></li>
-        <li><button type="button" data-lv="28"><span class="lv">Lv 27–31</span>
-          <b><span data-l="zh">迷失森林</span><span data-l="en">Lost Forest</span></b>
-          <small data-l="zh">27 到 31 等這段，實際練起來比硫磺平原的任何一個點都快。</small>
-          <small data-l="en">Between levels 27 and 31, it is actually faster to level here than at any spot in Sulfuric Plains.</small></button></li>
-        <li><button type="button" data-lv="42"><span class="lv">Lv 42</span>
-          <b><span data-l="zh">靈魂樹</span><span data-l="en">Soultree</span></b>
-          <small data-l="zh">打靈魂樹，牠們分布在森林2、森林3和森林湖。</small>
-          <small data-l="en">Fight Soultrees. They are spread across Forest 2, Forest 3, and Forest Lake.</small></button></li>
-        <li><button type="button" data-lv="43"><span class="lv">Lv 42–45</span>
-          <b><span data-l="zh">深洞8</span><span data-l="en">Deep Cave 8</span></b>
-          <small data-l="zh">整張地圖是一條很長的直線，怪多到一個人清不完，單人或組隊都適合，還能同時刷永恆和幽靈精華。</small>
-          <small data-l="en">The whole map is one long straight line with more monsters than one person can clear, so it works for both solo play and groups, and you can farm Eternal and Ghostly essence at the same time.</small></button></li>
-        <li><button type="button" data-lv="47"><span class="lv">Lv 47</span>
-          <b><span data-l="zh">海洋4</span><span data-l="en">Ocean 4</span></b>
-          <small data-l="zh">怪物有吉加、泡泡蛇和斯威爾。</small>
-          <small data-l="en">The monsters are Giga, Bubble Snakes, and Sweels.</small></button></li>
-      </ul>
-      <p class="note" data-l="zh">這些是我們幾位玩家實際練過的地圖，大多是從信仰遠程流的角度。流派和裝備不同，體感也會不一樣，當作參考就好。</p>
-      <p class="note" data-l="en">These are maps a few of us players have actually leveled on, mostly from the point of view of a Faith ranged build. Builds and gear are different, so your experience may vary. Treat them as a reference only.</p>
-      <h3><span data-l="zh">官方 wiki 提到的練功規則</span><span data-l="en">Leveling Rules From the Official Wiki</span></h3>
-      <div class="cards">
-        <div class="card"><h3><span data-l="zh">主動攻擊</span><span data-l="en">Aggro</span></h3>
-          <p data-l="zh">怪會不會主動追你，取決於你的等級。等級夠高之後牠們就不會先動手，但碰到還是會受傷。</p>
-          <p data-l="en">Whether monsters chase you depends on your level. Once you are high enough, they will not attack first, but you can still take damage if you run into them.</p></div>
-        <div class="card"><h3><span data-l="zh">重生速度</span><span data-l="en">Respawn Speed</span></h3>
-          <p data-l="zh">怪被清得越快，地圖的重生速度就會跟著變快，一個人練也一樣。</p>
-          <p data-l="en">The faster you clear the monsters in a map, the faster the map respawns them, and this works the same when you level alone.</p></div>
-        <div class="card"><h3><span data-l="zh">組隊經驗</span><span data-l="en">Party EXP</span></h3>
-          <p data-l="zh">同一張地圖組隊會有額外的 Bonus EXP，經驗依照每個人的輸出分配。跟隊友的等級差超過 10 級，分到的經驗就會開始減少。</p>
-          <p data-l="en">Grouping on the same map gives extra Bonus EXP, and EXP is shared according to each person's damage output. If a party member is more than 10 levels away from you, the EXP you receive starts to drop.</p></div>
-      </div>
-      <h3><span data-l="zh">測試傷害</span><span data-l="en">Testing Your Damage</span></h3>
-      <div class="cards">
-        <div class="card"><h3><span data-l="zh">訓練木樁</span><span data-l="en">Target Dummy</span></h3>
-          <p data-l="zh">集市中樞裡有訓練木樁，可以拿來測單體傷害。它有一億 HP、攻擊力是 0，打很久也不會倒，也不會反擊。滑鼠移到左下角的 DPS 計量上，會顯示峰值 DPS。換裝備或換 buff 之前先打一次記下數字，換完再打一次，就能看出差多少。</p>
-          <p data-l="en">There is a Target Dummy in the Market Hub you can use to test single-target damage. It has 100 million HP and 0 attack, so it won't go down or hit back. Hover over the DPS meter in the bottom-left corner to see your peak DPS. Hit it once before you change gear or buffs and note the number, then again after, and you can see the difference.</p>
-          <p class="note" data-l="zh">位置：玩家實測。HP 與攻擊力：wiki。</p>
-          <p class="note" data-l="en">Location: player-tested. HP and attack: wiki.</p></div>
-      </div>
-    </div>
-    <div class="finder">
-      <div class="finder-row">
-        <div class="field">
-          <label for="lv"><span data-l="zh">我的等級</span><span data-l="en">My Level</span></label>
-          <div class="stepper">
-            <button type="button" id="lv-down" aria-label="等級減 1">−</button>
-            <input id="lv" type="number" inputmode="numeric" min="1" max="250" value="30">
-            <button type="button" id="lv-up" aria-label="等級加 1">+</button>
-          </div>
-        </div>
-        <div class="field">
-          <label for="over"><span data-l="zh">最多越級</span><span data-l="en">Up to</span> <span class="range-out" id="over-out">5</span> <span data-l="zh">等</span><span data-l="en">levels above you</span></label>
-          <input id="over" type="range" min="0" max="15" value="5">
-        </div>
-      </div>
-      <div class="field">
-        <label><span data-l="zh">只看會掉這種精華的地圖</span><span data-l="en">Only show maps that drop this essence</span></label>
-        <div class="chips" id="ess-filter"></div>
-      </div>
-    </div>
-    <div id="map-results" class="group" aria-live="polite"></div>
-  </section>
-
-  <!-- 精華掉落 -->
-  <section class="panel" id="essence" aria-labelledby="ess-h" hidden>
-    <div>
-      <h2 id="ess-h"><span data-l="zh">精華掉落表</span><span data-l="en">Essence Drop Table</span></h2>
-      <p class="sub" data-l="zh">每種精華都分成黯淡、一般、光輝三階。金框標的是那一階掉落率最高的怪。勾選「只看我打得到的怪」之後，就只會在你的等級加上可越級的範圍內比較，等級設定跟練功地圖分頁共用。</p>
-      <p class="sub" data-l="en">Each essence has three tiers: Dull, Normal, and Radiant. The monster with the highest drop rate for each tier is outlined in gold. When you tick "Only monsters I can fight," the list only compares monsters up to your level plus how many levels above you that you allow. The level setting is shared with the Leveling Maps tab.</p>
-    </div>
-    <div class="cards">
-      <div class="card">
-        <h3><span data-l="zh">鍊金轉換</span><span data-l="en">Alchemy Conversions</span></h3>
-        <ul data-l="zh">
-          <li>3 個黯淡加 150 靈魂水晶，可以合成 <b>1 個一般</b> <code>鍊金 Lv30</code></li>
-          <li>1 個一般加 100 靈魂水晶，可以拆成 <b>2 個黯淡</b> <code>鍊金 Lv5</code></li>
-        </ul>
-        <ul data-l="en">
-          <li>You can combine 3 Dull essences with 150 Soul Crystals into <b>1 Normal essence</b> <code>Alchemy Lv30</code></li>
-          <li>You can split 1 Normal essence with 100 Soul Crystals into <b>2 Dull essences</b> <code>Alchemy Lv5</code></li>
-        </ul>
-        <p class="note" data-l="zh">光輝精華目前只知道能從怪物身上掉。</p>
-        <p class="note" data-l="en">Radiant essence is currently only known to drop from monsters.</p>
-      </div>
-      <div class="card">
-        <h3><span data-l="zh">用途</span><span data-l="en">Uses</span></h3>
-        <p data-l="zh">讓裝備發光、多一個升級欄位的活力之魂（Energetic Soul），每種黯淡精華各要 <code>40</code> 個，需要鍊金 Lv15。</p>
-        <p data-l="en">The Energetic Soul makes gear glow and adds one more upgrade slot. It takes <code>40</code> of each Dull essence and requires Alchemy Lv15.</p>
-      </div>
-      <div class="card">
-        <h3><span data-l="zh">副本寶箱</span><span data-l="en">Dungeon Chests</span></h3>
-        <p data-l="zh">史萊姆花園 <code>Lv10</code> 和平原地城 <code>Lv20</code> 的銀寶箱、木寶箱，會開出各種黯淡精華。</p>
-        <p data-l="en">Silver and wooden chests in Slime Garden <code>Lv10</code> and Plains Dungeon <code>Lv20</code> can drop various Dull essences.</p>
-      </div>
-      <div class="card">
-        <h3><span data-l="zh">用採集材料自己做</span><span data-l="en">Make It Yourself From Gathered Materials</span></h3>
-        <ul id="ess-recipes"></ul>
-      </div>
-    </div>
-    <div class="ess-tools">
-      <input class="search" id="ess-search" type="search" placeholder="搜尋怪物（中文或英文）" aria-label="搜尋怪物">
-      <label class="check"><input type="checkbox" id="ess-reach"> <span id="ess-reach-lv"></span></label>
-    </div>
-    <div id="ess-list" class="group"></div>
-  </section>
-
-  <!-- 拍賣行 -->
-  <section class="panel" id="market" aria-labelledby="mk-h" hidden>
-    <div>
-      <h2 id="mk-h"><span data-l="zh">拍賣行與交易</span><span data-l="en">Auction House & Trading</span></h2>
-      <p class="sub" data-l="zh">什麼時候能用、手續費怎麼算，以及怎麼看行情。</p>
-      <p class="sub" data-l="en">When you can use it, how fees are calculated, and how to read market prices.</p>
-    </div>
-    <div class="cards">
-      <div class="card">
-        <h3><span data-l="zh">開放條件</span><span data-l="en">Access Requirements</span></h3>
-        <p data-l="zh">角色要到 <code>Lv25</code>，並完成下面 4 個任務：</p>
-        <p data-l="en">Your character needs to reach <code>Lv25</code> and complete the 4 quests below:</p>
-        <ol data-l="zh">
-          <li>牧羊人的最後考驗（牧羊人，郊外西北）</li>
-          <li>變黑的羊群（牧羊人，平原1）</li>
-          <li>查看水下（格維爾，海灘3）</li>
-          <li>橙色冒牌貨（Kmitty，草原1）</li>
-        </ol>
-        <ol data-l="en">
-          <li>The Shepherd's Final Test (Shepherd, Outskirts Northwest)</li>
-          <li>The Dark Flock (Shepherd, Plains 1)</li>
-          <li>Check the Water (Gevil, Beach 3)</li>
-          <li>The Orange Imposter (Kmitty, Savannah 1)</li>
-        </ol>
-      </div>
-      <div class="card">
-        <h3><span data-l="zh">手續費</span><span data-l="en">Fees</span></h3>
-        <dl class="kv">
-          <dt><span data-l="zh">拍賣行</span><span data-l="en">Auction House</span></dt><dd><span class="big">5%</span> <span data-l="zh">（由賣家支付）</span><span data-l="en">(paid by the seller)</span></dd>
-          <dt><span data-l="zh">自己的攤位</span><span data-l="en">Your Own Stall</span></dt><dd><span class="big">4%</span></dd>
-          <dt><span data-l="zh">私下交易</span><span data-l="en">Private Trade</span></dt><dd><span class="big">0%</span></dd>
-        </dl>
-      </div>
-      <div class="card">
-        <h3><span data-l="zh">上架規則</span><span data-l="en">Listing Rules</span></h3>
-        <ul data-l="zh">
-          <li>同時最多上架 <code>10</code> 件，可以在商城增加</li>
-          <li>每件會放 <code>7</code> 天，沒賣掉會退回信箱</li>
-          <li>只有直接購買，沒有競標</li>
-          <li>買東西時背包滿了，會改寄到信箱</li>
-        </ul>
-        <ul data-l="en">
-          <li>You can list up to <code>10</code> items at once, and you can increase this limit in the Cash Shop.</li>
-          <li>Each listing stays up for <code>7</code> days. If it doesn't sell, it returns to your mailbox.</li>
-          <li>Only direct purchases are available. There are no bids.</li>
-          <li>If the buyer's bag is full when a purchase is made, the item is sent to the buyer's mailbox instead.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3><span data-l="zh">怎麼看行情</span><span data-l="en">Reading Market Prices</span></h3>
-        <ul data-l="zh">
-          <li><b>價格紀錄</b>：價格走勢圖，可以切換一天、一週、一個月或一年</li>
-          <li><b>出售分頁</b>：選一件物品，會顯示近 7 天的平均和最低成交價、目前在賣的數量，以及這週賣出了幾件</li>
-          <li><b>Home</b>：熱門物品和最新上架</li>
-          <li><b>搜尋</b>：可以用價格、等級、屬性篩選，最多指定 4 個數值</li>
-        </ul>
-        <ul data-l="en">
-          <li><b>Price History</b>: A price chart, with a choice of one day, one week, one month, or one year.</li>
-          <li><b>Sell tab</b>: Pick an item to see its average and lowest sale price over the past 7 days, how many are currently for sale, and how many sold this week.</li>
-          <li><b>Home</b>: Popular items and the newest listings.</li>
-          <li><b>Search</b>: You can filter by price, level, and attributes, and set up to 4 values.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3><span data-l="zh">攤位（商人技能）</span><span data-l="en">Stall (Merchant Skill)</span></h3>
-        <ul data-l="zh">
-          <li>從出生點牧羊人旁邊進入集市中樞入口，就可以擺攤</li>
-          <li>攤位會展示你在拍賣行上架的東西，透過攤位賣出的手續費是 4%</li>
-          <li>一次只能擺一個攤位，每次擺 72 小時</li>
-          <li>攤位留言可以用 BBCode</li>
-        </ul>
-        <ul data-l="en">
-          <li>Go from Spawn, next to the Shepherd, into the Market Hub Entrance to set up a stall.</li>
-          <li>The stall shows the items you have listed on the Auction House. Items sold through a stall have a 4% fee.</li>
-          <li>You can only have one stall at a time, and each one lasts 72 hours.</li>
-          <li>You can use BBCode in stall messages.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 元素 -->
-  <section class="panel" id="elements" aria-labelledby="el-h" hidden>
-    <div>
-      <h2 id="el-h"><span data-l="zh">元素效果</span><span data-l="en">Elements</span></h2>
-      <p class="sub" data-l="zh">每把武器會隨機帶一種元素。標 * 的數值是以元素效果強度 100% 計算，強度越高，效果越強。</p>
-      <p class="sub" data-l="en">Each weapon randomly has one element. Values marked with * are calculated at 100% Elemental Potency, and the higher the potency, the stronger the effect.</p>
-    </div>
-    <div class="callout">
-      <p data-l="zh"><b>基礎數值：</b>元素效果機率 15%、元素效果強度 50%。使用信仰遠程技能「箭矢附魔」時，暴擊率會全部轉成元素機率，暴擊傷害則轉成元素強度。</p>
-      <p data-l="en"><b>Base values:</b> Elemental Chance 15%, Elemental Potency 50%. When you use the Faith ranged skill Arrow Infusion, all Crit Rate is converted into Elemental Chance, and Crit Damage is converted into Elemental Potency.</p>
-    </div>
-    <div class="cards">
-      <article class="card elem" style="--c: var(--ghostly)">
-        <h3><span data-l="zh">幽靈 Ghost</span><span data-l="en">Ghost</span></h3>
-        <p data-l="zh">對目標附加「Haunted」，2.5 秒內造成額外 120%* 傷害，<b>同時把附近的怪拉過來</b>。同時最多 2 層，再次觸發會擴散到另一隻怪。對一般怪可以無限疊加，對 Boss 每 6 秒重置；怪死掉時，一半的每跳傷害會轉移出去。</p>
-        <p data-l="en">Applies “Haunted” to the target, dealing an extra 120%* damage over 2.5 seconds. It also <b>pulls nearby monsters toward it</b>. It can stack up to 2 times, and triggering it again spreads it to another monster. Against regular monsters it stacks without limit, and against bosses it resets every 6 seconds. When a monster dies, half of its damage per tick is passed on to other targets.</p>
-      </article>
-      <article class="card elem" style="--c: var(--metal)">
-        <h3><span data-l="zh">金屬 Metal</span><span data-l="en">Metal</span></h3>
-        <p data-l="zh">敵人每層防禦 −3，最多 5 層（−15）。你自己每層減傷 3%，最多 10* 層（30%*），減傷總上限是 80%。</p>
-        <p data-l="en">Enemies get −3 Defense per stack, up to 5 stacks (−15). You reduce damage taken by 3% per stack, up to 10* stacks (30%*), and the total damage reduction cap is 80%.</p>
-      </article>
-      <article class="card elem" style="--c: var(--raging)">
-        <h3><span data-l="zh">火 Fire</span><span data-l="en">Fire</span></h3>
-        <p data-l="zh">主目標受到額外 50%* 傷害，附近最多 2 隻各受到 25%*，主目標還會再燃燒 3 秒，共 36%*。</p>
-        <p data-l="en">The main target takes an extra 50%* damage. Up to 2 nearby monsters each take 25%*, and the main target also burns for 3 more seconds, for a total of 36%*.</p>
-      </article>
-      <article class="card elem" style="--c: var(--normal)">
-        <h3><span data-l="zh">雷電 Lightning</span><span data-l="en">Lightning</span></h3>
-        <p data-l="zh">在附近最多 4 隻敵人之間彈跳，第一彈 65%*，之後每彈減少 40%（例如 500 → 325 → 130 → 52）。主目標本身不會吃到額外傷害。</p>
-        <p data-l="en">It bounces between up to 4 nearby enemies. The first bounce deals 65%*, and each bounce after that is reduced by 40% (for example, 500 → 325 → 130 → 52). The main target itself does not take the extra damage.</p>
-      </article>
-      <article class="card elem" style="--c: var(--dull)">
-        <h3><span data-l="zh">普通 Normal</span><span data-l="en">Normal</span></h3>
-        <p data-l="zh">對目標造成額外 80%* 傷害，沒有其他附加效果。</p>
-        <p data-l="en">Deals an extra 80%* damage to the target, with no other effects.</p>
-      </article>
-      <article class="card elem" style="--c: var(--eternal)">
-        <h3><span data-l="zh">冰 Ice</span><span data-l="en">Ice</span></h3>
-        <p data-l="zh">對目標附加「Frozen」6* 秒並緩速，每層 10%，最多 3 層（30%）。處於冰凍狀態的怪被擊殺時，附近最多 2 隻會吃到 50% 的累積傷害；擴散出去的冰凍傷害會降為四分之一。</p>
-        <p data-l="en">Applies “Frozen” to the target for 6* seconds and slows it by 10% per stack, up to 3 stacks (30%). When a frozen monster is killed, up to 2 nearby monsters take 50% of the accumulated damage. Frozen damage that spreads out is reduced to one quarter.</p>
-      </article>
-      <article class="card elem" style="--c: var(--nurturing)">
-        <h3><span data-l="zh">水 Water</span><span data-l="en">Water</span></h3>
-        <p data-l="zh">稍微緩速目標，並立刻回復你的 HP 和 MP，範圍內最多 2 名隊友也會一起回復。多段攻擊的技能共用一次回復。</p>
-        <p data-l="en">Slightly slows the target and immediately restores your HP and MP. Up to 2 party members in range are restored as well. Skills that hit multiple times share one restore.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- 染色 -->
-  <section class="panel" id="dye" aria-labelledby="dye-h" hidden>
-    <div>
-      <h2 id="dye-h"><span data-l="zh">染色與外觀</span><span data-l="en">Dyes & Looks</span></h2>
-      <p class="sub" data-l="zh">整理自 wiki、更新紀錄和遊戲內的說明。</p>
-      <p class="sub" data-l="en">Compiled from the wiki, the update notes, and in-game descriptions.</p>
-    </div>
-    <div class="cards">
-      <div class="card">
-        <h3><span data-l="zh">一般染料</span><span data-l="en">Standard Dyes</span></h3>
-        <ul data-l="zh">
-          <li>只能用在<b>標示「可染色」的裝備</b>上，時裝（披風、光環、武器外觀）也包含在內</li>
-          <li>裝備有幾個顏色欄位，就能各染一種顏色</li>
-          <li>商城 150 寶石的是<b>自選色</b>，可以直接輸入色碼</li>
-          <li>鍊金 Lv6 可以自己做，配方由怪物掉落，不同的怪掉不同的顏色</li>
-          <li>寵物可以用稜彩染料（Prismatic Dye）染色</li>
-        </ul>
-        <ul data-l="en">
-          <li>They can only be used on <b>gear marked “Dyeable”</b>, and this includes cosmetics (capes, auras, and weapon skins).</li>
-          <li>Gear with several color slots lets you dye each slot a different color.</li>
-          <li>The 150-gem dye from the Cash Shop is a <b>custom color</b>, and you can enter a color code directly.</li>
-          <li>You can make it yourself with Alchemy Lv6. The recipes drop from monsters, and different monsters drop different colors.</li>
-          <li>Pets can be dyed with Prismatic Dye.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3><span data-l="zh">漸層券（商城）</span><span data-l="en">Gradient Tickets (Cash Shop)</span></h3>
-        <dl class="kv">
-          <dt><span data-l="zh">漸層混色</span><span data-l="en">Gradient Mixing</span></dt><dd><span data-l="zh">靜態漸層，400 寶石</span><span data-l="en">Static gradient, 400 gems</span></dd>
-          <dt><span data-l="zh">動態漸層</span><span data-l="en">Animated Gradient</span></dt><dd><span data-l="zh">會流動，600 寶石</span><span data-l="en">Flowing gradient, 600 gems</span></dd>
-        </dl>
-        <ul data-l="zh">
-          <li>買了就永久學會，不會用完</li>
-          <li><b>只能用在頭髮、眼睛、臉部、嘴巴、身體</b>，裝備不行</li>
-          <li>要先擁有那個部位的顏色，才能調和</li>
-          <li>不能跟染料搭配使用，也不能交易</li>
-        </ul>
-        <ul data-l="en">
-          <li>Once you buy it, you learn it permanently, and it is not used up.</li>
-          <li>They can only be used on <b>hair, eyes, face, mouth, and body</b>, not on gear.</li>
-          <li>You need to already have a color on that body part before you can blend.</li>
-          <li>They cannot be used together with dyes, and they cannot be traded.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3><span data-l="zh">淡色的暗部會偏灰</span><span data-l="en">Light Colors Look Grayer in Shadows</span></h3>
-        <p data-l="zh">裝備的陰影是把顏色調暗畫出來的，所以很淡的顏色，暗部看起來會接近灰色。以下是實際預覽的觀察：</p>
-        <p data-l="en">Equipment shadows are drawn by darkening the base color, so with very light colors the shaded areas look close to gray. Below are my observations from actual previews in game:</p>
-        <div class="swatches">
-          <div class="sw"><i style="--v:#FFE4EC"></i><code>#FFE4EC</code><span data-l="zh">暗部偏灰</span><span data-l="en">Shadows lean gray</span></div>
-          <div class="sw"><i style="--v:#FFD1DC"></i><code>#FFD1DC</code><span data-l="zh">暗部微粉</span><span data-l="en">Shadows are slightly pink</span></div>
-        </div>
-        <p class="note" data-l="zh">染色介面可以免費預覽，確定再染。</p>
-        <p class="note" data-l="en">You can preview dyes for free in the dye interface before you commit to dyeing.</p>
-      </div>
-    </div>
-  </section>
-
+  <div class="table-wrap"><table class="exp-table" id="mob-table"></table></div>
 </main>
 
 <footer class="wrap">
-  <p data-l="zh">資料整理自 <a href="https://soulsremnant.wiki.gg/" target="_blank" rel="noopener">Soul's Remnant Wiki</a>（CC BY-SA 4.0）、遊戲內說明與更新紀錄，最後更新 <span class="updated">2026-10-25</span>。中文名稱採用遊戲內建的官方繁體中文翻譯。</p>
-  <p data-l="en">Data is compiled from the <a href="https://soulsremnant.wiki.gg/" target="_blank" rel="noopener">Soul's Remnant Wiki</a> (CC BY-SA 4.0), in-game descriptions, and update notes, last updated <span class="updated">2026-10-25</span>. Chinese names use the official Traditional Chinese translation built into the game.</p>
-  <p data-l="zh">想查更細的資料，可以看這些玩家做的網站：
-    <a href="https://remnantfriend.com/farm.html" target="_blank" rel="noopener">掉落資料庫</a>、
-    <a href="https://remnantfriend.com/build_planner.html" target="_blank" rel="noopener">Build 計算器</a>（remnantfriend.com），以及
-    <a href="https://soulsremnant.gg/db/monsters" target="_blank" rel="noopener">怪物資料庫</a>（soulsremnant.gg，有血量和攻防）。
-    升級所需的經驗由伺服器提供，不在遊戲檔案裡，目前沒有公開的完整表格。</p>
-  <p data-l="en">If you want more detailed data, check these player-made sites: <a href="https://remnantfriend.com/farm.html" target="_blank" rel="noopener">Drop Database</a>, <a href="https://remnantfriend.com/build_planner.html" target="_blank" rel="noopener">Build Calculator</a> (remnantfriend.com), and <a href="https://soulsremnant.gg/db/monsters" target="_blank" rel="noopener">Monster Database</a> (soulsremnant.gg, which has HP and attack/defense values). The EXP needed to level up comes from the server rather than the game files, and there is currently no complete public table.</p>
-  <p data-l="zh">遊戲圖像版權屬於 Chaomoon。本站由玩家自行整理，與官方無關。</p>
-  <p data-l="en">Game images are copyright Chaomoon. This site is compiled by players and is not affiliated with the official team.</p>
+  <p data-l="zh">怪物資料：<a href="https://soulsremnant.gg/db/monsters" target="_blank" rel="noopener">soulsremnant.gg</a>。經驗：公會 Crescent 實測，Lv31～69 已驗證，灰色為推算。更新 <span class="updated"></span>。</p>
+  <p data-l="en">Monster data: <a href="https://soulsremnant.gg/db/monsters" target="_blank" rel="noopener">soulsremnant.gg</a>. EXP: tested by the guild Crescent, verified for Lv31 to 69; grey numbers are calculated. Updated <span class="updated"></span>.</p>
+  <p data-l="zh">遊戲圖像版權屬於 Chaomoon。本站由玩家整理，與官方無關。</p>
+  <p data-l="en">Game images are copyright Chaomoon. Compiled by players; not affiliated with the official team.</p>
 </footer>
 
-<script src="app.js?v=202610251928"></script>
+<script src="app.js?v=202610280413"></script>
 </body>
 </html>

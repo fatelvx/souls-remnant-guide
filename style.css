@@ -290,6 +290,25 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--soul); outl
 .sw i { width: 56px; height: 36px; border-radius: 6px; border: 1px solid var(--line); background: var(--v); }
 code { font-family: var(--font-display); background: var(--panel-2); padding: 1px 6px; border-radius: 4px; }
 
+/* EXP database */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.muted { color: var(--muted); }
+.controls { margin-bottom: 16px; }
+.controls .grow { flex: 1 1 200px; }
+.controls .grow .text { width: 100%; }
+.exp-table td.num { font: 400 13px var(--font-num); text-align: right; }
+.exp-table th:nth-child(n+3) { text-align: right; }
+.exp-table td.exp b { color: var(--soul); font-weight: 400; }
+.exp-table td.exp b.calc { color: var(--muted); }
+.exp-table td.mon { display: flex; align-items: center; gap: 10px; }
+.exp-table td.mon img, .exp-table td.mon .badge { width: 28px; height: 28px; object-fit: contain; image-rendering: pixelated; flex: none; }
+.exp-table td.mon .badge { display: grid; place-items: center; padding: 0; }
+.exp-table tbody tr:hover { background: var(--panel-2); }
+@media (max-width: 600px) {
+  .exp-table th, .exp-table td { padding: 8px 6px; }
+  .exp-table td.num { font-size: 11px; }
+}
+
 footer { border-top: 1px solid var(--line); padding-block: 24px 40px; color: var(--muted); font-size: 13px; }
 footer p { margin: 0 0 6px; }
 footer a { color: var(--soul); }

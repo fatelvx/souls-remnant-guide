@@ -1,0 +1,2914 @@
+{
+  "fetched": "2026-10-26",
+  "skills": [
+    {
+      "name": "Holy Arrow (Skill)",
+      "url": "https://soulsremnant.wiki.gg/wiki/Holy_Arrow_(Skill)",
+      "activation_requirements": "Range Lv 5, Faith Lv 5",
+      "skill_points": "0 + 1/Lv",
+      "type": "Basic Attack",
+      "classes": "Range, Faith",
+      "scaling": "Range: 75% + 45%/Lv; Faith: 75% + 45%/Lv",
+      "overview": {
+        "Power": "12 + 6.5/Lv",
+        "Size": "95% + 2.5%/Lv",
+        "Mob Amount": "3",
+        "Mana Cost": "1 + 0.1/Lv MP",
+        "Cooldown": "1.4s"
+      },
+      "bonuses_active": [
+        "Level 3: +3% Elemental Chance",
+        "Level 6: +3% Elemental Chance",
+        "Level 9: +3% Elemental Chance",
+        "Level 12: +3% Elemental Chance",
+        "Level 15: +3% Elemental Chance",
+        "Level 18: +3% Elemental Chance-"
+      ],
+      "description": "A basic attack: charge a blessed arrow that homes onto a monster and chains to the next with every hit. Tap for a third of the damage, full draw for all of it.",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "dataneeded Essence - 375",
+            "dataneeded Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "dataneeded Essence - 625",
+            "dataneeded Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "dataneeded Essence - 925",
+            "dataneeded Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant dataneeded Essence - 250",
+            "Radiant dataneeded Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant dataneeded Essence - 400",
+            "Radiant dataneeded Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Holy Field",
+      "url": "https://soulsremnant.wiki.gg/wiki/Holy_Field",
+      "activation_requirements": "Range Lv 18, Faith Lv 23",
+      "skill_points": "0 + 1/Lv",
+      "type": "Skill",
+      "classes": "Range, Faith",
+      "scaling": "Range: 150% + 75%/Lv; Faith: 150% + 75%/Lv",
+      "overview": {
+        "Power": "16 + 8/Lv",
+        "Size": "150% + 5%/Lv",
+        "Mob Amount": "3",
+        "Mana Cost": "6.12 + 1.02/Lv MP",
+        "Cooldown": "12.0s",
+        "Duration": "5.4 + 0.1/Lvs"
+      },
+      "bonuses_active": [],
+      "description": "Charge and loose an arrow of light that erupts into a radiant field, searing everything inside once a second and slowing enemies by 40% while they stand in it. Tap for a third of the damage, full draw for all of it.",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "Dull Nurturing Essence - 48",
+            "Dull Historic Essence - 47"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "dataneeded Essence - 375",
+            "dataneeded Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "dataneeded Essence - 625",
+            "dataneeded Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "dataneeded Essence - 925",
+            "dataneeded Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant dataneeded Essence - 250",
+            "Radiant dataneeded Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant dataneeded Essence - 400",
+            "Radiant dataneeded Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Flare Arrow",
+      "url": "https://soulsremnant.wiki.gg/wiki/Flare_Arrow",
+      "activation_requirements": "Range Lv 8, Faith Lv 8",
+      "skill_points": "0 + 1/Lv",
+      "type": "Skill",
+      "classes": "Range, Faith",
+      "scaling": "Range: 110% + 50%/Lv; Faith: 60% + 35%/Lv",
+      "overview": {
+        "Power": "30 + 15/Lv",
+        "Size": "112% + 4%/Lv",
+        "Mob Amount": "5",
+        "Mana Cost": "3 + 0.5/Lv MP",
+        "Cooldown": "6.0s"
+      },
+      "bonuses_active": [],
+      "description": "Charge an arrow of holy flame that detonates on impact, then walks two more explosions across the pack. Tap for a third of the damage, full draw for all of it.",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "Dull Life Essence - 8"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "dataneeded Essence - 375",
+            "dataneeded Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "dataneeded Essence - 625",
+            "dataneeded Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "dataneeded Essence - 925",
+            "dataneeded Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant dataneeded Essence - 250",
+            "Radiant dataneeded Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant dataneeded Essence - 400",
+            "Radiant dataneeded Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Smite (Skill)",
+      "url": "https://soulsremnant.wiki.gg/wiki/Smite_(Skill)",
+      "activation_requirements": "Faith Lv 30",
+      "skill_points": "2 + 1 SP/Lv",
+      "type": "Skill",
+      "classes": "Faith",
+      "scaling": "Melee: 235.5% + 251.1%/Lv; Faith: 635.5% + 441.1%/Lv",
+      "overview": {
+        "Power": "42 + 21/Lv",
+        "Mob Amount": "5",
+        "Mana Cost": "22 + 3.65/Lv MP",
+        "Cooldown": "12.0s"
+      },
+      "bonuses_active": [],
+      "description": "Call your wrath down on the nearest enemies, striking through walls and floors with no line of sight needed. 'Yeah screw these monsters in particular' - D",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "Dull Historic Essence - 80",
+            "Dull Eternal Essence - 60",
+            "Dull Life Essence - 60"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "dataneeded Essence - 375",
+            "dataneeded Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "dataneeded Essence - 625",
+            "dataneeded Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "dataneeded Essence - 925",
+            "dataneeded Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant dataneeded Essence - 250",
+            "Radiant dataneeded Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant dataneeded Essence - 400",
+            "Radiant dataneeded Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cross Strike",
+      "url": "https://soulsremnant.wiki.gg/wiki/Cross_Strike",
+      "activation_requirements": "Melee Lv 25, Faith Lv 20",
+      "skill_points": "0 + 1 SP/Lv",
+      "type": "Skill",
+      "classes": "Melee, Faith",
+      "scaling": "Melee: 300% + 165%/Lv; Faith: 300% + 165%/Lv",
+      "overview": {
+        "Power": "55 + 26/Lv",
+        "Size": "257% + 3%/Lv",
+        "Mob Amount": "6 + 0/Lv",
+        "Mana Cost": "10 + 1.66/Lv MP",
+        "Cooldown": "9.0s",
+        "Duration": "1 + 0s/Lv"
+      },
+      "bonuses_active": [],
+      "description": "Slam a blazing cross into the ground, stunning everything it hits, bosses included, and dealing x1.6 damage to bosses. Your melee and faith attack speed multiply its damage instead of shortening its cooldown. Active for 14 SP",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "Dull Raging Essence - 46",
+            "Dull Historic Essence - 35",
+            "Dull Life Essence - 34"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "dataneeded Essence - 375",
+            "dataneeded Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "dataneeded Essence - 625",
+            "dataneeded Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "dataneeded Essence - 925",
+            "dataneeded Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant dataneeded Essence - 250",
+            "Radiant dataneeded Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant dataneeded Essence - 400",
+            "Radiant dataneeded Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Heaven Arrow",
+      "url": "https://soulsremnant.wiki.gg/wiki/Heaven_Arrow",
+      "activation_requirements": "Range Lv 28",
+      "skill_points": "1 + 1/Lv SP",
+      "type": "Skill",
+      "classes": "Range, Magic",
+      "scaling": "Range: 30% + 12%/Lv; Magic: 8.5% + 8.5%/Lv; Faith: 8.5% + 8.5%/Lv",
+      "overview": {
+        "Power": "21 + 10.5/Lv",
+        "Mana Cost": "5.56 + 0.93/Lv MP",
+        "Cooldown": "7.6s",
+        "Duration": "5s"
+      },
+      "bonuses_active": [],
+      "description": "Summon a halo above your head that fires 25 homing arrows at nearby monsters while you keep fighting, dodging, or running.",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "dataneeded Essence - 375",
+            "dataneeded Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "dataneeded Essence - 625",
+            "dataneeded Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "dataneeded Essence - 925",
+            "dataneeded Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant dataneeded Essence - 250",
+            "Radiant dataneeded Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant dataneeded Essence - 400",
+            "Radiant dataneeded Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Revitalize",
+      "url": "https://soulsremnant.wiki.gg/wiki/Revitalize",
+      "activation_requirements": "Faith Lv 10",
+      "skill_points": "1 + 1 SP/Lv",
+      "type": "Skill",
+      "classes": "Faith",
+      "scaling": "Melee: 112.4% + 121.8%/Lv; Faith: 559.5% + 260.8%/Lv; Health: 1.2% + 0.8%/Lv; Mana: 2.5% + 1.2%/Lv",
+      "overview": {
+        "Power": "50 + 25/Lv",
+        "Size": "262% + 4%/Lv",
+        "Mob Amount": "2 + 0.16/Lv",
+        "Mana Cost": "10 + 1.65/Lv MP",
+        "Cooldown": "8.5s"
+      },
+      "bonuses_active": [],
+      "description": "Pulse a wave of restoring light, healing yourself and the most wounded nearby players for this skill's power plus 1.5% (+0.5%/lv) of your max HP and 2.4% (+0.8%/lv) of your max MP, while searing enemies caught in the pulse.",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "Dull Life Essence - 12"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "dataneeded Essence - 375",
+            "dataneeded Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "dataneeded Essence - 625",
+            "dataneeded Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "dataneeded Essence - 925",
+            "dataneeded Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant dataneeded Essence - 250",
+            "Radiant dataneeded Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant dataneeded Essence - 400",
+            "Radiant dataneeded Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Divine Blessing",
+      "url": "https://soulsremnant.wiki.gg/wiki/Divine_Blessing",
+      "activation_requirements": "Faith Lv 11",
+      "skill_points": "0 + 0 SP/Lv",
+      "type": "Buff",
+      "classes": "Faith",
+      "scaling": null,
+      "overview": {
+        "Mana Cost": "14.16 + 2.36/Lv MP",
+        "Cooldown": "5s",
+        "Duration": "126 + 6/Lvs"
+      },
+      "levels_benefits": {
+        "EXP": "2.5 + 1.75%/Lv",
+        "Skill EXP": "1.5 + 1.5%/Lv",
+        "Faith Damage": "2.369 + 0.79%/Lv"
+      },
+      "bonuses_active": [],
+      "description": "Bless yourself with 2.5(+1.75/lv)% EXP, 1.5(+1.5/lv)% Skill EXP and 2.369(+0.79/lv)% Faith damage. Nearby party members share the EXP and Skill EXP bonuses at half strength. The Faith damage multiplies with your other buff bonuses.",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "dataneeded Essence - 375",
+            "dataneeded Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "dataneeded Essence - 625",
+            "dataneeded Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "dataneeded Essence - 925",
+            "dataneeded Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant dataneeded Essence - 250",
+            "Radiant dataneeded Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant dataneeded Essence - 400",
+            "Radiant dataneeded Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Arrow Infusion",
+      "url": "https://soulsremnant.wiki.gg/wiki/Arrow_Infusion",
+      "activation_requirements": "Range Lv 12, Faith Lv 12",
+      "skill_points": "0 + 0/Lv",
+      "type": "Buff",
+      "classes": "Range, Faith",
+      "scaling": null,
+      "overview": {
+        "Cooldown": "1.0s"
+      },
+      "bonuses_active": [],
+      "description": "Toggle. Your projectile hits weaken monsters, cutting their damage and shredding their armor, while all of your Crit Rate becomes Elemental Chance and all of your Crit Damage becomes Elemental Potency. Lowers your MP regen by 1(+0.15/Lv) per tick. Trains from your projectile hits while it is on.",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "Dull Life Essence - 20"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "dataneeded Essence - 375",
+            "dataneeded Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "dataneeded Essence - 625",
+            "dataneeded Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "dataneeded Essence - 925",
+            "dataneeded Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant dataneeded Essence - 250",
+            "Radiant dataneeded Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant dataneeded Essence - 400",
+            "Radiant dataneeded Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Medishot",
+      "url": "https://soulsremnant.wiki.gg/wiki/Medishot",
+      "activation_requirements": "Range Lv 12, Faith Lv 16",
+      "skill_points": "1 + 1/Lv",
+      "type": "Skill",
+      "classes": "Range, Faith",
+      "scaling": "Range: 160% + 75%/Lv; Faith: 160% + 75%/Lv",
+      "overview": {
+        "Power": "35 + 17.5/Lv",
+        "Size": "92% + 4%/Lv",
+        "Mob Amount": "3",
+        "Mana Cost": "5.72 + 0.35/Lv MP",
+        "Cooldown": "7.5s",
+        "Duration": "6s"
+      },
+      "bonuses_active": [],
+      "description": "Fire a healing shot that seeks your most wounded party member, bursting into a heal for nearby allies, damage to nearby monsters, and a mending field that follows them, pulsing every second for 6 seconds. Each pulse heals 3(+1.5/Lv), raised 5% for every 10% Elemental Effect Potency you have, so a full field is 18(+9/Lv). The burst heals 1.4 times a pulse, or 2.5 times when it lands on you. Charge it for up to three times the healing.",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "Dull Historic Essence - 23",
+            "Dull Nurturing Essence - 22"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "dataneeded Essence - 375",
+            "dataneeded Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "dataneeded Essence - 625",
+            "dataneeded Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "dataneeded Essence - 925",
+            "dataneeded Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant dataneeded Essence - 250",
+            "Radiant dataneeded Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant dataneeded Essence - 400",
+            "Radiant dataneeded Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Burst Shield",
+      "url": "https://soulsremnant.wiki.gg/wiki/Burst_Shield",
+      "activation_requirements": "Faith Lv 4",
+      "skill_points": "1 + 1 SP/Lv",
+      "type": "Skill",
+      "classes": "Faith",
+      "scaling": "Melee: 12.2% + 26.3%/Lv; Faith: 100.8% + 32.7%/Lv",
+      "overview": {
+        "Power": "12 + 6/Lv",
+        "Size": "125% + 2%/Lv",
+        "Mob Amount": "3",
+        "Mana Cost": "5 + 0.83/Lv MP",
+        "Cooldown": "5.0s",
+        "Duration": "2.5s"
+      },
+      "bonuses_active": [],
+      "description": "Shield yourself and nearby party members for a moment: the next hit is cut by 30(+2.5/lv)% and the damage prevented is hurled back at the attacker five-fold, splashing nearby monsters.",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "Dull Life Essence - 3"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "dataneeded Essence - 375",
+            "dataneeded Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "dataneeded Essence - 625",
+            "dataneeded Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "dataneeded Essence - 925",
+            "dataneeded Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant dataneeded Essence - 250",
+            "Radiant dataneeded Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant dataneeded Essence - 400",
+            "Radiant dataneeded Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Messenger (Skill)",
+      "url": "https://soulsremnant.wiki.gg/wiki/Messenger_(Skill)",
+      "activation_requirements": "Range Lv 25, Faith Lv 25",
+      "skill_points": "0 + 1/Lv",
+      "type": "Skill",
+      "classes": "Range, Faith",
+      "scaling": "Range: 180% + 90%/Lv; Faith: 180% + 90%/Lv",
+      "overview": {
+        "Power": "8 + 4/Lv",
+        "Mob Amount": "1",
+        "Mana Cost": "4.7 + 0.78/Lv MP",
+        "Cooldown": "8.0s",
+        "Duration": "30s"
+      },
+      "bonuses_active": [],
+      "description": "Send a blessed arrow to your chosen party member, shielding them for 15(+5/lv) plus 3(+0.5/lv)% of your Range and Faith damage for 4 seconds, and lacing their next 10 hits with true damage drawn from your power. Casting it with no ally to receive it shields you for a quarter as much. The experience returns to you.",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "Dull Nurturing Essence - 46",
+            "Dull Historic Essence - 35",
+            "Dull Life Essence - 34"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "dataneeded Essence - 375",
+            "dataneeded Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "dataneeded Essence - 625",
+            "dataneeded Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "dataneeded Essence - 925",
+            "dataneeded Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant dataneeded Essence - 250",
+            "Radiant dataneeded Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant dataneeded Essence - 400",
+            "Radiant dataneeded Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Punishment",
+      "url": "https://soulsremnant.wiki.gg/wiki/Punishment",
+      "activation_requirements": "Melee Lv 8, Faith Lv 8",
+      "skill_points": "0 + 1 SP/Lv",
+      "type": "Skill",
+      "classes": "Melee, Faith",
+      "scaling": "Melee: 50% + 25%/Lv; Faith: 50% + 25%/Lv",
+      "overview": {
+        "Power": "12 + 6/Lv",
+        "Size": "141% + 2%/Lv",
+        "Mob Amount": "5 + 0/Lv",
+        "Mana Cost": "1.87 + 0.31/Lv MP",
+        "Cooldown": "3.5s",
+        "Duration": "1.5 + 0s/Lv"
+      },
+      "bonuses_active": [],
+      "description": "Drive your weapon into the ground, launching and stunning non-boss enemies, then erupt twice more at the impact point.",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "Dull Life Essence - 8"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "dataneeded Essence - 375",
+            "dataneeded Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "dataneeded Essence - 625",
+            "dataneeded Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "dataneeded Essence - 925",
+            "dataneeded Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant dataneeded Essence - 250",
+            "Radiant dataneeded Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant dataneeded Essence - 400",
+            "Radiant dataneeded Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Focused Mind",
+      "url": "https://soulsremnant.wiki.gg/wiki/Focused_Mind",
+      "activation_requirements": "Magic Lv 21",
+      "skill_points": "0 + 0 SP/Lv",
+      "type": "Buff",
+      "classes": "Magic",
+      "scaling": null,
+      "overview": {
+        "Cooldown": "0.8s"
+      },
+      "bonuses_active": [],
+      "description": "Toggle. Sharpen your mind to a single edge: your highest damage stat rises 15(+2.368/lv)%, and your other damage stats fall 10(+1.05/lv)%. Nearby party members gain 4.8(+0.22/lv)% to their own highest damage stat. Lowers your MP regen by 1(+0.15/lv) per tick. Costs 0 SP to activate (+0 SP/Lv)",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "Dull Ghostly Essence - 45",
+            "Dull Life Essence - 30"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "Nurturing Essence - 375",
+            "Raging Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "Life Essence - 625",
+            "Historic Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "Ghostly Essence - 925",
+            "Historic Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant Raging Essence - 250",
+            "Radiant Historic Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant Ghostly Essence - 400",
+            "Radiant Metal Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Shadow Twin",
+      "url": "https://soulsremnant.wiki.gg/wiki/Shadow_Twin",
+      "activation_requirements": "Range Lv 30",
+      "skill_points": "0 + 0 SP/Lv",
+      "type": "Buff",
+      "classes": "Range",
+      "scaling": null,
+      "overview": {
+        "Cooldown": "4s",
+        "Duration": "15s"
+      },
+      "bonuses_active": [],
+      "description": "Toggle. A shadow repeats every skill you cast for 7.2(+2.4/lv)% of your damage, and if a blow would kill you the twin dies in your place, leaving you at 1 HP.",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "dataneeded Essence - 375",
+            "dataneeded Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "dataneeded Essence - 625",
+            "dataneeded Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "dataneeded Essence - 925",
+            "dataneeded Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant dataneeded Essence - 250",
+            "Radiant dataneeded Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant dataneeded Essence - 400",
+            "Radiant dataneeded Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Clarity",
+      "url": "https://soulsremnant.wiki.gg/wiki/Clarity",
+      "activation_requirements": "Range Lv 28, Faith Lv 28",
+      "skill_points": "0 + 0/Lv",
+      "type": "Buff",
+      "classes": "Range, Faith",
+      "scaling": null,
+      "overview": {
+        "Cooldown": "1.0s"
+      },
+      "levels_benefits": {
+        "Damage to Status-Afflicted Monsters": "x1.1008 + 1.68%/Lv"
+      },
+      "bonuses_active": [],
+      "description": "Toggle. Monsters suffering from any status effect take x1.1008(+1.68%/Lv) damage from you. Lowers your MP regen by 2(+0.15/Lv) per tick. Trains from hits on monsters suffering a status effect.",
+      "upgrade_costs": [
+        {
+          "level": "Learn",
+          "resources": [
+            "Dull Nurturing Essence - 64",
+            "Dull Historic Essence - 48",
+            "Dull Life Essence - 48"
+          ]
+        },
+        {
+          "level": "2",
+          "resources": [
+            "Dull Life Essence - 3",
+            "Soul Crystal - 100"
+          ]
+        },
+        {
+          "level": "3",
+          "resources": [
+            "Dull Life Essence - 8",
+            "Soul Crystal - 300"
+          ]
+        },
+        {
+          "level": "4",
+          "resources": [
+            "Dull Life Essence - 12",
+            "Soul Crystal - 800"
+          ]
+        },
+        {
+          "level": "5",
+          "resources": [
+            "Dull Life Essence - 20",
+            "Soul Crystal - 1,500"
+          ]
+        },
+        {
+          "level": "6",
+          "resources": [
+            "Dull Life Essence - 63",
+            "Soul Crystal - 3,000"
+          ]
+        },
+        {
+          "level": "7",
+          "resources": [
+            "Dull dataneeded Essence - 63",
+            "Dull dataneeded Essence - 63",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "8",
+          "resources": [
+            "Dull dataneeded Essence - 125",
+            "Dull dataneeded Essence - 125",
+            "Soul Crystal - 5,000"
+          ]
+        },
+        {
+          "level": "9",
+          "resources": [
+            "Dull dataneeded Essence - 50",
+            "Dull dataneeded Essence - 50",
+            "Soul Crystal - 9,500",
+            "Dull Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "10",
+          "resources": [
+            "Dull dataneeded Essence - 100",
+            "Dull dataneeded Essence - 100",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "11",
+          "resources": [
+            "dataneeded Essence - 200",
+            "dataneeded Essence - 200",
+            "Soul Crystal - 12,000",
+            "Blue Crystal - 5",
+            "Ambitious Soul - 3"
+          ]
+        },
+        {
+          "level": "12",
+          "resources": [
+            "dataneeded Essence - 375",
+            "dataneeded Essence - 375",
+            "Soul Crystal - 12,000"
+          ]
+        },
+        {
+          "level": "13",
+          "resources": [
+            "dataneeded Essence - 625",
+            "dataneeded Essence - 625",
+            "Soul Crystal - 12,000",
+            "Red Herb - 20"
+          ]
+        },
+        {
+          "level": "14",
+          "resources": [
+            "dataneeded Essence - 925",
+            "dataneeded Essence - 925",
+            "Soul Crystal - 30,000",
+            "Ambitious Soul - 1",
+            "Transcendent Soul - 1"
+          ]
+        },
+        {
+          "level": "15",
+          "resources": [
+            "Radiant dataneeded Essence - 250",
+            "Radiant dataneeded Essence - 250",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "16",
+          "resources": [
+            "Radiant dataneeded Essence - 400",
+            "Radiant dataneeded Essence - 400",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1",
+            "Transcendent Soul - 3"
+          ]
+        },
+        {
+          "level": "17",
+          "resources": [
+            "Radiant dataneeded Essence - 1,000",
+            "Radiant dataneeded Essence - 1,000",
+            "Soul Crystal - 30,000",
+            "Radiant Dungeon Crystal - 1"
+          ]
+        },
+        {
+          "level": "18",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "19",
+          "resources": [
+            "-"
+          ]
+        },
+        {
+          "level": "20",
+          "resources": [
+            "Radiant dataneeded Essence - 3,750",
+            "Radiant dataneeded Essence - 3,750",
+            "Soul Crystal - 100,000",
+            "Radiant Dungeon Crystal - 3",
+            "Eternal Soul - 1"
+          ]
+        }
+      ]
+    }
+  ],
+  "missing": []
+}
